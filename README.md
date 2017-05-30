@@ -1,7 +1,7 @@
 <p align="center">
 	<img width="120"src="https://jlmak.es/logos/svg/rematrix.svg?v=2">
 </p>
-<p align="center">Matrix transformation made easy.</p>
+<p align="center">Matrix transformations made easy.</p>
 <p align="center">
 	<a href="https://travis-ci.org/jlmakes/rematrix"><img src="https://img.shields.io/travis/jlmakes/rematrix.svg" alt="Travis CI latest build status"></a>
 	<a href="https://coveralls.io/github/jlmakes/rematrix"><img src="https://img.shields.io/coveralls/jlmakes/rematrix.svg" alt="Code coverage as an up-to-date percentage"></a>
@@ -137,7 +137,7 @@ var r3 = Rematrix.rotateZ(-40)
 var product = [transform, r1, r2, r3].reduce(Rematrix.multiply)
 ```
 
-By simply passing the computed transform styles to `Rematrix.parse()`, we create a matrix of the existing transform. We can now factor this into our multiplication.
+By passing the computed transform styles to `Rematrix.parse()`, we create a matrix of the existing transform. We can now factor this into our multiplication.
 
 > The existing transformation has been *deliberately* placed at the start of the array to ensure the computed transform is the foundation for the succeeding transformations.
 
@@ -173,7 +173,7 @@ element.setAttribute('style', css)
     * [.rotateX(angle)](#module_Rematrix.rotateX)
     * [.rotateY(angle)](#module_Rematrix.rotateY)
     * [.rotateZ(angle)](#module_Rematrix.rotateZ)
-    * [.scale(scalarX, [scalarY])](#module_Rematrix.scale)
+    * [.scale(scalar, [scalarY])](#module_Rematrix.scale)
     * [.scaleX(scalar)](#module_Rematrix.scaleX)
     * [.scaleY(scalar)](#module_Rematrix.scaleY)
     * [.scaleZ(scalar)](#module_Rematrix.scaleZ)
@@ -212,7 +212,7 @@ to expand short form matrices to their equivalent long form.
 Returns a matrix representing no transformation. The product of any matrix
 multiplied by the identity matrix will be the original matrix.
 
-> **Tip:** Similar to how `5 * 1 === 5`, where `1` is the identity number.
+> **Tip:** Similar to how `5 * 1 === 5`, where `1` is the identity.
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 <a name="module_Rematrix.inverse"></a>
@@ -221,8 +221,10 @@ multiplied by the identity matrix will be the original matrix.
 
 ### Rematrix.inverse(source) ⇒ <code>array</code>
 Returns a matrix describing the inverse transformation of the source
-matrix. When a transformation is combined with its inverse, the product
-is the identity matrix (ie. no transformation).
+matrix. The product of any matrix multiplied by its inverse will be the
+identity matrix.
+
+> **Tip:** Similar to how `5 * (1/5) === 1`, where `1/5` is the inverse.
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 
@@ -310,7 +312,7 @@ Returns a 4x4 matrix describing Z-axis rotation.
 
 <br>
 
-### Rematrix.scale(scalarX, [scalarY]) ⇒ <code>array</code>
+### Rematrix.scale(scalar, [scalarY]) ⇒ <code>array</code>
 Returns a 4x4 matrix describing 2D scaling. The first argument
 is used for both X and Y-axis scaling, unless an optional
 second argument is provided to explicitly define Y-axis scaling.
@@ -319,7 +321,7 @@ second argument is provided to explicitly define Y-axis scaling.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| scalarX | <code>number</code> | Decimal multiplier. |
+| scalar | <code>number</code> | Decimal multiplier. |
 | [scalarY] | <code>number</code> | Decimal multiplier. |
 
 <a name="module_Rematrix.scaleX"></a>
@@ -366,9 +368,9 @@ Returns a 4x4 matrix describing Z-axis scaling.
 <br>
 
 ### Rematrix.skew(angleX, [angleY]) ⇒ <code>array</code>
-Returns a 4x4 matrix describing shear. The first argument as
-is used for both X and Y-axis shearing, unless an optional
-second argument is provided to explicitly define Y-axis shearing.
+Returns a 4x4 matrix describing shear. The first argument
+defines X-axis shearing, and an optional second argument
+defines Y-axis shearing.
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 
@@ -408,9 +410,9 @@ Returns a 4x4 matrix describing Y-axis shear.
 <br>
 
 ### Rematrix.translate(distanceX, [distanceY]) ⇒ <code>array</code>
-Returns a 4x4 matrix describing 2D translation. The first argument
-is used for both X and Y-axis translation, unless an optional
-second argument is provided to explicitly define Y-axis translation.
+Returns a 4x4 matrix describing 2D translation. The first
+argument defines X-axis translation, and an optional second
+argument defines Y-axis translation.
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 

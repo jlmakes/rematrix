@@ -39,7 +39,7 @@ export function format (source) {
  * Returns a matrix representing no transformation. The product of any matrix
  * multiplied by the identity matrix will be the original matrix.
  *
- * > **Tip:** Similar to how `5 * 1 === 5`, where `1` is the identity number.
+ * > **Tip:** Similar to how `5 * 1 === 5`, where `1` is the identity.
  *
  * @return {array}
  */
@@ -54,8 +54,10 @@ export function identity () {
 
 /**
  * Returns a matrix describing the inverse transformation of the source
- * matrix. When a transformation is combined with its inverse, the product
- * is the identity matrix (ie. no transformation).
+ * matrix. The product of any matrix multiplied by its inverse will be the
+ * identity matrix.
+ *
+ * > **Tip:** Similar to how `5 * (1/5) === 1`, where `1/5` is the inverse.
  *
  * @param  {array} source - Accepts both short and long form matrices.
  * @return {array}
@@ -223,14 +225,14 @@ export function rotateZ (angle) {
 * is used for both X and Y-axis scaling, unless an optional
 * second argument is provided to explicitly define Y-axis scaling.
 *
-* @param  {number} scalarX   - Decimal multiplier.
+* @param  {number} scalar    - Decimal multiplier.
 * @param  {number} [scalarY] - Decimal multiplier.
 * @return {array}
 */
-export function scale (scalarX, scalarY) {
+export function scale (scalar, scalarY) {
 	const matrix = identity()
-	matrix[0] = scalarX
-	matrix[5] = scalarY || scalarX
+	matrix[0] = scalar
+	matrix[5] = scalarY || scalar
 	return matrix
 }
 
@@ -275,9 +277,9 @@ export function scaleZ (scalar) {
 
 
 /**
-* Returns a 4x4 matrix describing shear. The first argument as
-* is used for both X and Y-axis shearing, unless an optional
-* second argument is provided to explicitly define Y-axis shearing.
+* Returns a 4x4 matrix describing shear. The first argument
+* defines X-axis shearing, and an optional second argument
+* defines Y-axis shearing.
 *
 * @param  {number} angleX   - Measured in degrees.
 * @param  {number} [angleY] - Measured in degrees.
@@ -331,9 +333,9 @@ export function skewY (angle) {
 
 
 /**
- * Returns a 4x4 matrix describing 2D translation. The first argument
- * is used for both X and Y-axis translation, unless an optional
- * second argument is provided to explicitly define Y-axis translation.
+ * Returns a 4x4 matrix describing 2D translation. The first
+ * argument defines X-axis translation, and an optional second
+ * argument defines Y-axis translation.
  *
  * @param  {number} distanceX   - Measured in pixels.
  * @param  {number} [distanceY] - Measured in pixels.
