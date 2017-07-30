@@ -1,6 +1,12 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/)
 
+## [0.1.2] - 2017-07-30
+
+### Fixed
+
+* Update dependencies for promises in Rollup v0.45.
+
 ## [0.1.1] - 2017-05-30
 
 ### Changed
@@ -11,5 +17,6 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 Hello world!
 
+[0.1.2]: https://github.com/jlmakes/rematrix/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/jlmakes/rematrix/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/jlmakes/rematrix/tree/0.1.0
