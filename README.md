@@ -11,7 +11,7 @@
 </p>
 <p align="center">
 	<a href="https://saucelabs.com/u/rematrix">
-		<img src="https://saucelabs.com/browser-matrix/rematrix.svg" alt="MIT License">
+		<img src="https://saucelabs.com/browser-matrix/rematrix.svg" alt="Browser compatibility matrix">
 	</a>
 </p>
 
