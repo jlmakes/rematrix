@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## [0.1.3] - 2017-08-25
 
 * Update dependencies for breaking change in Rollup v0.48.
 
@@ -20,6 +20,7 @@
 
 Hello world!
 
+[0.1.3]: https://github.com/jlmakes/rematrix/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/jlmakes/rematrix/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/jlmakes/rematrix/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/jlmakes/rematrix/tree/0.1.0
