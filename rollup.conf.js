@@ -3,12 +3,12 @@ import banner from './rollup.conf.banner'
 
 export default {
 	banner,
-	entry: 'src/index.js',
+	input: 'src/index.js',
 	plugins: [
 		buble(),
 	],
-	targets: [
-		{ dest: 'dist/rematrix.js', format: 'umd', moduleName: 'Rematrix' },
-		{ dest: 'dist/rematrix.es.js', format: 'es' },
+	output: [
+		{ file: 'dist/rematrix.js', format: 'umd', name: 'Rematrix' },
+		{ file: 'dist/rematrix.es.js', format: 'es' },
 	],
 }

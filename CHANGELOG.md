@@ -1,11 +1,14 @@
 # Change Log
-This project adheres to [Semantic Versioning](http://semver.org/)
+
+## Unreleased
+
+* Update dependencies for breaking change in Rollup v0.48.
 
 ## [0.1.2] - 2017-07-30
 
 ### Fixed
 
-* Update dependencies for promises in Rollup v0.45.
+* Update dependencies for breaking change in Rollup v0.45.
 
 ## [0.1.1] - 2017-05-30
 

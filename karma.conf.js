@@ -23,20 +23,18 @@ module.exports = function (karma) {
 		frameworks: ['mocha', 'sinon-chai'],
 
 		preprocessors: {
-			'src/index.js': ['rollup'],
 			'test/main.spec.js': ['rollup'],
 		},
 
 		files: [
-			{ pattern: 'src/index.js', included: false },
-			'test/main.spec.js',
+			{ pattern: 'test/main.spec.js', watched: false },
 		],
 
 		rollupPreprocessor: {
 			plugins: rollupPlugins,
 			format: 'iife',
-			moduleName: 'rematrix',
-			sourceMap: 'inline',
+			name: 'rematrix',
+			sourcemap: 'inline',
 		},
 
 		colors: true,
