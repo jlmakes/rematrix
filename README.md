@@ -55,13 +55,13 @@ npm install rematrix --save
 
 #### CommonJS
 
-```bash
+```js
 const Rematrix = require('rematrix')
 ```
 
 #### ES2015
 
-```bash
+```js
 import * as Rematrix from 'rematrix'
 ```
 
