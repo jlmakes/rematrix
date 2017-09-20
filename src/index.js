@@ -231,8 +231,12 @@ export function rotateZ (angle) {
 */
 export function scale (scalar, scalarY) {
 	const matrix = identity()
+
 	matrix[0] = scalar
-	matrix[5] = scalarY || scalar
+	matrix[5] = typeof scalarY === 'number'
+		? scalarY
+		: scalar
+
 	return matrix
 }
 

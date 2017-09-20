@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+* `scale()` no longer ignores `0` as a second argument.
+
 ## [0.1.3] - 2017-08-25
 
 * Update dependencies for breaking change in Rollup v0.48.
