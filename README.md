@@ -269,6 +269,21 @@ in, but will return the identity matrix as a fallback.
 | --- | --- | --- |
 | source | <code>string</code> | String containing a valid CSS `matrix` or `matrix3d` property. |
 
+<a name="module_Rematrix.rotate"></a>
+
+<br>
+
+### Rematrix.rotate(angle) ⇒ <code>array</code>
+Returns a 4x4 matrix describing Z-axis rotation.
+
+**Tip:** This is just an alias for `Rematrix.rotateZ`
+
+**Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| angle | <code>number</code> | Measured in degrees. |
+
 <a name="module_Rematrix.rotateX"></a>
 
 <br>
