@@ -239,8 +239,8 @@ describe('Utilities', () => {
 			})
 
 			it('should return a 4x4 matrix equal to CSS transform scale with two args', () => {
-				dummy.setAttribute('style', `${transformProperty}: scale(2, 0.5)`)
-				const result = Rematrix.scale(2, 0.5)
+				dummy.setAttribute('style', `${transformProperty}: scale(2, 0)`)
+				const result = Rematrix.scale(2, 0)
 				const answer = getTransformAsArray(dummy)
 				expect(result).to.be.eql(answer)
 			})
