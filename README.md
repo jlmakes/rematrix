@@ -157,7 +157,7 @@ From here it’s up to you how to use the CSS, but for simplicity’s sake here,
 element.setAttribute('style', css)
 ```
 
-#### _And that concludes this introduction to Rematrix. Please explore the finished [Live Demo on JSFiddle](https://jsfiddle.net/a8j2oyy5/)._
+#### _And that concludes this introduction to Rematrix. Please explore the finished [Live Demo on JSFiddle](https://jsfiddle.net/jL4vnh08/)._
 
 <br>
 
