@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Added
+
+* New `rotate()` method, aliases `rotateZ()`.
+
+### Fixed
+
 * `scale()` no longer ignores `0` as a second argument.
 
 ## [0.1.3] - 2017-08-25

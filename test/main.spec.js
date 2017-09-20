@@ -184,6 +184,21 @@ describe('Utilities', () => {
 		 * all rotation values will be rounded to 6 significant digits.
 		 */
 
+		describe('rotate()', () => {
+			it('should return a 4x4 matrix equal to CSS transform rotate', () => {
+				dummy.setAttribute('style', `${transformProperty}: rotate(75deg)`)
+				const answer = getTransformAsArray(dummy)
+					.map(value => value.toPrecision(6))
+					.map(value => parseFloat(value))
+
+				const result = Rematrix.rotate(75)
+					.map(value => value.toPrecision(6))
+					.map(value => parseFloat(value))
+
+				expect(result).to.be.eql(answer)
+			})
+		})
+
 		describe('rotateX()', () => {
 			it('should return a 4x4 matrix equal to CSS transform rotateX', () => {
 				dummy.setAttribute('style', `${transformProperty}: rotateX(45deg)`)

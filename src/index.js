@@ -167,6 +167,17 @@ export function parse (source) {
 
 
 /**
+ * Returns a 4x4 matrix describing Z-axis rotation.
+ *
+ * @param  {number} angle - Measured in degrees.
+ * @return {array}
+ */
+export function rotate (angle) {
+	return rotateZ(angle)
+}
+
+
+/**
  * Returns a 4x4 matrix describing X-axis rotation.
  *
  * @param  {number} angle - Measured in degrees.
