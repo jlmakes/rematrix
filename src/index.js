@@ -158,7 +158,7 @@ export function parse (source) {
 	if (typeof source === 'string') {
 		const match = source.match(/matrix(3d)?\(([^)]+)\)/)
 		if (match) {
-			const raw = match[2].split(', ').map(value => parseFloat(value))
+			const raw = match[2].split(', ').map(parseFloat)
 			return format(raw)
 		}
 	}
