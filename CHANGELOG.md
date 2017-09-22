@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## [0.2.0] - 2017-09-21
 
 ### Added
 
@@ -30,6 +30,7 @@
 
 Hello world!
 
+[0.2.0]: https://github.com/jlmakes/rematrix/compare/0.1.3...0.2.0
 [0.1.3]: https://github.com/jlmakes/rematrix/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/jlmakes/rematrix/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/jlmakes/rematrix/compare/0.1.0...0.1.1
