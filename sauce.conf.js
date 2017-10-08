@@ -1,6 +1,6 @@
 const launchers = {}
 
-;[
+const mobileLaunchers = [
 	['iOS', '8.4', 'Safari', 'iPhone 6 Simulator'],
 	['iOS', '9.3', 'Safari', 'iPhone 6s Simulator'],
 	['iOS', '10.3', 'Safari', 'iPhone 6s Simulator'],
@@ -8,13 +8,12 @@ const launchers = {}
 	['Android', '5.0', 'Browser', 'Android Emulator'],
 	['Android', '5.1', 'Browser', 'Android Emulator'],
 	['Android', '6.0', 'Chrome', 'Android Emulator'],
-].forEach(config => {
-	const platform = config[0]
-	const version = config[1]
-	const browser = config[2]
-	const device = config[3]
+]
 
-	const launcher = `sl_${platform}_${version}_${browser}`.replace(/[^a-z0-9]/gi, '_').toLowerCase()
+mobileLaunchers.forEach(([platform, version, browser, device]) => {
+	const launcher = `sl_${platform}_${version}_${browser}`
+		.replace(/[^a-z0-9]/gi, '_')
+		.toLowerCase()
 
 	launchers[launcher] = {
 		name: `${browser}, ${platform} ${version}`,
@@ -27,19 +26,19 @@ const launchers = {}
 	}
 })
 
-;[
+const desktopLaunchers = [
 	['Windows 8.1', 'Internet Explorer', '11.0'],
 	['Windows 8', 'Internet Explorer', '10.0'],
 	['macOS 10.12', 'Safari', '10.0'],
 	['OS X 10.11', 'Safari', '9.0'],
 	['OS X 10.10', 'Safari', '8.0'],
 	['OS X 10.9', 'Safari', '7.0'],
-].forEach(config => {
-	const platform = config[0]
-	const browser = config[1]
-	const version = config[2]
+]
 
-	const launcher = `sl_${platform}_${browser}_${version}`.replace(/[^a-z0-9]/gi, '_').toLowerCase()
+desktopLaunchers.forEach(([platform, browser, version]) => {
+	const launcher = `sl_${platform}_${browser}_${version}`
+		.replace(/[^a-z0-9]/gi, '_')
+		.toLowerCase()
 
 	launchers[launcher] = {
 		name: `${browser} ${version}, ${platform}`,
@@ -49,28 +48,31 @@ const launchers = {}
 	}
 })
 
-;['Chrome', 'Firefox', 'MicrosoftEdge'].forEach(browser => {
-	let legacy = 3
-	let alias = browser
+const evergreenLaunchers = ['Chrome', 'Firefox', 'MicrosoftEdge']
+
+evergreenLaunchers.forEach(browser => {
+	let pastVersions = 3
+	let browserName = browser
 
 	if (browser === 'MicrosoftEdge') {
-		legacy--
-		alias = 'Edge'
+		pastVersions = 2
+		browserName = 'Edge'
 	}
 
-	while (legacy >= 0) {
-		let postfix = (legacy > 0) ? `-${legacy}` : ''
+	while (pastVersions >= 0) {
+		let postfix = pastVersions > 0 ? `-${pastVersions}` : ''
 		const version = 'latest' + postfix
 
 		const launcher = `sl_win10_${browser}_latest${postfix}`.replace(/-/g, '_').toLowerCase()
+
 		launchers[launcher] = {
-			name: `${alias} ${version}, Windows 10`,
+			name: `${browserName} ${version}, Windows 10`,
 			browserName: browser,
 			version,
 			platform: 'Windows 10',
 		}
 
-		legacy--
+		pastVersions--
 	}
 })
 
