@@ -34,7 +34,6 @@ export function format (source) {
 	throw new RangeError('Expected array with either 6 or 16 values.')
 }
 
-
 /**
  * Returns a matrix representing no transformation. The product of any matrix
  * multiplied by the identity matrix will be the original matrix.
@@ -50,7 +49,6 @@ export function identity () {
 	}
 	return matrix
 }
-
 
 /**
  * Returns a matrix describing the inverse transformation of the source
@@ -108,7 +106,6 @@ export function inverse (source) {
 	]
 }
 
-
 /**
  * Returns a 4x4 matrix describing the combined transformations
  * of both arguments.
@@ -141,7 +138,6 @@ export function multiply (m, x) {
 	return product
 }
 
-
 /**
  * Attempts to return a 4x4 matrix describing the CSS transform
  * matrix passed in, but will return the identity matrix as a
@@ -165,7 +161,6 @@ export function parse (source) {
 	return identity()
 }
 
-
 /**
  * Returns a 4x4 matrix describing Z-axis rotation.
  *
@@ -175,7 +170,6 @@ export function parse (source) {
 export function rotate (angle) {
 	return rotateZ(angle)
 }
-
 
 /**
  * Returns a 4x4 matrix describing X-axis rotation.
@@ -194,7 +188,6 @@ export function rotateX (angle) {
 	return matrix
 }
 
-
 /**
  * Returns a 4x4 matrix describing Y-axis rotation.
  *
@@ -211,7 +204,6 @@ export function rotateY (angle) {
 
 	return matrix
 }
-
 
 /**
  * Returns a 4x4 matrix describing Z-axis rotation.
@@ -230,7 +222,6 @@ export function rotateZ (angle) {
 	return matrix
 }
 
-
 /**
 * Returns a 4x4 matrix describing 2D scaling. The first argument
 * is used for both X and Y-axis scaling, unless an optional
@@ -244,13 +235,10 @@ export function scale (scalar, scalarY) {
 	const matrix = identity()
 
 	matrix[0] = scalar
-	matrix[5] = typeof scalarY === 'number'
-		? scalarY
-		: scalar
+	matrix[5] = typeof scalarY === 'number' ? scalarY : scalar
 
 	return matrix
 }
-
 
 /**
 * Returns a 4x4 matrix describing X-axis scaling.
@@ -264,7 +252,6 @@ export function scaleX (scalar) {
 	return matrix
 }
 
-
 /**
 * Returns a 4x4 matrix describing Y-axis scaling.
 *
@@ -277,7 +264,6 @@ export function scaleY (scalar) {
 	return matrix
 }
 
-
 /**
 * Returns a 4x4 matrix describing Z-axis scaling.
 *
@@ -289,7 +275,6 @@ export function scaleZ (scalar) {
 	matrix[10] = scalar
 	return matrix
 }
-
 
 /**
 * Returns a 4x4 matrix describing shear. The first argument
@@ -314,7 +299,6 @@ export function skew (angleX, angleY) {
 	return matrix
 }
 
-
 /**
 * Returns a 4x4 matrix describing X-axis shear.
 *
@@ -330,7 +314,6 @@ export function skewX (angle) {
 	return matrix
 }
 
-
 /**
 * Returns a 4x4 matrix describing Y-axis shear.
 *
@@ -345,7 +328,6 @@ export function skewY (angle) {
 
 	return matrix
 }
-
 
 /**
  * Returns a 4x4 matrix describing 2D translation. The first
@@ -367,7 +349,6 @@ export function translate (distanceX, distanceY) {
 	return matrix
 }
 
-
 /**
  * Returns a 4x4 matrix describing X-axis translation.
  *
@@ -380,7 +361,6 @@ export function translateX (distance) {
 	return matrix
 }
 
-
 /**
  * Returns a 4x4 matrix describing Y-axis translation.
  *
@@ -392,7 +372,6 @@ export function translateY (distance) {
 	matrix[13] = distance
 	return matrix
 }
-
 
 /**
  * Returns a 4x4 matrix describing Z-axis translation.

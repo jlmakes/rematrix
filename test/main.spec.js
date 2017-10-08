@@ -1,10 +1,7 @@
 import * as Rematrix from '../src/index'
 
-
 describe('Utilities', () => {
-
 	describe('format()', () => {
-
 		/**
 		 * matrix(a, b, c, d, tx, ty) is a shorthand for:
 		 * matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)
@@ -52,7 +49,6 @@ describe('Utilities', () => {
 	})
 
 	describe('inverse()', () => {
-
 		it('should return a 4x4 matrix that when multiplied by the source matrix, equals the identity matrix', () => {
 			const source = Rematrix.rotateX(79)
 			const inverse = Rematrix.inverse(source)
@@ -95,11 +91,27 @@ describe('Utilities', () => {
 	})
 
 	describe('multiply()', () => {
-
 		it('should return a 4x4 matrix equal to the product of both arguments', () => {
 			const first = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 			const second = [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-			const answer = [386, 444, 502, 560, 274, 316, 358, 400, 162, 188, 214, 240, 50, 60, 70, 80]
+			const answer = [
+				386,
+				444,
+				502,
+				560,
+				274,
+				316,
+				358,
+				400,
+				162,
+				188,
+				214,
+				240,
+				50,
+				60,
+				70,
+				80,
+			]
 			expect(Rematrix.multiply(first, second)).to.eql(answer)
 		})
 
@@ -128,7 +140,6 @@ describe('Utilities', () => {
 	})
 
 	describe('parse()', () => {
-
 		it('should return a 4x4 matrix equal to the `matrix` string passed in', () => {
 			const source = 'matrix(1, 2, 3, 4, 5, 6)'
 			const result = Rematrix.parse(source)
@@ -152,7 +163,6 @@ describe('Utilities', () => {
 	})
 
 	describe('Transformation', () => {
-
 		let dummy
 		let transformProperty
 
@@ -162,10 +172,9 @@ describe('Utilities', () => {
 
 			const computed = window.getComputedStyle(dummy)
 
-			if (typeof computed['transform'] === 'string')
-				return transformProperty = 'transform'
+			if (typeof computed['transform'] === 'string') return (transformProperty = 'transform')
 			if (typeof computed['-webkit-transform'] === 'string')
-				return transformProperty = '-webkit-transform'
+				return (transformProperty = '-webkit-transform')
 		})
 
 		beforeEach('clean dummy object', () => {
@@ -245,7 +254,6 @@ describe('Utilities', () => {
 		})
 
 		describe('scale()', () => {
-
 			it('should return a 4x4 matrix equal to CSS transform scale with one arg', () => {
 				dummy.setAttribute('style', `${transformProperty}: scale(2)`)
 				const result = Rematrix.scale(2)
@@ -294,7 +302,6 @@ describe('Utilities', () => {
 		 */
 
 		describe('skew()', () => {
-
 			it('should return a 4x4 matrix equal to CSS transform skew with one arg', () => {
 				dummy.setAttribute('style', `${transformProperty}: skew(20deg)`)
 
@@ -357,7 +364,6 @@ describe('Utilities', () => {
 		})
 
 		describe('translate()', () => {
-
 			it('should return a 4x4 matrix equal to CSS transform translate with one arg', () => {
 				dummy.setAttribute('style', `${transformProperty}: translate(20px)`)
 				const result = Rematrix.translate(20)

@@ -1,16 +1,11 @@
 process.env.PHANTOMJS_BIN = './node_modules/phantomjs-prebuilt/bin/phantomjs'
 
-const rollupPlugins = [
-	require('rollup-plugin-buble')(),
-]
+const rollupPlugins = [require('rollup-plugin-buble')()]
 
 if (!process.env.TRAVIS || process.env.COVERAGE) {
 	const istanbul = require('rollup-plugin-istanbul')
 	const config = {
-		exclude: [
-			'test/**',
-			'**/node_modules/**',
-		],
+		exclude: ['test/**', '**/node_modules/**'],
 		instrumenterConfig: {
 			embedSource: true,
 		},
@@ -26,9 +21,7 @@ module.exports = function (karma) {
 			'test/main.spec.js': ['rollup'],
 		},
 
-		files: [
-			{ pattern: 'test/main.spec.js', watched: false },
-		],
+		files: [{ pattern: 'test/main.spec.js', watched: false }],
 
 		rollupPreprocessor: {
 			plugins: rollupPlugins,
@@ -49,7 +42,6 @@ module.exports = function (karma) {
 	})
 
 	if (process.env.TRAVIS) {
-
 		if (process.env.COVERAGE) {
 			karma.set({
 				autoWatch: false,
@@ -60,7 +52,6 @@ module.exports = function (karma) {
 				},
 				reporters: ['mocha', 'coverage', 'coveralls'],
 			})
-
 		} else {
 			const customLaunchers = require('./sauce.conf')
 			karma.set({
@@ -79,7 +70,6 @@ module.exports = function (karma) {
 				},
 			})
 		}
-
 	} else {
 		karma.set({
 			browsers: ['PhantomJS'],
