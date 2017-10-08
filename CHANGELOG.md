@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.2.1] - 2017-10-08
+
+### Added
+
+* Source now formatted by prettier.
+
 ## [0.2.0] - 2017-09-21
 
 ### Added
