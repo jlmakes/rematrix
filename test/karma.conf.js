@@ -1,5 +1,3 @@
-process.env.PHANTOMJS_BIN = './node_modules/phantomjs-prebuilt/bin/phantomjs'
-
 const rollupPlugins = [require('rollup-plugin-buble')()]
 
 if (!process.env.TRAVIS || process.env.COVERAGE) {
@@ -45,7 +43,7 @@ module.exports = function(karma) {
 		if (process.env.COVERAGE) {
 			karma.set({
 				autoWatch: false,
-				browsers: ['PhantomJS'],
+				browsers: ['ChromeHeadless'],
 				coverageReporter: {
 					type: 'lcovonly',
 					dir: 'coverage/'
@@ -73,7 +71,7 @@ module.exports = function(karma) {
 		}
 	} else {
 		karma.set({
-			browsers: ['PhantomJS'],
+			browsers: ['ChromeHeadless'],
 			coverageReporter: {
 				type: 'lcov',
 				dir: '../.ignore/coverage/'
