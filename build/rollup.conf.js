@@ -1,5 +1,5 @@
 import buble from 'rollup-plugin-buble'
-import banner from './rollup.conf.banner'
+import { standard as banner } from './rollup.conf.banner'
 
 export default {
 	banner,

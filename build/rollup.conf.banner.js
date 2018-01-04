@@ -1,8 +1,10 @@
 const { version } = require('../package.json')
 
-const banner = `/*! @license Rematrix v${version}
+export const condensed = `/*! @license Rematrix v${version} (MIT) Copyright 2018 Fisssion LLC. */`
 
-	Copyright 2017 Fisssion LLC.
+export const standard = `/*! @license Rematrix v${version}
+
+	Copyright 2018 Fisssion LLC.
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
@@ -22,5 +24,3 @@ const banner = `/*! @license Rematrix v${version}
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
 */`
-
-export default banner
