@@ -13,9 +13,9 @@
 		"bundle:min": "rollup -c build/rollup.conf.min.js",
 		"lint": "eslint src test",
 		"pretest": "rm -rf .ignore/coverage/**/ && npm run lint",
-		"test": "karma start",
+		"test": "karma start test/karma.conf.js",
 		"testing": "npm test -- --no-single-run",
-		"coverage": "COVERAGE=true karma start"
+		"coverage": "COVERAGE=true npm test"
 	},
 	"repository": "jlmakes/rematrix",
 	"keywords": ["css", "matrix", "transform"],
