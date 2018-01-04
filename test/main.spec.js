@@ -110,7 +110,7 @@ describe('Utilities', () => {
 				50,
 				60,
 				70,
-				80,
+				80
 			]
 			expect(Rematrix.multiply(first, second)).to.eql(answer)
 		})
@@ -148,7 +148,8 @@ describe('Utilities', () => {
 		})
 
 		it('should return a 4x4 matrix equal to the `matrix3d` string passed in', () => {
-			const source = 'matrix3d(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)'
+			const source =
+				'matrix3d(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)'
 			const result = Rematrix.parse(source)
 			const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 			expect(result).to.eql(answer)
@@ -172,7 +173,8 @@ describe('Utilities', () => {
 
 			const computed = window.getComputedStyle(dummy)
 
-			if (typeof computed['transform'] === 'string') return (transformProperty = 'transform')
+			if (typeof computed['transform'] === 'string')
+				return (transformProperty = 'transform')
 			if (typeof computed['-webkit-transform'] === 'string')
 				return (transformProperty = '-webkit-transform')
 		})
@@ -181,7 +183,7 @@ describe('Utilities', () => {
 			dummy.removeAttribute('style')
 		})
 
-		function getTransformAsArray (node) {
+		function getTransformAsArray(node) {
 			const computedTransform = window.getComputedStyle(node)[transformProperty]
 			const match = computedTransform.match(/\(([^)]+)\)/)[1]
 			const values = match.split(', ').map(value => parseFloat(value))

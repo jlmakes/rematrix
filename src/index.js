@@ -3,18 +3,18 @@
  */
 
 /**
-* Transformation matrices in the browser come in two flavors:
-*
-*  - `matrix` using 6 values (short)
-*  - `matrix3d` using 16 values (long)
-*
-* This utility follows this [conversion guide](https://goo.gl/EJlUQ1)
-* to expand short form matrices to their equivalent long form.
-*
-* @param  {array} source - Accepts both short and long form matrices.
-* @return {array}
-*/
-export function format (source) {
+ * Transformation matrices in the browser come in two flavors:
+ *
+ *  - `matrix` using 6 values (short)
+ *  - `matrix3d` using 16 values (long)
+ *
+ * This utility follows this [conversion guide](https://goo.gl/EJlUQ1)
+ * to expand short form matrices to their equivalent long form.
+ *
+ * @param  {array} source - Accepts both short and long form matrices.
+ * @return {array}
+ */
+export function format(source) {
 	if (source.constructor !== Array) {
 		throw new TypeError('Expected array.')
 	}
@@ -42,7 +42,7 @@ export function format (source) {
  *
  * @return {array}
  */
-export function identity () {
+export function identity() {
 	const matrix = []
 	for (let i = 0; i < 16; i++) {
 		i % 5 == 0 ? matrix.push(1) : matrix.push(0)
@@ -60,7 +60,7 @@ export function identity () {
  * @param  {array} source - Accepts both short and long form matrices.
  * @return {array}
  */
-export function inverse (source) {
+export function inverse(source) {
 	const m = format(source)
 
 	const s0 = m[0] * m[5] - m[4] * m[1]
@@ -102,7 +102,7 @@ export function inverse (source) {
 		(-m[4] * c3 + m[5] * c1 - m[6] * c0) * determinant,
 		(m[0] * c3 - m[1] * c1 + m[2] * c0) * determinant,
 		(-m[12] * s3 + m[13] * s1 - m[14] * s0) * determinant,
-		(m[8] * s3 - m[9] * s1 + m[10] * s0) * determinant,
+		(m[8] * s3 - m[9] * s1 + m[10] * s0) * determinant
 	]
 }
 
@@ -119,7 +119,7 @@ export function inverse (source) {
  * @param  {array} x - Accepts both short and long form matrices.
  * @return {array}
  */
-export function multiply (m, x) {
+export function multiply(m, x) {
 	const fm = format(m)
 	const fx = format(x)
 	const product = []
@@ -129,7 +129,8 @@ export function multiply (m, x) {
 		for (let j = 0; j < 4; j++) {
 			const k = j * 4
 			const col = [fx[k], fx[k + 1], fx[k + 2], fx[k + 3]]
-			const result = row[0] * col[0] + row[1] * col[1] + row[2] * col[2] + row[3] * col[3]
+			const result =
+				row[0] * col[0] + row[1] * col[1] + row[2] * col[2] + row[3] * col[3]
 
 			product[i + k] = result
 		}
@@ -150,7 +151,7 @@ export function multiply (m, x) {
  * @param  {string} source - String containing a valid CSS `matrix` or `matrix3d` property.
  * @return {array}
  */
-export function parse (source) {
+export function parse(source) {
 	if (typeof source === 'string') {
 		const match = source.match(/matrix(3d)?\(([^)]+)\)/)
 		if (match) {
@@ -167,7 +168,7 @@ export function parse (source) {
  * @param  {number} angle - Measured in degrees.
  * @return {array}
  */
-export function rotate (angle) {
+export function rotate(angle) {
 	return rotateZ(angle)
 }
 
@@ -177,7 +178,7 @@ export function rotate (angle) {
  * @param  {number} angle - Measured in degrees.
  * @return {array}
  */
-export function rotateX (angle) {
+export function rotateX(angle) {
 	const theta = Math.PI / 180 * angle
 	const matrix = identity()
 
@@ -194,7 +195,7 @@ export function rotateX (angle) {
  * @param  {number} angle - Measured in degrees.
  * @return {array}
  */
-export function rotateY (angle) {
+export function rotateY(angle) {
 	const theta = Math.PI / 180 * angle
 	const matrix = identity()
 
@@ -211,7 +212,7 @@ export function rotateY (angle) {
  * @param  {number} angle - Measured in degrees.
  * @return {array}
  */
-export function rotateZ (angle) {
+export function rotateZ(angle) {
 	const theta = Math.PI / 180 * angle
 	const matrix = identity()
 
@@ -223,15 +224,15 @@ export function rotateZ (angle) {
 }
 
 /**
-* Returns a 4x4 matrix describing 2D scaling. The first argument
-* is used for both X and Y-axis scaling, unless an optional
-* second argument is provided to explicitly define Y-axis scaling.
-*
-* @param  {number} scalar    - Decimal multiplier.
-* @param  {number} [scalarY] - Decimal multiplier.
-* @return {array}
-*/
-export function scale (scalar, scalarY) {
+ * Returns a 4x4 matrix describing 2D scaling. The first argument
+ * is used for both X and Y-axis scaling, unless an optional
+ * second argument is provided to explicitly define Y-axis scaling.
+ *
+ * @param  {number} scalar    - Decimal multiplier.
+ * @param  {number} [scalarY] - Decimal multiplier.
+ * @return {array}
+ */
+export function scale(scalar, scalarY) {
 	const matrix = identity()
 
 	matrix[0] = scalar
@@ -241,51 +242,51 @@ export function scale (scalar, scalarY) {
 }
 
 /**
-* Returns a 4x4 matrix describing X-axis scaling.
-*
-* @param  {number} scalar - Decimal multiplier.
-* @return {array}
-*/
-export function scaleX (scalar) {
+ * Returns a 4x4 matrix describing X-axis scaling.
+ *
+ * @param  {number} scalar - Decimal multiplier.
+ * @return {array}
+ */
+export function scaleX(scalar) {
 	const matrix = identity()
 	matrix[0] = scalar
 	return matrix
 }
 
 /**
-* Returns a 4x4 matrix describing Y-axis scaling.
-*
-* @param  {number} scalar - Decimal multiplier.
-* @return {array}
-*/
-export function scaleY (scalar) {
+ * Returns a 4x4 matrix describing Y-axis scaling.
+ *
+ * @param  {number} scalar - Decimal multiplier.
+ * @return {array}
+ */
+export function scaleY(scalar) {
 	const matrix = identity()
 	matrix[5] = scalar
 	return matrix
 }
 
 /**
-* Returns a 4x4 matrix describing Z-axis scaling.
-*
-* @param  {number} scalar - Decimal multiplier.
-* @return {array}
-*/
-export function scaleZ (scalar) {
+ * Returns a 4x4 matrix describing Z-axis scaling.
+ *
+ * @param  {number} scalar - Decimal multiplier.
+ * @return {array}
+ */
+export function scaleZ(scalar) {
 	const matrix = identity()
 	matrix[10] = scalar
 	return matrix
 }
 
 /**
-* Returns a 4x4 matrix describing shear. The first argument
-* defines X-axis shearing, and an optional second argument
-* defines Y-axis shearing.
-*
-* @param  {number} angleX   - Measured in degrees.
-* @param  {number} [angleY] - Measured in degrees.
-* @return {array}
-*/
-export function skew (angleX, angleY) {
+ * Returns a 4x4 matrix describing shear. The first argument
+ * defines X-axis shearing, and an optional second argument
+ * defines Y-axis shearing.
+ *
+ * @param  {number} angleX   - Measured in degrees.
+ * @param  {number} [angleY] - Measured in degrees.
+ * @return {array}
+ */
+export function skew(angleX, angleY) {
 	const thetaX = Math.PI / 180 * angleX
 	const matrix = identity()
 
@@ -300,12 +301,12 @@ export function skew (angleX, angleY) {
 }
 
 /**
-* Returns a 4x4 matrix describing X-axis shear.
-*
-* @param  {number} angle - Measured in degrees.
-* @return {array}
-*/
-export function skewX (angle) {
+ * Returns a 4x4 matrix describing X-axis shear.
+ *
+ * @param  {number} angle - Measured in degrees.
+ * @return {array}
+ */
+export function skewX(angle) {
 	const theta = Math.PI / 180 * angle
 	const matrix = identity()
 
@@ -315,12 +316,12 @@ export function skewX (angle) {
 }
 
 /**
-* Returns a 4x4 matrix describing Y-axis shear.
-*
-* @param  {number} angle - Measured in degrees
-* @return {array}
-*/
-export function skewY (angle) {
+ * Returns a 4x4 matrix describing Y-axis shear.
+ *
+ * @param  {number} angle - Measured in degrees
+ * @return {array}
+ */
+export function skewY(angle) {
 	const theta = Math.PI / 180 * angle
 	const matrix = identity()
 
@@ -338,7 +339,7 @@ export function skewY (angle) {
  * @param  {number} [distanceY] - Measured in pixels.
  * @return {array}
  */
-export function translate (distanceX, distanceY) {
+export function translate(distanceX, distanceY) {
 	const matrix = identity()
 	matrix[12] = distanceX
 
@@ -355,7 +356,7 @@ export function translate (distanceX, distanceY) {
  * @param  {number} distance - Measured in pixels.
  * @return {array}
  */
-export function translateX (distance) {
+export function translateX(distance) {
 	const matrix = identity()
 	matrix[12] = distance
 	return matrix
@@ -367,7 +368,7 @@ export function translateX (distance) {
  * @param  {number} distance - Measured in pixels.
  * @return {array}
  */
-export function translateY (distance) {
+export function translateY(distance) {
 	const matrix = identity()
 	matrix[13] = distance
 	return matrix
@@ -379,7 +380,7 @@ export function translateY (distance) {
  * @param  {number} distance - Measured in pixels.
  * @return {array}
  */
-export function translateZ (distance) {
+export function translateZ(distance) {
 	const matrix = identity()
 	matrix[14] = distance
 	return matrix

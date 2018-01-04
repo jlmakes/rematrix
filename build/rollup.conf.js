@@ -7,6 +7,6 @@ export default {
 	plugins: [buble()],
 	output: [
 		{ file: 'dist/rematrix.js', format: 'umd', name: 'Rematrix' },
-		{ file: 'dist/rematrix.es.js', format: 'es' },
-	],
+		{ file: 'dist/rematrix.es.js', format: 'es' }
+	]
 }
