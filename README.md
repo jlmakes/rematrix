@@ -64,19 +64,19 @@ This will create the global variable `Rematrix`.
 ## Module
 
 ```bash
-npm install rematrix --save
+npm install rematrix
 ```
 
 #### CommonJS
 
 ```js
-const Rematrix = require('rematrix')
+const Rematrix = require('rematrix');
 ```
 
 #### ES2015
 
 ```js
-import * as Rematrix from 'rematrix'
+import * as Rematrix from 'rematrix';
 ```
 
 <br>
@@ -96,7 +96,7 @@ Rematrix.rotateZ(45)
 This returns a 45° rotation along the Z-axis, represented as an array of 16 values:
 
 ```js
-;[0.707107, 0.707107, 0, 0, -0.707107, 0.707107, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+[0.707107, 0.707107, 0, 0, -0.707107, 0.707107, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
 ```
 
 These 16 values represent our **transformation matrix** in [column-major order](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/matrix3d).
@@ -108,16 +108,16 @@ These 16 values represent our **transformation matrix** in [column-major order](
 Where Rematrix really outshines CSS, is the ability to combine transforms — using **matrix multiplication**. We’ll recreate the same 45° rotation along the Z-axis, but using separate matrices this time:
 
 ```js
-var r1 = Rematrix.rotateZ(20)
-var r2 = Rematrix.rotateZ(25)
+var r1 = Rematrix.rotateZ(20);
+var r2 = Rematrix.rotateZ(25);
 
-var product = Rematrix.multiply(r1, r2)
+var product = Rematrix.multiply(r1, r2);
 ```
 
 Here `product` describes the same array of 16 values (seen above):
 
 ```js
-;[0.707107, 0.707107, 0, 0, -0.707107, 0.707107, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+[0.707107, 0.707107, 0, 0, -0.707107, 0.707107, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
 ```
 
 #### Better Multiplication (Using Reduce)
@@ -125,11 +125,11 @@ Here `product` describes the same array of 16 values (seen above):
 There’s a good chance we’ll need to multiply quite a few matrices together, so its helpful to store them in an array in order to use `Array.prototype.reduce` to multiply them all in one line:
 
 ```js
-var r1 = Rematrix.rotateZ(20)
-var r2 = Rematrix.rotateZ(65)
-var r3 = Rematrix.rotateZ(-40)
+var r1 = Rematrix.rotateZ(20);
+var r2 = Rematrix.rotateZ(65);
+var r3 = Rematrix.rotateZ(-40);
 
-var product = [r1, r2, r3].reduce(Rematrix.multiply)
+var product = [r1, r2, r3].reduce(Rematrix.multiply);
 ```
 
 > Order is very important. For example, rotating 45° along the Z-axis, followed by translating 500 pixels along the Y-axis... is not the same as translating 500 pixels along the Y-axis, followed by rotating 45° along on the Z-axis.
@@ -139,16 +139,16 @@ var product = [r1, r2, r3].reduce(Rematrix.multiply)
 Before applying any of our transforms, we should capture the existing transform of our element using the `Rematrix.parse()` method:
 
 ```js
-var element = document.querySelector('#example')
-var style = getComputedStyle(element)['transform']
+var element = document.querySelector('#example');
+var style = getComputedStyle(element)['transform'];
 
-var transform = Rematrix.parse(style)
+var transform = Rematrix.parse(style);
 
-var r1 = Rematrix.rotateZ(20)
-var r2 = Rematrix.rotateZ(65)
-var r3 = Rematrix.rotateZ(-40)
+var r1 = Rematrix.rotateZ(20);
+var r2 = Rematrix.rotateZ(65);
+var r3 = Rematrix.rotateZ(-40);
 
-var product = [transform, r1, r2, r3].reduce(Rematrix.multiply)
+var product = [transform, r1, r2, r3].reduce(Rematrix.multiply);
 ```
 
 By passing the computed transform styles to `Rematrix.parse()`, we create a matrix of the existing transform. We can now factor this into our multiplication.
@@ -160,13 +160,13 @@ By passing the computed transform styles to `Rematrix.parse()`, we create a matr
 We need only to turn our matrix back into a string of CSS:
 
 ```js
-var css = 'transform: matrix3d(' + product.join(', ') + ');'
+var css = 'transform: matrix3d(' + product.join(', ') + ');';
 ```
 
 From here it’s up to you how to use the CSS, but for simplicity’s sake here, we’ll just apply it inline to our element:
 
 ```js
-element.setAttribute('style', css)
+element.setAttribute('style', css);
 ```
 
 #### _And that concludes this introduction to Rematrix. Please explore the finished [Live Demo on JSFiddle](https://jsfiddle.net/jL4vnh08/)._
