@@ -510,3 +510,13 @@ Returns a 4x4 matrix describing Z-axis translation.
 | Param    | Type                | Description         |
 | -------- | ------------------- | ------------------- |
 | distance | <code>number</code> | Measured in pixels. |
+
+<br>
+
+<br>
+
+---
+
+Copyright 2018 Fisssion LLC.
+<br>
+Open source under the [MIT License](https://github.com/jlmakes/rematrix/blob/master/LICENSE).
