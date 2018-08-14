@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.2.3] - 2018-08-14
+
+### Changed
+
+* Update readme formatting.
+* Update copyright year.
+
 ## [0.2.2] - 2018-01-05
 
 ### Changed
@@ -44,6 +51,7 @@
 
 Hello world!
 
+[0.2.3]: https://github.com/jlmakes/rematrix/compare/0.2.2...0.2.3
 [0.2.2]: https://github.com/jlmakes/rematrix/compare/0.2.1...0.2.2
 [0.2.1]: https://github.com/jlmakes/rematrix/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/jlmakes/rematrix/compare/0.1.3...0.2.0

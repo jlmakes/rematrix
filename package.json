@@ -1,11 +1,13 @@
 {
 	"name": "rematrix",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"description": "Matrix transformations made easy",
 	"main": "dist/rematrix.js",
 	"module": "dist/rematrix.es.js",
 	"jsnext:main": "dist/rematrix.es.js",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"prebuild": "rm -rf dist/*",
 		"build": "npm run bundle && npm run bundle:min",
@@ -18,7 +20,11 @@
 		"coverage": "cross-env COVERAGE=true npm test"
 	},
 	"repository": "jlmakes/rematrix",
-	"keywords": ["css", "matrix", "transform"],
+	"keywords": [
+		"css",
+		"matrix",
+		"transform"
+	],
 	"bugs": {
 		"url": "https://github.com/jlmakes/rematrix/issues"
 	},
