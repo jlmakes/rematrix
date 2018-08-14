@@ -1,8 +1,19 @@
 <p align="center">
-	<img src="https://jlmak.es/logos/svg/rematrix.svg?v=2" width="120px" >
+  <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
+	  <img src="https://jlmak.es/logos/svg/rematrix.svg" width="120px" >
+  </a>
 </p>
-<h1 align="center">Rematrix</h1>
+
+<br>
+
+<p align="center">
+  <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
+	  <img src="https://jlmak.es/logos/svg/rematrix-logotype.svg" alt="Rematrix" width="130px" >
+  </a>
+</p>
+
 <p align="center">Matrix transformations made easy.</p>
+
 <p align="center">
 	<a href="https://travis-ci.org/jlmakes/rematrix"><img src="https://img.shields.io/travis/jlmakes/rematrix.svg" alt="Build status"></a>
 	<a href="https://coveralls.io/github/jlmakes/rematrix"><img src="https://img.shields.io/coveralls/jlmakes/rematrix.svg" alt="Coverage"></a>
