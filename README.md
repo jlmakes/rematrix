@@ -136,7 +136,7 @@ var product = [r1, r2, r3].reduce(Rematrix.multiply);
 
 ## Preserving Transforms
 
-Before applying any of our transforms, we should capture the existing transform of our element using the `Rematrix.parse()` method:
+Before applying any of our transforms, we should capture the existing transform of our element using `Rematrix.parse()`, e.g:
 
 ```js
 var element = document.querySelector('#example');
@@ -157,7 +157,7 @@ By passing the computed transform styles to `Rematrix.parse()`, we create a matr
 
 ## Applying Transforms
 
-We can turn our matrix into valid CSS using `Rematrix.toString`, which we can apply to our element’s style, e.g:
+We can turn our matrix into valid CSS using `Rematrix.toString()`, which we can apply to our element’s style, e.g:
 
 ```js
 element.style.transform = Rematrix.toString(product);
@@ -447,7 +447,7 @@ Returns a 4x4 matrix describing Y-axis shear.
 | ----- | ------------------- | ------------------- |
 | angle | <code>number</code> | Measured in degrees |
 
-<a name="module_Rematrix.translate"></a>
+<a name="module_Rematrix.toString"></a>
 
 <br>
 
@@ -461,7 +461,7 @@ Returns a CSS Transform property value equivalent to the source matrix.
 | ------ | ------------------ | ------------------------------------------ |
 | source | <code>array</code> | Accepts both short and long form matrices. |
 
-<a name="module_Rematrix.toString"></a>
+<a name="module_Rematrix.translate"></a>
 
 <br>
 
