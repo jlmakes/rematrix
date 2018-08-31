@@ -276,8 +276,8 @@ of both arguments.
 Attempts to return a 4x4 matrix describing the CSS transform matrix passed
 in, but will return the identity matrix as a fallback.
 
-**Tip:** In virtually all cases, this method is used to convert a CSS matrix
-(retrieved as a string from computed styles) to its equivalent array format.
+> **Tip:** In virtually all cases, this method is used to convert a CSS matrix
+(retrieved as a `string` from computed styles) to its equivalent array format.
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 
@@ -293,7 +293,7 @@ in, but will return the identity matrix as a fallback.
 
 Returns a 4x4 matrix describing Z-axis rotation.
 
-**Tip:** This is just an alias for `Rematrix.rotateZ`
+> **Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 

@@ -144,9 +144,8 @@ export function multiply(m, x) {
  * matrix passed in, but will return the identity matrix as a
  * fallback.
  *
- * **Tip:** In virtually all cases, this method is used to convert
- * a CSS matrix (retrieved as a `string` from computed styles) to
- * its equivalent array format.
+ * > **Tip:** This method is used to convert a CSS matrix (retrieved as a
+ * `string` from computed styles) to its equivalent array format.
  *
  * @param  {string} source - `matrix` or `matrix3d` CSS Transform value.
  * @return {array}
@@ -164,6 +163,8 @@ export function parse(source) {
 
 /**
  * Returns a 4x4 matrix describing Z-axis rotation.
+ *
+ * > **Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS
  *
  * @param  {number} angle - Measured in degrees.
  * @return {array}
