@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.3.0] - 2018-08-30
+
+### Added
+
+* New `toString` method.
+
 ## [0.2.3] - 2018-08-14
 
 ### Changed
