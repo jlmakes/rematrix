@@ -286,9 +286,9 @@ in, but will return the identity matrix as a fallback.
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 
-| Param  | Type                | Description                                                    |
-| ------ | ------------------- | -------------------------------------------------------------- |
-| source | <code>string</code> | String containing a valid CSS `matrix` or `matrix3d` property. |
+| Param  | Type                | Description                                 |
+| ------ | ------------------- | ------------------------------------------- |
+| source | <code>string</code> | `matrix` or `matrix3d` CSS Transform value. |
 
 <a name="module_Rematrix.rotate"></a>
 

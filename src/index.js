@@ -148,7 +148,7 @@ export function multiply(m, x) {
  * a CSS matrix (retrieved as a `string` from computed styles) to
  * its equivalent array format.
  *
- * @param  {string} source - String containing a valid CSS `matrix` or `matrix3d` property.
+ * @param  {string} source - `matrix` or `matrix3d` CSS Transform value.
  * @return {array}
  */
 export function parse(source) {
