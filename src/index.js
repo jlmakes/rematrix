@@ -331,6 +331,16 @@ export function skewY(angle) {
 }
 
 /**
+ * Returns a CSS Transform property value equivalent to the source matrix.
+ *
+ * @param  {array} source - Accepts both short and long form matrices.
+ * @return {string}
+ */
+export function toString(source) {
+	return `matrix3d(${format(source).join(', ')})`
+}
+
+/**
  * Returns a 4x4 matrix describing 2D translation. The first
  * argument defines X-axis translation, and an optional second
  * argument defines Y-axis translation.

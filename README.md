@@ -140,7 +140,7 @@ Before applying any of our transforms, we should capture the existing transform 
 
 ```js
 var element = document.querySelector('#example');
-var style = getComputedStyle(element)['transform'];
+var style = getComputedStyle(element).transform;
 
 var transform = Rematrix.parse(style);
 
@@ -157,19 +157,13 @@ By passing the computed transform styles to `Rematrix.parse()`, we create a matr
 
 ## Applying Transforms
 
-We need only to turn our matrix back into a string of CSS:
+We can turn our matrix into valid CSS using `Rematrix.toString`, which we can apply to our element’s style, e.g:
 
 ```js
-var css = 'transform: matrix3d(' + product.join(', ') + ');';
+element.style.transform = Rematrix.toString(product);
 ```
 
-From here it’s up to you how to use the CSS, but for simplicity’s sake here, we’ll just apply it inline to our element:
-
-```js
-element.setAttribute('style', css);
-```
-
-#### _And that concludes this introduction to Rematrix. Please explore the finished [Live Demo on JSFiddle](https://jsfiddle.net/jL4vnh08/)._
+#### _And that concludes this introduction to Rematrix. Please explore the finished [Live Demo on JSFiddle](https://jsfiddle.net/utoqhkzc/)._
 
 <br>
 
@@ -196,6 +190,7 @@ element.setAttribute('style', css);
   * [.skew(angleX, [angleY])](#module_Rematrix.skew)
   * [.skewX(angle)](#module_Rematrix.skewX)
   * [.skewY(angle)](#module_Rematrix.skewY)
+  * [.toString(source)](#module_Rematrix.toString)
   * [.translate(distanceX, [distanceY])](#module_Rematrix.translate)
   * [.translateX(distance)](#module_Rematrix.translateX)
   * [.translateY(distance)](#module_Rematrix.translateY)
@@ -453,6 +448,20 @@ Returns a 4x4 matrix describing Y-axis shear.
 | angle | <code>number</code> | Measured in degrees |
 
 <a name="module_Rematrix.translate"></a>
+
+<br>
+
+### Rematrix.toString(source) ⇒ <code>string</code>
+
+Returns a CSS Transform property value equivalent to the source matrix.
+
+**Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
+
+| Param  | Type               | Description                                |
+| ------ | ------------------ | ------------------------------------------ |
+| source | <code>array</code> | Accepts both short and long form matrices. |
+
+<a name="module_Rematrix.toString"></a>
 
 <br>
 

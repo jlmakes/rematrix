@@ -163,6 +163,26 @@ describe('Utilities', () => {
 		})
 	})
 
+	describe('toString()', () => {
+		it('should return a valid CSS Transform matrix3d value', () => {
+			const matrix = Rematrix.scale(2)
+			const result = Rematrix.toString(matrix)
+			const answer = 'matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)'
+			expect(result).to.eql(answer)
+		})
+
+		it('should throw when not passed a valid source matrix', () => {
+			let caught
+			try {
+				Rematrix.toString([4, 3, 2, 1])
+			} catch (error) {
+				caught = error
+			}
+			expect(caught).to.exist
+			expect(caught).to.be.an.instanceOf(Error)
+		})
+	})
+
 	describe('Transformation', () => {
 		let dummy
 		let transformProperty
