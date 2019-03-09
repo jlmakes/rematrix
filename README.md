@@ -174,11 +174,11 @@ element.style.transform = Rematrix.toString(product);
 # API Reference
 
 * [Rematrix](#module_Rematrix)
+  * [.fromString(source)](#module_Rematrix.fromString)
   * [.format(source)](#module_Rematrix.format)
   * [.identity()](#module_Rematrix.identity)
   * [.inverse(source)](#module_Rematrix.inverse)
   * [.multiply(m, x)](#module_Rematrix.multiply)
-  * [.fromString(source)](#module_Rematrix.fromString)
   * [.rotate(angle)](#module_Rematrix.rotate)
   * [.rotateX(angle)](#module_Rematrix.rotateX)
   * [.rotateY(angle)](#module_Rematrix.rotateY)
@@ -195,6 +195,21 @@ element.style.transform = Rematrix.toString(product);
   * [.translateX(distance)](#module_Rematrix.translateX)
   * [.translateY(distance)](#module_Rematrix.translateY)
   * [.translateZ(distance)](#module_Rematrix.translateZ)
+
+<a name="module_Rematrix.fromString"></a>
+
+<br>
+
+### Rematrix.fromString(source) ⇒ <code>array</code>
+
+Attempts to return a 4x4 matrix describing the CSS transform matrix passed
+in, but will return the identity matrix as a fallback.
+
+**Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
+
+| Param  | Type                | Description                                 |
+| ------ | ------------------- | ------------------------------------------- |
+| source | <code>string</code> | `matrix` or `matrix3d` CSS Transform value. |
 
 <a name="module_Rematrix.format"></a>
 
@@ -266,21 +281,6 @@ of both arguments.
 | ----- | ------------------ | ------------------------------------------ |
 | m     | <code>array</code> | Accepts both short and long form matrices. |
 | x     | <code>array</code> | Accepts both short and long form matrices. |
-
-<a name="module_Rematrix.fromString"></a>
-
-<br>
-
-### Rematrix.fromString(source) ⇒ <code>array</code>
-
-Attempts to return a 4x4 matrix describing the CSS transform matrix passed
-in, but will return the identity matrix as a fallback.
-
-**Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
-
-| Param  | Type                | Description                                 |
-| ------ | ------------------- | ------------------------------------------- |
-| source | <code>string</code> | `matrix` or `matrix3d` CSS Transform value. |
 
 <a name="module_Rematrix.rotate"></a>
 
