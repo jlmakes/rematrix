@@ -409,5 +409,9 @@ describe('Utilities', () => {
         expect(result).to.be.eql(answer)
       })
     })
+
+    after('remove dummy object', () => {
+      document.body && document.body.removeChild(dummy)
+    })
   })
 })
