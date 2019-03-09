@@ -139,10 +139,10 @@ describe('Utilities', () => {
 		})
 	})
 
-	describe('parse()', () => {
+	describe('fromString()', () => {
 		it('should return a 4x4 matrix equal to the `matrix` string passed in', () => {
 			const source = 'matrix(1, 2, 3, 4, 5, 6)'
-			const result = Rematrix.parse(source)
+			const result = Rematrix.fromString(source)
 			const answer = [1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 1, 0, 5, 6, 0, 1]
 			expect(result).to.eql(answer)
 		})
@@ -150,14 +150,14 @@ describe('Utilities', () => {
 		it('should return a 4x4 matrix equal to the `matrix3d` string passed in', () => {
 			const source =
 				'matrix3d(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)'
-			const result = Rematrix.parse(source)
+			const result = Rematrix.fromString(source)
 			const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 			expect(result).to.eql(answer)
 		})
 
 		it('should return an identity matrix if passed an invalid argument', () => {
 			const source = 'rotateX(45deg)'
-			const result = Rematrix.parse(source)
+			const result = Rematrix.fromString(source)
 			const answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
 			expect(result).to.eql(answer)
 		})

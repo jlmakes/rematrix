@@ -1,5 +1,11 @@
 # Change Log
 
+## Unreleased
+
+### Changed
+
+* Renamed `parse` method to `fromString`.
+
 ## [0.3.0] - 2018-08-30
 
 ### Added

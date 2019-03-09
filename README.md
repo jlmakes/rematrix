@@ -57,7 +57,7 @@ A simple and fast way to get started is to include this script on your page:
 <script src="https://unpkg.com/rematrix"></script>
 ```
 
-> If you use this method in production, be sure to specify a fixed version number, and use the minified distribution; e.g: `https://unpkg.com/rematrix@0.2.3/dist/rematrix.min.js`. This improves performance, but also prevents library changes from impacting your project.
+> If you use this method in production, be sure to specify a fixed version number, and use the minified distribution; e.g: `https://unpkg.com/rematrix@1.0.0/dist/rematrix.min.js`. This improves performance, but also prevents library changes from impacting your project.
 
 This will create the global variable `Rematrix`.
 
@@ -136,13 +136,13 @@ var product = [r1, r2, r3].reduce(Rematrix.multiply);
 
 ## Preserving Transforms
 
-Before applying any of our transforms, we should capture the existing transform of our element using `Rematrix.parse()`, e.g:
+Before applying any of our transforms, we should capture the existing transform of our element using `Rematrix.fromString()`, e.g:
 
 ```js
 var element = document.querySelector('#example');
 var style = getComputedStyle(element).transform;
 
-var transform = Rematrix.parse(style);
+var transform = Rematrix.fromString(style);
 
 var r1 = Rematrix.rotateZ(20);
 var r2 = Rematrix.rotateZ(65);
@@ -151,7 +151,7 @@ var r3 = Rematrix.rotateZ(-40);
 var product = [transform, r1, r2, r3].reduce(Rematrix.multiply);
 ```
 
-By passing the computed transform styles to `Rematrix.parse()`, we create a matrix of the existing transform. We can now factor this into our multiplication.
+By passing the computed transform styles to `Rematrix.fromString()`, we create a matrix of the existing transform. We can now factor this into our multiplication.
 
 > The existing transformation has been _deliberately_ placed at the start of the array to ensure the computed transform is the foundation for the succeeding transformations.
 
@@ -178,7 +178,7 @@ element.style.transform = Rematrix.toString(product);
   * [.identity()](#module_Rematrix.identity)
   * [.inverse(source)](#module_Rematrix.inverse)
   * [.multiply(m, x)](#module_Rematrix.multiply)
-  * [.parse(source)](#module_Rematrix.parse)
+  * [.fromString(source)](#module_Rematrix.fromString)
   * [.rotate(angle)](#module_Rematrix.rotate)
   * [.rotateX(angle)](#module_Rematrix.rotateX)
   * [.rotateY(angle)](#module_Rematrix.rotateY)
@@ -267,17 +267,14 @@ of both arguments.
 | m     | <code>array</code> | Accepts both short and long form matrices. |
 | x     | <code>array</code> | Accepts both short and long form matrices. |
 
-<a name="module_Rematrix.parse"></a>
+<a name="module_Rematrix.fromString"></a>
 
 <br>
 
-### Rematrix.parse(source) ⇒ <code>array</code>
+### Rematrix.fromString(source) ⇒ <code>array</code>
 
 Attempts to return a 4x4 matrix describing the CSS transform matrix passed
 in, but will return the identity matrix as a fallback.
-
-> **Tip:** In virtually all cases, this method is used to convert a CSS matrix
-(retrieved as a `string` from computed styles) to its equivalent array format.
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 

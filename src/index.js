@@ -3,6 +3,25 @@
  */
 
 /**
+ * Attempts to return a 4x4 matrix describing the CSS transform
+ * matrix passed in, but will return the identity matrix as a
+ * fallback.
+ *
+ * @param  {string} source - `matrix` or `matrix3d` CSS Transform value.
+ * @return {array}
+ */
+export function fromString(source) {
+  if (typeof source === 'string') {
+    const match = source.match(/matrix(3d)?\(([^)]+)\)/)
+    if (match) {
+      const raw = match[2].split(', ').map(parseFloat)
+      return format(raw)
+    }
+  }
+  return identity()
+}
+
+/**
  * Transformation matrices in the browser come in two flavors:
  *
  *  - `matrix` using 6 values (short)
@@ -137,28 +156,6 @@ export function multiply(m, x) {
 	}
 
 	return product
-}
-
-/**
- * Attempts to return a 4x4 matrix describing the CSS transform
- * matrix passed in, but will return the identity matrix as a
- * fallback.
- *
- * > **Tip:** This method is used to convert a CSS matrix (retrieved as a
- * `string` from computed styles) to its equivalent array format.
- *
- * @param  {string} source - `matrix` or `matrix3d` CSS Transform value.
- * @return {array}
- */
-export function parse(source) {
-	if (typeof source === 'string') {
-		const match = source.match(/matrix(3d)?\(([^)]+)\)/)
-		if (match) {
-			const raw = match[2].split(', ').map(parseFloat)
-			return format(raw)
-		}
-	}
-	return identity()
 }
 
 /**
