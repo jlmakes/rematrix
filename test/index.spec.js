@@ -1,24 +1,47 @@
 import * as Rematrix from '../src/index'
 
 describe('Utilities', () => {
+  describe('fromString()', () => {
+    it('returns a 4x4 matrix equal to the `matrix` string passed in', () => {
+      const source = 'matrix(1, 2, 3, 4, 5, 6)'
+      const result = Rematrix.fromString(source)
+      const answer = [1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 1, 0, 5, 6, 0, 1]
+      expect(result).to.eql(answer)
+    })
+
+    it('returns a 4x4 matrix equal to the `matrix3d` string passed in', () => {
+      const source = 'matrix3d(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)'
+      const result = Rematrix.fromString(source)
+      const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+      expect(result).to.eql(answer)
+    })
+
+    it('returns an identity matrix if passed an invalid argument', () => {
+      const source = 'rotateX(45deg)'
+      const result = Rematrix.fromString(source)
+      const answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+      expect(result).to.eql(answer)
+    })
+  })
+
   describe('format()', () => {
     /**
      * matrix(a, b, c, d, tx, ty) is a shorthand for:
      * matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)
      * Source: https://goo.gl/7mJsfK
      */
-    it('should convert CSS transform matrix to matrix3d', () => {
+    it('converts CSS transform matrix to matrix3d', () => {
       const source = [1, 2, 3, 4, 5, 6]
       const answer = [1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 1, 0, 5, 6, 0, 1]
       expect(Rematrix.format(source)).to.eql(answer)
     })
 
-    it('should return source argument if it is already matrix3d format', () => {
+    it('returns source argument if it is already matrix3d format', () => {
       const source = [1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 1, 0, 5, 6, 0, 1]
       expect(Rematrix.format(source)).to.equal(source)
     })
 
-    it('should throw a type error when passed a non-array', () => {
+    it('throws a type error when passed a non-array', () => {
       let caught
       try {
         Rematrix.format({ foo: 'bar' })
@@ -29,7 +52,7 @@ describe('Utilities', () => {
       expect(caught).to.be.an.instanceOf(TypeError)
     })
 
-    it('should throw a range error when passed an array of invalid length', () => {
+    it('throws a range error when passed an array of invalid length', () => {
       let caught
       try {
         Rematrix.format([])
@@ -42,14 +65,14 @@ describe('Utilities', () => {
   })
 
   describe('identity()', () => {
-    it('should return a 4x4 identity matrix in column-major order', () => {
+    it('returns a 4x4 identity matrix in column-major order', () => {
       const result = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
       expect(Rematrix.identity()).to.eql(result)
     })
   })
 
   describe('inverse()', () => {
-    it('should return a 4x4 matrix that when multiplied by the source matrix, equals the identity matrix', () => {
+    it('returns a 4x4 matrix equal to the inverse of the matrix passed in', () => {
       const source = Rematrix.rotateX(79)
       const inverse = Rematrix.inverse(source)
 
@@ -59,7 +82,7 @@ describe('Utilities', () => {
       expect(result).to.eql(answer)
     })
 
-    it('should throw when the source matrix fails formatting', () => {
+    it('throws when the source matrix fails formatting', () => {
       let caught
       try {
         Rematrix.inverse([0, 1, 2, 4])
@@ -78,7 +101,7 @@ describe('Utilities', () => {
       expect(caught).to.be.an.instanceOf(Error)
     })
 
-    it('should throw when the source matrix has no inverse', () => {
+    it('throws when the source matrix has no inverse', () => {
       let caught
       try {
         Rematrix.inverse([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -91,31 +114,14 @@ describe('Utilities', () => {
   })
 
   describe('multiply()', () => {
-    it('should return a 4x4 matrix equal to the product of both arguments', () => {
-      const first = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-      const second = [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-      const answer = [
-        386,
-        444,
-        502,
-        560,
-        274,
-        316,
-        358,
-        400,
-        162,
-        188,
-        214,
-        240,
-        50,
-        60,
-        70,
-        80,
-      ]
+    it('returns a 4x4 matrix equal to the product of both arguments', () => {
+      const first = [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+      const second = [4, 3, 2, 1, 4, 3, 2, 1, 4, 3, 2, 1, 4, 3, 2, 1]
+      const answer = [0, 10, 20, 30, 0, 10, 20, 30, 0, 10, 20, 30, 0, 10, 20, 30]
       expect(Rematrix.multiply(first, second)).to.eql(answer)
     })
 
-    it('should throw when passed matrices that fail formatting', () => {
+    it('throws when passed matrices that fail formatting', () => {
       const first = [1, 2, 3]
       const second = Rematrix.identity()
       let caught
@@ -139,38 +145,15 @@ describe('Utilities', () => {
     })
   })
 
-  describe('fromString()', () => {
-    it('should return a 4x4 matrix equal to the `matrix` string passed in', () => {
-      const source = 'matrix(1, 2, 3, 4, 5, 6)'
-      const result = Rematrix.fromString(source)
-      const answer = [1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 1, 0, 5, 6, 0, 1]
-      expect(result).to.eql(answer)
-    })
-
-    it('should return a 4x4 matrix equal to the `matrix3d` string passed in', () => {
-      const source = 'matrix3d(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)'
-      const result = Rematrix.fromString(source)
-      const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-      expect(result).to.eql(answer)
-    })
-
-    it('should return an identity matrix if passed an invalid argument', () => {
-      const source = 'rotateX(45deg)'
-      const result = Rematrix.fromString(source)
-      const answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
-      expect(result).to.eql(answer)
-    })
-  })
-
   describe('toString()', () => {
-    it('should return a valid CSS Transform matrix3d value', () => {
+    it('returns a valid CSS Transform matrix3d value', () => {
       const matrix = Rematrix.scale(2)
       const result = Rematrix.toString(matrix)
       const answer = 'matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)'
       expect(result).to.eql(answer)
     })
 
-    it('should throw when not passed a valid source matrix', () => {
+    it('throws when not passed a valid source matrix', () => {
       let caught
       try {
         Rematrix.toString([4, 3, 2, 1])
@@ -215,7 +198,7 @@ describe('Utilities', () => {
      */
 
     describe('rotate()', () => {
-      it('should return a 4x4 matrix equal to CSS transform rotate', () => {
+      it('returns a 4x4 matrix equal to CSS transform rotate', () => {
         dummy.setAttribute('style', `${transformProperty}: rotate(75deg)`)
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
@@ -230,7 +213,7 @@ describe('Utilities', () => {
     })
 
     describe('rotateX()', () => {
-      it('should return a 4x4 matrix equal to CSS transform rotateX', () => {
+      it('returns a 4x4 matrix equal to CSS transform rotateX', () => {
         dummy.setAttribute('style', `${transformProperty}: rotateX(45deg)`)
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
@@ -245,7 +228,7 @@ describe('Utilities', () => {
     })
 
     describe('rotateY()', () => {
-      it('should return a 4x4 matrix equal to CSS transform rotateY', () => {
+      it('returns a 4x4 matrix equal to CSS transform rotateY', () => {
         dummy.setAttribute('style', `${transformProperty}: rotateY(45deg)`)
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
@@ -260,7 +243,7 @@ describe('Utilities', () => {
     })
 
     describe('rotateZ()', () => {
-      it('should return a 4x4 matrix equal to CSS transform rotateZ', () => {
+      it('returns a 4x4 matrix equal to CSS transform rotateZ', () => {
         dummy.setAttribute('style', `${transformProperty}: rotateZ(45deg)`)
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
@@ -275,14 +258,14 @@ describe('Utilities', () => {
     })
 
     describe('scale()', () => {
-      it('should return a 4x4 matrix equal to CSS transform scale with one arg', () => {
+      it('returns a 4x4 matrix equal to CSS transform scale with one arg', () => {
         dummy.setAttribute('style', `${transformProperty}: scale(2)`)
         const result = Rematrix.scale(2)
         const answer = getTransformAsArray(dummy)
         expect(result).to.be.eql(answer)
       })
 
-      it('should return a 4x4 matrix equal to CSS transform scale with two args', () => {
+      it('returns a 4x4 matrix equal to CSS transform scale with two args', () => {
         dummy.setAttribute('style', `${transformProperty}: scale(2, 0)`)
         const result = Rematrix.scale(2, 0)
         const answer = getTransformAsArray(dummy)
@@ -291,7 +274,7 @@ describe('Utilities', () => {
     })
 
     describe('scaleX()', () => {
-      it('should return a 4x4 matrix equal to CSS transform scaleX', () => {
+      it('returns a 4x4 matrix equal to CSS transform scaleX', () => {
         dummy.setAttribute('style', `${transformProperty}: scaleX(2)`)
         const result = Rematrix.scaleX(2)
         const answer = getTransformAsArray(dummy)
@@ -300,7 +283,7 @@ describe('Utilities', () => {
     })
 
     describe('scaleY()', () => {
-      it('should return a 4x4 matrix equal to CSS transform scaleY', () => {
+      it('returns a 4x4 matrix equal to CSS transform scaleY', () => {
         dummy.setAttribute('style', `${transformProperty}: scaleY(2)`)
         const result = Rematrix.scaleY(2)
         const answer = getTransformAsArray(dummy)
@@ -309,7 +292,7 @@ describe('Utilities', () => {
     })
 
     describe('scaleZ()', () => {
-      it('should return a 4x4 matrix equal to CSS transform scaleZ', () => {
+      it('returns a 4x4 matrix equal to CSS transform scaleZ', () => {
         dummy.setAttribute('style', `${transformProperty}: scaleZ(2)`)
         const result = Rematrix.scaleZ(2)
         const answer = getTransformAsArray(dummy)
@@ -323,7 +306,7 @@ describe('Utilities', () => {
      */
 
     describe('skew()', () => {
-      it('should return a 4x4 matrix equal to CSS transform skew with one arg', () => {
+      it('returns a 4x4 matrix equal to CSS transform skew with one arg', () => {
         dummy.setAttribute('style', `${transformProperty}: skew(20deg)`)
 
         const result = Rematrix.skew(20)
@@ -337,7 +320,7 @@ describe('Utilities', () => {
         expect(result).to.be.eql(answer)
       })
 
-      it('should return a 4x4 matrix equal to CSS transform skew with two args', () => {
+      it('returns a 4x4 matrix equal to CSS transform skew with two args', () => {
         dummy.setAttribute('style', `${transformProperty}: skew(20deg, 30deg)`)
 
         const result = Rematrix.skew(20, 30)
@@ -353,7 +336,7 @@ describe('Utilities', () => {
     })
 
     describe('skewX()', () => {
-      it('should return a 4x4 matrix equal to CSS transform skewX', () => {
+      it('returns a 4x4 matrix equal to CSS transform skewX', () => {
         dummy.setAttribute('style', `${transformProperty}: skewX(20deg)`)
 
         const result = Rematrix.skewX(20)
@@ -369,7 +352,7 @@ describe('Utilities', () => {
     })
 
     describe('skewY()', () => {
-      it('should return a 4x4 matrix equal to CSS transform skewY', () => {
+      it('returns a 4x4 matrix equal to CSS transform skewY', () => {
         dummy.setAttribute('style', `${transformProperty}: skewY(30deg)`)
 
         const result = Rematrix.skewY(30)
@@ -385,14 +368,14 @@ describe('Utilities', () => {
     })
 
     describe('translate()', () => {
-      it('should return a 4x4 matrix equal to CSS transform translate with one arg', () => {
+      it('returns a 4x4 matrix equal to CSS transform translate with one arg', () => {
         dummy.setAttribute('style', `${transformProperty}: translate(20px)`)
         const result = Rematrix.translate(20)
         const answer = getTransformAsArray(dummy)
         expect(result).to.be.eql(answer)
       })
 
-      it('should return a 4x4 matrix equal to CSS transform translate with two args', () => {
+      it('returns a 4x4 matrix equal to CSS transform translate with two args', () => {
         dummy.setAttribute('style', `${transformProperty}: translate(20px, 40px)`)
         const result = Rematrix.translate(20, 40)
         const answer = getTransformAsArray(dummy)
@@ -401,7 +384,7 @@ describe('Utilities', () => {
     })
 
     describe('translateX', () => {
-      it('should return a 4x4 matrix equal to CSS transform translateX', () => {
+      it('returns a 4x4 matrix equal to CSS transform translateX', () => {
         dummy.setAttribute('style', `${transformProperty}: translateX(20px)`)
         const result = Rematrix.translateX(20)
         const answer = getTransformAsArray(dummy)
@@ -410,7 +393,7 @@ describe('Utilities', () => {
     })
 
     describe('translateY', () => {
-      it('should return a 4x4 matrix equal to CSS transform translateY', () => {
+      it('returns a 4x4 matrix equal to CSS transform translateY', () => {
         dummy.setAttribute('style', `${transformProperty}: translateY(20px)`)
         const result = Rematrix.translateY(20)
         const answer = getTransformAsArray(dummy)
@@ -419,16 +402,12 @@ describe('Utilities', () => {
     })
 
     describe('translateZ', () => {
-      it('should return a 4x4 matrix equal to CSS transform translateZ', () => {
+      it('returns a 4x4 matrix equal to CSS transform translateZ', () => {
         dummy.setAttribute('style', `${transformProperty}: translateZ(20px)`)
         const result = Rematrix.translateZ(20)
         const answer = getTransformAsArray(dummy)
         expect(result).to.be.eql(answer)
       })
-    })
-
-    after('remove dummy object', () => {
-      document.body.removeChild(dummy)
     })
   })
 })
