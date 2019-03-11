@@ -23,9 +23,11 @@ module.exports = function(karma) {
 
 		rollupPreprocessor: {
 			plugins: rollupPlugins,
-			format: 'iife',
-			name: 'Rematrix',
-			sourcemap: 'inline'
+			output: {
+				format: 'iife',
+				name: 'Rematrix',
+				sourcemap: 'inline',
+			},
 		},
 
 		colors: true,
