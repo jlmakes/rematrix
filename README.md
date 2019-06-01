@@ -191,7 +191,7 @@ element.style.transform = Rematrix.toString(product);
   * [.skewX(angle)](#module_Rematrix.skewX)
   * [.skewY(angle)](#module_Rematrix.skewY)
   * [.toString(source)](#module_Rematrix.toString)
-  * [.translate(distanceX, [distanceY])](#module_Rematrix.translate)
+  * [.translate(distanceX, [distanceY, [distanceZ]])](#module_Rematrix.translate)
   * [.translateX(distance)](#module_Rematrix.translateX)
   * [.translateY(distance)](#module_Rematrix.translateY)
   * [.translateZ(distance)](#module_Rematrix.translateZ)
@@ -465,11 +465,11 @@ Returns a CSS Transform property value equivalent to the source matrix.
 
 <br>
 
-### Rematrix.translate(distanceX, [distanceY]) ⇒ <code>array</code>
+### Rematrix.translate(distanceX, [distanceY, [distanceZ]]) ⇒ <code>array</code>
 
 Returns a 4x4 matrix describing 2D translation. The first
-argument defines X-axis translation, and an optional second
-argument defines Y-axis translation.
+argument defines X-axis translation, and optional second and third
+arguments define Y-axis and Z-axis translation.
 
 **Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
 
@@ -477,6 +477,7 @@ argument defines Y-axis translation.
 | ----------- | ------------------- | ------------------- |
 | distanceX   | <code>number</code> | Measured in pixels. |
 | [distanceY] | <code>number</code> | Measured in pixels. |
+| [distanceZ] | <code>number</code> | Measured in pixels. |
 
 <a name="module_Rematrix.translateX"></a>
 

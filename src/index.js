@@ -348,14 +348,19 @@ export function toString(source) {
  *
  * @param  {number} distanceX   - Measured in pixels.
  * @param  {number} [distanceY] - Measured in pixels.
+ * @param  {number} [distanceZ] - Measured in pixels.
  * @return {array}
  */
-export function translate(distanceX, distanceY) {
+export function translate(distanceX, distanceY, distanceZ) {
 	const matrix = identity()
 	matrix[12] = distanceX
 
 	if (distanceY) {
 		matrix[13] = distanceY
+	}
+
+	if (distanceZ) {
+		matrix[14] = distanceZ
 	}
 
 	return matrix
