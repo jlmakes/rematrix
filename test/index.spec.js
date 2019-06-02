@@ -428,6 +428,15 @@ describe('Utilities', () => {
 			})
 		})
 
+		describe('translate3d', () => {
+			it('should return a 4x4 matrix equal to CSS transform translate3d', () => {
+				dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 30px, 40px)`)
+				const result = Rematrix.translate3d(20, 30, 40)
+				const answer = getTransformAsArray(dummy)
+				expect(result).to.be.eql(answer)
+			})
+		})
+
 		after('remove dummy object', () => {
 			document.body.removeChild(dummy)
 		})

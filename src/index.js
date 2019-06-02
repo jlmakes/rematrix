@@ -396,3 +396,21 @@ export function translateZ(distance) {
 	matrix[14] = distance
 	return matrix
 }
+
+/**
+ * Returns a 4x4 matrix describing 3D translation. The first
+ * argument defines X-axis translation, the second argument defines Y-axis
+ * translation, and the third argument defines Z-axis translation.
+ *
+ * @param  {number} distanceX - Measured in pixels.
+ * @param  {number} distanceY - Measured in pixels.
+ * @param  {number} distanceZ - Measured in pixels.
+ * @return {array}
+ */
+export function translate3d(distanceX, distanceY, distanceZ) {
+	const matrix = identity()
+	matrix[12] = distanceX
+	matrix[13] = distanceY
+	matrix[14] = distanceZ
+	return matrix
+}
