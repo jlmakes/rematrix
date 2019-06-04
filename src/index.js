@@ -404,9 +404,21 @@ export function translateZ(distance) {
  * @return {array}
  */
 export function translate3d(distanceX, distanceY, distanceZ) {
-	const matrix = identity()
-	matrix[12] = distanceX
-	matrix[13] = distanceY
-	matrix[14] = distanceZ
-	return matrix
+  const matrix = identity()
+  matrix[12] = distanceX
+  matrix[13] = distanceY
+  matrix[14] = distanceZ
+  return matrix
+}
+
+/**
+ * Returns a 4x4 matrix describing perspective.
+ *
+ * @param  {number} distance - Measured in pixels.
+ * @return {array}
+ */
+export function perspective(distance) {
+  const matrix = identity()
+  matrix[11] = -1 / distance
+  return matrix
 }

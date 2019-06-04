@@ -196,6 +196,7 @@ element.style.transform = Rematrix.toString(product);
   * [.translateY(distance)](#module_Rematrix.translateY)
   * [.translateZ(distance)](#module_Rematrix.translateZ)
   * [.translate3d(distanceX, distanceY, distanceZ)](#module_Rematrix.translate3d)
+  * [.perspective(distance)](#module_Rematrix.perspective)
 
 <a name="module_Rematrix.fromString"></a>
 
@@ -535,6 +536,20 @@ translation, and the third argument defines Z-axis translation.
 | distanceX | <code>number</code> | Measured in pixels. |
 | distanceY | <code>number</code> | Measured in pixels. |
 | distanceZ | <code>number</code> | Measured in pixels. |
+
+<a name="module_Rematrix.perspective"></a>
+
+<br>
+
+### Rematrix.perspective(distance) ⇒ <code>array</code>
+
+Returns a 4x4 matrix describing perspective.
+
+**Kind**: static method of <code>[Rematrix](#module_Rematrix)</code>
+
+| Param    | Type                | Description         |
+| -------- | ------------------- | ------------------- |
+| distance | <code>number</code> | Measured in pixels. |
 
 <br>
 
