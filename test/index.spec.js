@@ -410,6 +410,15 @@ describe('Utilities', () => {
       })
     })
 
+    describe('perspective', () => {
+      it('returns a 4x4 matrix equal to CSS transform perspective', () => {
+        dummy.setAttribute('style', `${transformProperty}: perspective(20px)`)
+        const result = Rematrix.perspective(20)
+        const answer = getTransformAsArray(dummy)
+        expect(result).to.be.eql(answer)
+      })
+    })
+
     after('remove dummy object', () => {
       document.body && document.body.removeChild(dummy)
     })
