@@ -192,6 +192,15 @@ describe('Utilities', () => {
       return Rematrix.format(values)
     }
 
+    describe('perspective', () => {
+      it('returns a 4x4 matrix equal to CSS transform perspective', () => {
+        dummy.setAttribute('style', `${transformProperty}: perspective(20px)`)
+        const result = Rematrix.perspective(20)
+        const answer = getTransformAsArray(dummy)
+        expect(result).to.be.eql(answer)
+      })
+    })
+
     /**
      * To account for rounding differences of Sin and Cos across browsers,
      * all rotation values will be rounded to 6 significant digits.
@@ -383,6 +392,21 @@ describe('Utilities', () => {
       })
     })
 
+    describe('translate3d', () => {
+      it('should return a 4x4 matrix equal to CSS transform translate3d', () => {
+        dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 30px, 40px)`)
+        const result = Rematrix.translate3d(20, 30, 40)
+        const answer = getTransformAsArray(dummy)
+        expect(result).to.be.eql(answer)
+      })
+
+      it('returns an identity matrix when missing arguments', () => {
+        const result = Rematrix.translate3d(20, 30)
+        const answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+        expect(result).to.be.eql(answer)
+      })
+    })
+
     describe('translateX', () => {
       it('returns a 4x4 matrix equal to CSS transform translateX', () => {
         dummy.setAttribute('style', `${transformProperty}: translateX(20px)`)
@@ -405,30 +429,6 @@ describe('Utilities', () => {
       it('returns a 4x4 matrix equal to CSS transform translateZ', () => {
         dummy.setAttribute('style', `${transformProperty}: translateZ(20px)`)
         const result = Rematrix.translateZ(20)
-        const answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('translate3d', () => {
-      it('returns a 4x4 matrix equal to CSS transform translate3d', () => {
-        dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 30px, 40px)`)
-        const result = Rematrix.translate3d(20, 30, 40)
-        const answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-
-      it('returns an identity matrix when missing arguments', () => {
-        const result = Rematrix.translate3d(20, 30)
-        const answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('perspective', () => {
-      it('returns a 4x4 matrix equal to CSS transform perspective', () => {
-        dummy.setAttribute('style', `${transformProperty}: perspective(20px)`)
-        const result = Rematrix.perspective(20)
         const answer = getTransformAsArray(dummy)
         expect(result).to.be.eql(answer)
       })

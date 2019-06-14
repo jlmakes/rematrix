@@ -158,6 +158,18 @@ export function multiply(m, x) {
 }
 
 /**
+ * Returns a 4x4 matrix describing perspective.
+ *
+ * @param  {number} distance - Measured in pixels.
+ * @return {array}
+ */
+export function perspective(distance) {
+  const matrix = identity()
+  matrix[11] = -1 / distance
+  return matrix
+}
+
+/**
  * Returns a 4x4 matrix describing Z-axis rotation.
  *
  * > **Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS
@@ -358,6 +370,26 @@ export function translate(distanceX, distanceY) {
 }
 
 /**
+ * Returns a 4x4 matrix describing 3D translation. The first
+ * argument defines X-axis translation, the second argument defines Y-axis
+ * translation, and the third argument defines Z-axis translation.
+ *
+ * @param  {number} distanceX - Measured in pixels.
+ * @param  {number} distanceY - Measured in pixels.
+ * @param  {number} distanceZ - Measured in pixels.
+ * @return {array}
+ */
+export function translate3d(distanceX, distanceY, distanceZ) {
+  const matrix = identity()
+  if (distanceX && distanceY && distanceZ) {
+    matrix[12] = distanceX
+    matrix[13] = distanceY
+    matrix[14] = distanceZ
+  }
+  return matrix
+}
+
+/**
  * Returns a 4x4 matrix describing X-axis translation.
  *
  * @param  {number} distance - Measured in pixels.
@@ -390,37 +422,5 @@ export function translateY(distance) {
 export function translateZ(distance) {
   const matrix = identity()
   matrix[14] = distance
-  return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing 3D translation. The first
- * argument defines X-axis translation, the second argument defines Y-axis
- * translation, and the third argument defines Z-axis translation.
- *
- * @param  {number} distanceX - Measured in pixels.
- * @param  {number} distanceY - Measured in pixels.
- * @param  {number} distanceZ - Measured in pixels.
- * @return {array}
- */
-export function translate3d(distanceX, distanceY, distanceZ) {
-  const matrix = identity()
-  if (distanceX && distanceY && distanceZ) {
-    matrix[12] = distanceX
-    matrix[13] = distanceY
-    matrix[14] = distanceZ
-  }
-  return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing perspective.
- *
- * @param  {number} distance - Measured in pixels.
- * @return {array}
- */
-export function perspective(distance) {
-  const matrix = identity()
-  matrix[11] = -1 / distance
   return matrix
 }
