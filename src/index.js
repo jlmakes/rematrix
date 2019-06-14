@@ -405,9 +405,11 @@ export function translateZ(distance) {
  */
 export function translate3d(distanceX, distanceY, distanceZ) {
   const matrix = identity()
-  matrix[12] = distanceX
-  matrix[13] = distanceY
-  matrix[14] = distanceZ
+  if (distanceX && distanceY && distanceZ) {
+    matrix[12] = distanceX
+    matrix[13] = distanceY
+    matrix[14] = distanceZ
+  }
   return matrix
 }
 
