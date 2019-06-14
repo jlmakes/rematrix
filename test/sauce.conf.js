@@ -1,12 +1,12 @@
 const launchers = {}
 
 const mobileLaunchers = [
-  ['iOS', '9.3', 'Safari', 'iPhone 6s Simulator'],
-  ['iOS', '10.3', 'Safari', 'iPhone 6s Simulator'],
-  ['iOS', '11.1', 'Safari', 'iPhone 6s Simulator'],
-  ['Android', '4.4', 'Browser', 'Android Emulator'],
+  ['iOS', '10.3', 'Safari', 'iPhone 7 Simulator'],
+  ['iOS', '11.3', 'Safari', 'iPhone 7 Simulator'],
+  ['iOS', '12.0', 'Safari', 'iPhone 7 Simulator'],
   ['Android', '5.1', 'Browser', 'Android Emulator'],
   ['Android', '6.0', 'Chrome', 'Android Emulator'],
+  ['Android', '8.0', 'Chrome', 'Android Emulator']
 ]
 
 mobileLaunchers.forEach(([platform, version, browser, device]) => {
@@ -21,7 +21,7 @@ mobileLaunchers.forEach(([platform, version, browser, device]) => {
     browserName: browser,
     deviceName: device,
     deviceOrientation: 'portrait',
-    appiumVersion: '1.7.1',
+    appiumVersion: '1.9.1',
   }
 })
 
