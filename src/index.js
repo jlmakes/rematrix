@@ -158,6 +158,15 @@ export function multiply(m, x) {
 }
 
 /**
+ * This method has been deprecated!
+ * See `Rematrix.fromString` instead.
+ */
+export function parse(source) {
+  console.warn('The `parse` method has been deprecated, please use `fromString`')
+  return fromString(source)
+}
+
+/**
  * Returns a 4x4 matrix describing perspective.
  *
  * @param  {number} distance - Measured in pixels.
