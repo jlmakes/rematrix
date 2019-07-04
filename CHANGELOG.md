@@ -1,10 +1,17 @@
 # Change Log
 
-## Unreleased
+## [0.4.0] - 2019-07-04
+
+### Added
+
+* New `translate3d()` method.
+* New `perspective()` method.
 
 ### Changed
 
-* Renamed `parse` method to `fromString`.
+* Rename `parse` method to `fromString`.
+* Drop support for Bower.
+* Upgrade dependencies.
 
 ## [0.3.0] - 2018-08-30
 
@@ -63,6 +70,8 @@
 
 Hello world!
 
+[0.4.0]: https://github.com/jlmakes/rematrix/compare/0.3.0...0.4.0
+[0.3.0]: https://github.com/jlmakes/rematrix/compare/0.2.3...0.3.0
 [0.2.3]: https://github.com/jlmakes/rematrix/compare/0.2.2...0.2.3
 [0.2.2]: https://github.com/jlmakes/rematrix/compare/0.2.1...0.2.2
 [0.2.1]: https://github.com/jlmakes/rematrix/compare/0.2.0...0.2.1

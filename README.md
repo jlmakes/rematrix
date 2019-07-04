@@ -18,7 +18,7 @@
 	<a href="https://travis-ci.org/jlmakes/rematrix"><img src="https://img.shields.io/travis/jlmakes/rematrix.svg" alt="Build status"></a>
 	<a href="https://coveralls.io/github/jlmakes/rematrix"><img src="https://img.shields.io/coveralls/jlmakes/rematrix.svg" alt="Coverage"></a>
 	<a href="https://www.npmjs.com/package/rematrix"><img src="https://img.shields.io/npm/v/rematrix.svg" alt="Version"></a>
-    <a href="https://github.com/jlmakes/rematrix/blob/master/src/index.js"><img src="https://img.shields.io/badge/min+gzip-1.2_kB-blue.svg" alt="1.2 kB min+gzip"></a>
+    <a href="https://github.com/jlmakes/rematrix/blob/master/src/index.js"><img src="https://img.shields.io/badge/min+gzip-1.3_kB-blue.svg" alt="1.3 kB min+gzip"></a>
 	<a href="https://github.com/jlmakes/rematrix/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
 </p>
 <p align="center">
@@ -57,7 +57,7 @@ A simple and fast way to get started is to include this script on your page:
 <script src="https://unpkg.com/rematrix"></script>
 ```
 
-> If you use this method in production, be sure to specify a fixed version number, and use the minified distribution; e.g: `https://unpkg.com/rematrix@1.0.0/dist/rematrix.min.js`. This improves performance, but also prevents library changes from impacting your project.
+> If you use this method in production, be sure to specify a fixed version number, and use the minified distribution; e.g: `https://unpkg.com/rematrix@0.4.0/dist/rematrix.min.js`. This improves performance, but also prevents library changes from impacting your project.
 
 This will create the global variable `Rematrix`.
 
