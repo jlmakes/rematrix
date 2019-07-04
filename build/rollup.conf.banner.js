@@ -1,10 +1,10 @@
 const { version } = require('../package.json')
 
-export const condensed = `/*! @license Rematrix v${version} (MIT) Copyright 2018 Julian Lloyd. */`
+export const condensed = `/*! @license Rematrix v${version} (MIT) Copyright 2019 Julian Lloyd. */`
 
 export const standard = `/*! @license Rematrix v${version}
 
-	Copyright 2018 Julian Lloyd.
+	Copyright 2019 Julian Lloyd.
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal

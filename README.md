@@ -557,6 +557,6 @@ Returns a 4x4 matrix describing Z-axis translation.
 
 ---
 
-Copyright 2018 Julian Lloyd
+Copyright 2019 Julian Lloyd
 <br>
 Open source under the [MIT License](https://github.com/jlmakes/rematrix/blob/master/LICENSE).
