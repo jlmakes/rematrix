@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
-	  <img src="https://jlmak.es/logos/svg/rematrix.svg" width="120px" >
+	  <img src="https://jlmak.es/logos/svg/rematrix.svg" width="120px">
   </a>
 </p>
 
@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
-	  <img src="https://jlmak.es/logos/svg/rematrix-logotype.svg" alt="Rematrix" width="130px" >
+	  <img src="https://jlmak.es/logos/svg/rematrix-logotype.svg" alt="Rematrix" width="130px">
   </a>
 </p>
 
@@ -57,7 +57,7 @@ A simple and fast way to get started is to include this script on your page:
 <script src="https://unpkg.com/rematrix"></script>
 ```
 
-> If you use this method in production, be sure to specify a fixed version number, and use the minified distribution; e.g: `https://unpkg.com/rematrix@0.4.0/dist/rematrix.min.js`. This improves performance, but also prevents library changes from impacting your project.
+> If you use this method in production, be sure to specify a fixed version number, and use the minified distribution; e.g: `https://unpkg.com/rematrix@0.4.1/dist/rematrix.min.js`. This improves performance, but also prevents library changes from impacting your project.
 
 This will create the global variable `Rematrix`.
 

@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.4.1] - 2019-07-05
+
+### Fixed
+
+* `translate3d()` no longer breaks when passed `0`
+
 ## [0.4.0] - 2019-07-04
 
 ### Added
@@ -70,6 +76,7 @@
 
 Hello world!
 
+[0.4.1]: https://github.com/jlmakes/rematrix/compare/0.4.0...0.4.1
 [0.4.0]: https://github.com/jlmakes/rematrix/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/jlmakes/rematrix/compare/0.2.3...0.3.0
 [0.2.3]: https://github.com/jlmakes/rematrix/compare/0.2.2...0.2.3
