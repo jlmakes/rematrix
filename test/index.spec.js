@@ -400,6 +400,13 @@ describe('Utilities', () => {
         expect(result).to.be.eql(answer)
       })
 
+      it('should accept zero as an argument', () => {
+        dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 0, 40px)`)
+        const result = Rematrix.translate3d(20, 0, 40)
+        const answer = getTransformAsArray(dummy)
+        expect(result).to.be.eql(answer)
+      })
+
       it('returns an identity matrix when missing arguments', () => {
         const result = Rematrix.translate3d(20, 30)
         const answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]

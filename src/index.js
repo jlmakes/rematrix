@@ -390,7 +390,7 @@ export function translate(distanceX, distanceY) {
  */
 export function translate3d(distanceX, distanceY, distanceZ) {
   const matrix = identity()
-  if (distanceX && distanceY && distanceZ) {
+  if (distanceX !== undefined && distanceY !== undefined && distanceZ !== undefined) {
     matrix[12] = distanceX
     matrix[13] = distanceY
     matrix[14] = distanceZ
