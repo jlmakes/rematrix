@@ -164,7 +164,7 @@ We can turn our matrix into valid CSS using `Rematrix.toString()`, which we can 
 element.style.transform = Rematrix.toString(product);
 ```
 
-#### _And that concludes this introduction to Rematrix. Please explore the finished [Live Demo on JSFiddle](https://jsfiddle.net/utoqhkzc/)._
+#### _And that concludes this introduction to Rematrix. Please explore the finished [Live Demo on JSFiddle](https://jsfiddle.net/ufrLymvo/)._
 
 <br>
 
