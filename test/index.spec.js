@@ -172,9 +172,10 @@ describe('Utilities', () => {
     before('create dummy object', () => {
       dummy = document.createElement('div')
       document.body.appendChild(dummy)
+    })
 
+    before('capture transform property name', () => {
       const computed = window.getComputedStyle(dummy)
-
       if (typeof computed['transform'] === 'string')
         return (transformProperty = 'transform')
       if (typeof computed['-webkit-transform'] === 'string')
@@ -188,7 +189,7 @@ describe('Utilities', () => {
     function getTransformAsArray(node) {
       const computedTransform = window.getComputedStyle(node)[transformProperty]
       const match = computedTransform.match(/\(([^)]+)\)/)[1]
-      const values = match.split(', ').map(value => parseFloat(value))
+      const values = match.split(', ').map(parseFloat)
       return Rematrix.format(values)
     }
 
@@ -211,11 +212,11 @@ describe('Utilities', () => {
         dummy.setAttribute('style', `${transformProperty}: rotate(75deg)`)
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         const result = Rematrix.rotate(75)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         expect(result).to.be.eql(answer)
       })
@@ -226,11 +227,11 @@ describe('Utilities', () => {
         dummy.setAttribute('style', `${transformProperty}: rotateX(45deg)`)
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         const result = Rematrix.rotateX(45)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         expect(result).to.be.eql(answer)
       })
@@ -241,11 +242,11 @@ describe('Utilities', () => {
         dummy.setAttribute('style', `${transformProperty}: rotateY(45deg)`)
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         const result = Rematrix.rotateY(45)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         expect(result).to.be.eql(answer)
       })
@@ -256,11 +257,11 @@ describe('Utilities', () => {
         dummy.setAttribute('style', `${transformProperty}: rotateZ(45deg)`)
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         const result = Rematrix.rotateZ(45)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         expect(result).to.be.eql(answer)
       })
@@ -320,11 +321,11 @@ describe('Utilities', () => {
 
         const result = Rematrix.skew(20)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         expect(result).to.be.eql(answer)
       })
@@ -334,11 +335,11 @@ describe('Utilities', () => {
 
         const result = Rematrix.skew(20, 30)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         expect(result).to.be.eql(answer)
       })
@@ -350,11 +351,11 @@ describe('Utilities', () => {
 
         const result = Rematrix.skewX(20)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         expect(result).to.be.eql(answer)
       })
@@ -366,11 +367,11 @@ describe('Utilities', () => {
 
         const result = Rematrix.skewY(30)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         const answer = getTransformAsArray(dummy)
           .map(value => value.toPrecision(6))
-          .map(value => parseFloat(value))
+          .map(parseFloat)
 
         expect(result).to.be.eql(answer)
       })
