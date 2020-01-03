@@ -6,6 +6,10 @@
 
 * TypeScript declaration file.
 
+### Changed
+
+* **Breaking:** Dropped support for Node `< 10.0.0`.
+
 ### Fixed
 
 * Improved IntelliSense formatting.
