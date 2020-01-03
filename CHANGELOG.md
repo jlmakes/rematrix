@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+* TypeScript declaration file.
+
 ### Fixed
 
 * Improved IntelliSense formatting.

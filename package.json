@@ -5,8 +5,10 @@
 	"main": "dist/rematrix.js",
 	"module": "dist/rematrix.es.js",
 	"jsnext:main": "dist/rematrix.es.js",
+	"types": "src/index.d.ts",
 	"files": [
-		"dist"
+		"dist",
+		"src/index.d.ts"
 	],
 	"scripts": {
 		"prebuild": "rm -rf dist/*",
