@@ -14,7 +14,7 @@
 
 ### Fixed
 
-* `translate3d()` no longer breaks when passed `0`
+* `translate3d()` no longer breaks when passed `0`.
 
 ## [0.4.0] - 2019-07-04
 
@@ -25,7 +25,7 @@
 
 ### Changed
 
-* Rename `parse` method to `fromString`.
+* Rename `parse()` method to `fromString()`.
 * Drop support for Bower.
 * Upgrade dependencies.
 
@@ -33,7 +33,7 @@
 
 ### Added
 
-* New `toString` method.
+* New `toString()` method.
 
 ## [0.2.3] - 2018-08-14
 
