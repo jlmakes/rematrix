@@ -1,5 +1,11 @@
 # Change Log
 
+## Unreleased
+
+### Fixed
+
+* Improved IntelliSense formatting.
+
 ## [0.4.1] - 2019-07-05
 
 ### Fixed
