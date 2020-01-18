@@ -20,7 +20,6 @@ export declare type Matrix = Matrix2D | Matrix3D;
  * fallback._
  *
  * @param source A string containing a `matrix` or `matrix3d` CSS Transform value.
- * @returns An array representing a 3D matrix.
  */
 export declare function fromString(source: string): Matrix3D;
 
@@ -35,7 +34,6 @@ export declare function fromString(source: string): Matrix3D;
  * to expand short form matrices to their equivalent long form._
  *
  * @param source Accepts both short and long form matrices.
- * @returns An array representing a 3D matrix.
  */
 export declare function format(source: Matrix): Matrix3D;
 
@@ -46,7 +44,6 @@ export declare function format(source: Matrix): Matrix3D;
  *
  * _**Tip:** Similar to how `5 * 1 === 5`, where `1` is the identity._
  *
- * @returns An array representing a 3D matrix.
  */
 export declare function identity(): Matrix3D;
 
@@ -59,7 +56,6 @@ export declare function identity(): Matrix3D;
  * **Tip:** Similar to how `5 * (1/5) === 1`, where `1/5` is the inverse.
  *
  * @param source Accepts both short and long form matrices.
- * @returns An array representing a 3D matrix.
  */
 export declare function inverse(source: Matrix): Matrix3D;
 
@@ -75,7 +71,6 @@ export declare function inverse(source: Matrix): Matrix3D;
  *
  * @param m Accepts both short and long form matrices.
  * @param x Accepts both short and long form matrices.
- * @returns An array representing a 3D matrix.
  */
 export declare function multiply(m: Matrix, x: Matrix): Matrix3D;
 
@@ -84,7 +79,6 @@ export declare function multiply(m: Matrix, x: Matrix): Matrix3D;
  * _Creates a matrix representing perspective._
  *
  * @param distance Measured in pixels.
- * @returns An array representing a 3D matrix.
  */
 export declare function perspective(distance: number): Matrix3D;
 
@@ -95,7 +89,6 @@ export declare function perspective(distance: number): Matrix3D;
  * _**Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS._
  *
  * @param angle Measured in degrees.
- * @returns An array representing a 3D matrix.
  */
 export declare function rotate(angle: number): Matrix3D;
 
@@ -104,7 +97,6 @@ export declare function rotate(angle: number): Matrix3D;
  * _Creates a matrix representing X‑axis rotation._
  *
  * @param angle Measured in degrees.
- * @returns An array representing a 3D matrix.
  */
 export declare function rotateX(angle: number): Matrix3D;
 
@@ -113,7 +105,6 @@ export declare function rotateX(angle: number): Matrix3D;
  * _Creates a matrix representing Y‑axis rotation._
  *
  * @param angle Measured in degrees.
- * @returns An array representing a 3D matrix.
  */
 export declare function rotateY(angle: number): Matrix3D;
 
@@ -122,7 +113,6 @@ export declare function rotateY(angle: number): Matrix3D;
  * _Creates a matrix representing Z‑axis rotation._
  *
  * @param angle Measured in degrees.
- * @returns An array representing a 3D matrix.
  */
 export declare function rotateZ(angle: number): Matrix3D;
 
@@ -134,7 +124,6 @@ export declare function rotateZ(angle: number): Matrix3D;
  *
  * @param scalar Decimal multiplier.
  * @param scalarY Decimal multiplier. (Optional)
- * @returns An array representing a 3D matrix.
  */
 export declare function scale(scalar: number, scalarY?: number): Matrix3D;
 
@@ -143,7 +132,6 @@ export declare function scale(scalar: number, scalarY?: number): Matrix3D;
  * _Creates a matrix representing X‑axis scaling._
  *
  * @param scalar Decimal multiplier.
- * @returns An array representing a 3D matrix.
  */
 export declare function scaleX(scalar: number): Matrix3D;
 
@@ -152,7 +140,6 @@ export declare function scaleX(scalar: number): Matrix3D;
  * _Creates a matrix representing Y‑axis scaling._
  *
  * @param scalar Decimal multiplier.
- * @returns An array representing a 3D matrix.
  */
 export declare function scaleY(scalar: number): Matrix3D;
 
@@ -161,7 +148,6 @@ export declare function scaleY(scalar: number): Matrix3D;
  * _Creates a matrix representing Z‑axis scaling._
  *
  * @param scalar Decimal multiplier.
- * @returns An array representing a 3D matrix.
  */
 export declare function scaleZ(scalar: number): Matrix3D;
 
@@ -173,7 +159,6 @@ export declare function scaleZ(scalar: number): Matrix3D;
  *
  * @param angleX Measured in degrees.
  * @param [angleY] Measured in degrees. (Optional)
- * @returns An array representing a 3D matrix.
  */
 export declare function skew(angleX: number, angleY?: number): Matrix3D;
 
@@ -182,7 +167,6 @@ export declare function skew(angleX: number, angleY?: number): Matrix3D;
  * _Creates a matrix representing X‑axis shear._
  *
  * @param angle Measured in degrees.
- * @returns An array representing a 3D matrix.
  */
 export declare function skewX(angle: number): Matrix3D;
 
@@ -191,7 +175,6 @@ export declare function skewX(angle: number): Matrix3D;
  * _Creates a matrix representing Y‑axis shear._
  *
  * @param angle Measured in degrees
- * @returns An array representing a 3D matrix.
  */
 export declare function skewY(angle: number): Matrix3D;
 
@@ -200,7 +183,6 @@ export declare function skewY(angle: number): Matrix3D;
  * _Returns a CSS Transform property value equivalent to the source matrix._
  *
  * @param source Accepts both short and long form matrices.
- * @returns A string representing a CSS Transform `matrix3d` property value.
  */
 export declare function toString(source: Matrix): string;
 
@@ -212,7 +194,6 @@ export declare function toString(source: Matrix): string;
  *
  * @param distanceX Measured in pixels.
  * @param distanceY Measured in pixels. (Optional)
- * @returns An array representing a 3D matrix.
  */
 export declare function translate(distanceX: number, distanceY: number): Matrix3D;
 
@@ -225,7 +206,6 @@ export declare function translate(distanceX: number, distanceY: number): Matrix3
  * @param distanceX Measured in pixels.
  * @param distanceY Measured in pixels.
  * @param distanceZ Measured in pixels.
- * @returns An array representing a 3D matrix.
  */
 export declare function translate3d(distanceX: number, distanceY: number, distanceZ: number): Matrix3D;
 
@@ -234,7 +214,6 @@ export declare function translate3d(distanceX: number, distanceY: number, distan
  * _Creates a matrix representing X‑axis translation._
  *
  * @param distance Measured in pixels.
- * @returns An array representing a 3D matrix.
  */
 export declare function translateX(distance: number): Matrix3D;
 
@@ -243,7 +222,6 @@ export declare function translateX(distance: number): Matrix3D;
  * _Creates a matrix representing Y‑axis translation._
  *
  * @param distance Measured in pixels.
- * @returns An array representing a 3D matrix.
  */
 export declare function translateY(distance: number): Matrix3D;
 
@@ -252,6 +230,5 @@ export declare function translateY(distance: number): Matrix3D;
  * _Creates a matrix representing Z‑axis translation._
  *
  * @param distance Measured in pixels.
- * @returns An array representing a 3D matrix.
  */
 export declare function translateZ(distance: number): Matrix3D;

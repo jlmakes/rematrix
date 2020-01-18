@@ -9,7 +9,6 @@
  * fallback._
  *
  * @param source A string containing a `matrix` or `matrix3d` CSS Transform value.
- * @returns An array representing a 3D matrix.
  */
 export function fromString(source) {
   if (typeof source === 'string') {
@@ -33,7 +32,6 @@ export function fromString(source) {
  * to expand short form matrices to their equivalent long form._
  *
  * @param source Accepts both short and long form matrices.
- * @returns An array representing a 3D matrix.
  */
 export function format(source) {
   if (source.constructor !== Array) {
@@ -62,7 +60,6 @@ export function format(source) {
  *
  * _**Tip:** Similar to how `5 * 1 === 5`, where `1` is the identity._
  *
- * @returns An array representing a 3D matrix.
  */
 export function identity() {
   const matrix = []
@@ -81,7 +78,6 @@ export function identity() {
  * **Tip:** Similar to how `5 * (1/5) === 1`, where `1/5` is the inverse.
  *
  * @param source Accepts both short and long form matrices.
- * @returns An array representing a 3D matrix.
  */
 export function inverse(source) {
   const m = format(source)
@@ -141,7 +137,6 @@ export function inverse(source) {
  *
  * @param m Accepts both short and long form matrices.
  * @param x Accepts both short and long form matrices.
- * @returns An array representing a 3D matrix.
  */
 export function multiply(m, x) {
   const fm = format(m)
@@ -176,7 +171,6 @@ export function parse(source) {
  * _Creates a matrix representing perspective._
  *
  * @param distance Measured in pixels.
- * @returns An array representing a 3D matrix.
  */
 export function perspective(distance) {
   const matrix = identity()
@@ -191,7 +185,6 @@ export function perspective(distance) {
  * _**Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS._
  *
  * @param angle Measured in degrees.
- * @returns An array representing a 3D matrix.
  */
 export function rotate(angle) {
   return rotateZ(angle)
@@ -202,7 +195,6 @@ export function rotate(angle) {
  * _Creates a matrix representing X‑axis rotation._
  *
  * @param angle Measured in degrees.
- * @returns An array representing a 3D matrix.
  */
 export function rotateX(angle) {
   const theta = (Math.PI / 180) * angle
@@ -219,7 +211,6 @@ export function rotateX(angle) {
  * ___
  * _Creates a matrix representing Y‑axis rotation._
  *
- * @param angle Measured in degrees.
  * @returns An array representing a 3D matrix.
  */
 export function rotateY(angle) {
@@ -237,7 +228,6 @@ export function rotateY(angle) {
  * ___
  * _Creates a matrix representing Z‑axis rotation._
  *
- * @param angle Measured in degrees.
  * @returns An array representing a 3D matrix.
  */
 export function rotateZ(angle) {
@@ -259,7 +249,6 @@ export function rotateZ(angle) {
  *
  * @param scalar Decimal multiplier.
  * @param scalarY Decimal multiplier. (Optional)
- * @returns An array representing a 3D matrix.
  */
 export function scale(scalar, scalarY) {
   const matrix = identity()
@@ -274,7 +263,6 @@ export function scale(scalar, scalarY) {
  * ___
  * _Creates a matrix representing X‑axis scaling._
  *
- * @param scalar Decimal multiplier.
  * @returns An array representing a 3D matrix.
  */
 export function scaleX(scalar) {
@@ -288,7 +276,6 @@ export function scaleX(scalar) {
  * _Creates a matrix representing Y‑axis scaling._
  *
  * @param scalar Decimal multiplier.
- * @returns An array representing a 3D matrix.
  */
 export function scaleY(scalar) {
   const matrix = identity()
@@ -301,7 +288,6 @@ export function scaleY(scalar) {
  * _Creates a matrix representing Z‑axis scaling._
  *
  * @param scalar Decimal multiplier.
- * @returns An array representing a 3D matrix.
  */
 export function scaleZ(scalar) {
   const matrix = identity()
@@ -317,7 +303,6 @@ export function scaleZ(scalar) {
  *
  * @param angleX Measured in degrees.
  * @param angleY Measured in degrees. (Optional)
- * @returns An array representing a 3D matrix.
  */
 export function skew(angleX, angleY) {
   const thetaX = (Math.PI / 180) * angleX
@@ -337,7 +322,6 @@ export function skew(angleX, angleY) {
  * ___
  * _Creates a matrix representing X‑axis shear._
  *
- * @param angle Measured in degrees.
  * @returns An array representing a 3D matrix.
  */
 export function skewX(angle) {
@@ -354,7 +338,6 @@ export function skewX(angle) {
  * _Creates a matrix representing Y‑axis shear._
  *
  * @param angle Measured in degrees
- * @returns An array representing a 3D matrix.
  */
 export function skewY(angle) {
   const theta = (Math.PI / 180) * angle
@@ -370,7 +353,6 @@ export function skewY(angle) {
  * _Returns a CSS Transform property value equivalent to the source matrix._
  *
  * @param source Accepts both short and long form matrices.
- * @returns A string representing a CSS Transform `matrix3d` property value.
  */
 export function toString(source) {
   return `matrix3d(${format(source).join(', ')})`
@@ -384,7 +366,6 @@ export function toString(source) {
  *
  * @param distanceX Measured in pixels.
  * @param distanceY Measured in pixels. (Optional)
- * @returns An array representing a 3D matrix.
  */
 export function translate(distanceX, distanceY) {
   const matrix = identity()
@@ -405,7 +386,6 @@ export function translate(distanceX, distanceY) {
  *
  * @param distanceX Measured in pixels.
  * @param distanceY Measured in pixels.
- * @param distanceZ Measured in pixels.
  * @returns An array representing a 3D matrix.
  */
 export function translate3d(distanceX, distanceY, distanceZ) {
@@ -423,7 +403,6 @@ export function translate3d(distanceX, distanceY, distanceZ) {
  * _Creates a matrix representing X‑axis translation._
  *
  * @param distance Measured in pixels.
- * @returns An array representing a 3D matrix.
  */
 export function translateX(distance) {
   const matrix = identity()
@@ -435,7 +414,6 @@ export function translateX(distance) {
  * ___
  * _Creates a matrix representing Y‑axis translation._
  *
- * @param distance Measured in pixels.
  * @returns An array representing a 3D matrix.
  */
 export function translateY(distance) {
@@ -448,7 +426,6 @@ export function translateY(distance) {
  * ___
  * _Creates a matrix representing Z‑axis translation._
  *
- * @param distance Measured in pixels.
  * @returns An array representing a 3D matrix.
  */
 export function translateZ(distance) {
