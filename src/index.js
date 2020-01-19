@@ -3,24 +3,6 @@
  */
 
 /**
- * Attempts to return a 4x4 matrix describing the CSS transform
- * matrix passed in, but will return the identity matrix as a
- * fallback.
- *
- * @param source A string containing a `matrix` or `matrix3d` CSS Transform value.
- */
-export function fromString(source) {
-  if (typeof source === 'string') {
-    const match = source.match(/matrix(3d)?\(([^)]+)\)/)
-    if (match) {
-      const raw = match[2].split(', ').map(parseFloat)
-      return format(raw)
-    }
-  }
-  return identity()
-}
-
-/**
  * Transformation matrices in the browser come in two flavors:
  *
  *  - `matrix` using 6 values (short)
@@ -49,6 +31,17 @@ export function format(source) {
     return matrix
   }
   throw new RangeError('Expected array with either 6 or 16 values.')
+}
+
+export function fromString(source) {
+  if (typeof source === 'string') {
+    let match = source.match(/matrix(3d)?\(([^)]+)\)/)
+    if (match) {
+      let raw = match[2].split(', ').map(parseFloat)
+      return format(raw)
+    }
+  }
+  throw new TypeError('Expected a string containing `matrix()` or `matrix3d()')
 }
 
 /**

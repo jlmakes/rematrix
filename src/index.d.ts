@@ -14,15 +14,6 @@ export declare type Matrix3D = [
 export declare type Matrix = Matrix2D | Matrix3D;
 
 /**
- * Attempts to return a 4x4 matrix describing the CSS transform
- * matrix passed in, but will return the identity matrix as a
- * fallback.
- *
- * @param source A string containing a `matrix` or `matrix3d` CSS Transform value.
- */
-export declare function fromString(source: string): Matrix3D;
-
-/**
  * Transformation matrices in the browser come in two flavors:
  *
  *  - `matrix` using 6 values (short)
@@ -34,6 +25,12 @@ export declare function fromString(source: string): Matrix3D;
  * @param source Accepts both short and long form matrices.
  */
 export declare function format(source: Matrix): Matrix3D;
+
+/**
+ * Converts a CSS Transform to array.
+ * @param source A `string` containing a `matrix` or `matrix3d` property value.
+ */
+export declare function fromString(source: string): Matrix3D;
 
 /**
  * Creates a matrix representing no transformation. The product of any

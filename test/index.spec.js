@@ -1,29 +1,6 @@
 import * as Rematrix from '../src/index'
 
 describe('Utilities', () => {
-  describe('fromString()', () => {
-    it('returns a 4x4 matrix equal to the `matrix` string passed in', () => {
-      const source = 'matrix(1, 2, 3, 4, 5, 6)'
-      const result = Rematrix.fromString(source)
-      const answer = [1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 1, 0, 5, 6, 0, 1]
-      expect(result).to.eql(answer)
-    })
-
-    it('returns a 4x4 matrix equal to the `matrix3d` string passed in', () => {
-      const source = 'matrix3d(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)'
-      const result = Rematrix.fromString(source)
-      const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-      expect(result).to.eql(answer)
-    })
-
-    it('returns an identity matrix if passed an invalid argument', () => {
-      const source = 'rotateX(45deg)'
-      const result = Rematrix.fromString(source)
-      const answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
-      expect(result).to.eql(answer)
-    })
-  })
-
   describe('format()', () => {
     /**
      * matrix(a, b, c, d, tx, ty) is a shorthand for:
@@ -61,6 +38,44 @@ describe('Utilities', () => {
       }
       expect(caught).to.exist
       expect(caught).to.be.an.instanceOf(RangeError)
+    })
+  })
+
+  describe('fromString()', () => {
+    it('returns a 4x4 matrix equal to the `matrix` string passed in', () => {
+      const source = 'matrix(1, 2, 3, 4, 5, 6)'
+      const result = Rematrix.fromString(source)
+      const answer = [1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 1, 0, 5, 6, 0, 1]
+      expect(result).to.eql(answer)
+    })
+
+    it('returns a 4x4 matrix equal to the `matrix3d` string passed in', () => {
+      const source = 'matrix3d(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)'
+      const result = Rematrix.fromString(source)
+      const answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+      expect(result).to.eql(answer)
+    })
+
+    it('throws a type error when passed a malformed string', () => {
+      let caught
+      try {
+        Rematrix.fromString('matirx(1, 2, 3, 4, 5, 6)')
+      } catch (error) {
+        caught = error
+      }
+      expect(caught).to.exist
+      expect(caught).to.be.an.instanceOf(TypeError)
+    })
+
+    it('throws a type error when passed an invalid argument', () => {
+      let caught
+      try {
+        Rematrix.fromString({ foo: 'bar' })
+      } catch (error) {
+        caught = error
+      }
+      expect(caught).to.exist
+      expect(caught).to.be.an.instanceOf(TypeError)
     })
   })
 

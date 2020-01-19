@@ -174,8 +174,8 @@ element.style.transform = Rematrix.toString(product);
 
 # API Reference
 
-* [fromString(source)](#Rematrix.fromString)
 * [format(source)](#Rematrix.format)
+* [fromString(source)](#Rematrix.fromString)
 * [identity()](#Rematrix.identity)
 * [inverse(source)](#Rematrix.inverse)
 * [multiply(m, x)](#Rematrix.multiply)
@@ -199,18 +199,6 @@ element.style.transform = Rematrix.toString(product);
 * [translateZ(distance)](#Rematrix.translateZ)
 
 
-<a name="Rematrix.fromString"></a>
-<br>
-### fromString(source) ⇒ `array`
-
-Attempts to return a 4x4 matrix describing the CSS transform matrix passed
-in, but will return the identity matrix as a fallback.
-
-| Param  | Type     | Description                                 |
-| ------ | -------- | ------------------------------------------- |
-| source | `string` | `matrix` or `matrix3d` CSS Transform value. |
-
-
 <a name="Rematrix.format"></a>
 <br>
 ### format(source) ⇒ `array`
@@ -226,6 +214,17 @@ to expand short form matrices to their equivalent long form.
 | Param  | Type    | Description                                |
 | ------ | ------- | ------------------------------------------ |
 | source | `array` | Accepts both short and long form matrices. |
+
+
+<a name="Rematrix.fromString"></a>
+<br>
+### fromString(source) ⇒ `array`
+
+Converts a CSS Transform to array.
+
+| Param  | Description                                                    |
+| ------ | -------------------------------------------------------------- |
+| source | A `string` containing a `matrix` or `matrix3d` property value. |
 
 
 <a name="Rematrix.identity"></a>
