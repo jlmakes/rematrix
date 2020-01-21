@@ -211,9 +211,9 @@ Transformation matrices in the browser come in two flavors:
 This utility follows this [conversion guide](https://goo.gl/EJlUQ1)
 to expand short form matrices to their equivalent long form.
 
-| Param  | Type    | Description                                |
-| ------ | ------- | ------------------------------------------ |
-| source | `array` | Accepts both short and long form matrices. |
+| Param  | Description                      |
+| ------ | -------------------------------- |
+| source | A `number[]` with length 6 or 16 |
 
 
 <a name="Rematrix.fromString"></a>

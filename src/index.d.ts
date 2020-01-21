@@ -22,7 +22,7 @@ export declare type Matrix = Matrix2D | Matrix3D;
  * This utility follows this [conversion guide](https://goo.gl/EJlUQ1)
  * to expand short form matrices to their equivalent long form.
  *
- * @param source Accepts both short and long form matrices.
+ * @param source A `number[]` with length 6 or 16
  */
 export declare function format(source: Matrix): Matrix3D;
 

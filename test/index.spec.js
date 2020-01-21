@@ -29,7 +29,7 @@ describe('Utilities', () => {
       expect(caught).to.be.an.instanceOf(TypeError)
     })
 
-    it('throws a range error when passed an array of invalid length', () => {
+    it('throws a type error when passed an array of invalid length', () => {
       let caught
       try {
         Rematrix.format([])
@@ -37,7 +37,7 @@ describe('Utilities', () => {
         caught = error
       }
       expect(caught).to.exist
-      expect(caught).to.be.an.instanceOf(RangeError)
+      expect(caught).to.be.an.instanceOf(TypeError)
     })
   })
 

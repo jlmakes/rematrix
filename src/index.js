@@ -1,36 +1,23 @@
-/**
- * @module Rematrix
- */
-
-/**
- * Transformation matrices in the browser come in two flavors:
- *
- *  - `matrix` using 6 values (short)
- *  - `matrix3d` using 16 values (long)
- *
- * This utility follows this [conversion guide](https://goo.gl/EJlUQ1)
- * to expand short form matrices to their equivalent long form.
- *
- * @param source Accepts both short and long form matrices.
- */
 export function format(source) {
-  if (source.constructor !== Array) {
-    throw new TypeError('Expected array.')
+  if (source.constructor === Array) {
+    let values = source
+      .filter(value => typeof value === 'number')
+      .filter(value => !isNaN(value))
+
+    if (source.length === 6 && values.length === 6) {
+      let matrix = identity()
+      matrix[0] = values[0]
+      matrix[1] = values[1]
+      matrix[4] = values[2]
+      matrix[5] = values[3]
+      matrix[12] = values[4]
+      matrix[13] = values[5]
+      return matrix
+    } else if (source.length === 16 && values.length === 16) {
+      return source
+    }
   }
-  if (source.length === 16) {
-    return source
-  }
-  if (source.length === 6) {
-    const matrix = identity()
-    matrix[0] = source[0]
-    matrix[1] = source[1]
-    matrix[4] = source[2]
-    matrix[5] = source[3]
-    matrix[12] = source[4]
-    matrix[13] = source[5]
-    return matrix
-  }
-  throw new RangeError('Expected array with either 6 or 16 values.')
+  throw new TypeError('Expected a `number[]` with length 6 or 16.')
 }
 
 export function fromString(source) {
