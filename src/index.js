@@ -32,7 +32,7 @@ export function fromString(source) {
 }
 
 export function identity() {
-  const matrix = []
+  let matrix = []
   for (let i = 0; i < 16; i++) {
     i % 5 == 0 ? matrix.push(1) : matrix.push(0)
   }
@@ -40,23 +40,23 @@ export function identity() {
 }
 
 export function inverse(source) {
-  const m = format(source)
+  let m = format(source)
 
-  const s0 = m[0] * m[5] - m[4] * m[1]
-  const s1 = m[0] * m[6] - m[4] * m[2]
-  const s2 = m[0] * m[7] - m[4] * m[3]
-  const s3 = m[1] * m[6] - m[5] * m[2]
-  const s4 = m[1] * m[7] - m[5] * m[3]
-  const s5 = m[2] * m[7] - m[6] * m[3]
+  let s0 = m[0] * m[5] - m[4] * m[1]
+  let s1 = m[0] * m[6] - m[4] * m[2]
+  let s2 = m[0] * m[7] - m[4] * m[3]
+  let s3 = m[1] * m[6] - m[5] * m[2]
+  let s4 = m[1] * m[7] - m[5] * m[3]
+  let s5 = m[2] * m[7] - m[6] * m[3]
 
-  const c5 = m[10] * m[15] - m[14] * m[11]
-  const c4 = m[9] * m[15] - m[13] * m[11]
-  const c3 = m[9] * m[14] - m[13] * m[10]
-  const c2 = m[8] * m[15] - m[12] * m[11]
-  const c1 = m[8] * m[14] - m[12] * m[10]
-  const c0 = m[8] * m[13] - m[12] * m[9]
+  let c5 = m[10] * m[15] - m[14] * m[11]
+  let c4 = m[9] * m[15] - m[13] * m[11]
+  let c3 = m[9] * m[14] - m[13] * m[10]
+  let c2 = m[8] * m[15] - m[12] * m[11]
+  let c1 = m[8] * m[14] - m[12] * m[10]
+  let c0 = m[8] * m[13] - m[12] * m[9]
 
-  const determinant = 1 / (s0 * c5 - s1 * c4 + s2 * c3 + s3 * c2 - s4 * c1 + s5 * c0)
+  let determinant = 1 / (s0 * c5 - s1 * c4 + s2 * c3 + s3 * c2 - s4 * c1 + s5 * c0)
 
   if (isNaN(determinant) || determinant === Infinity) {
     throw new Error('Inverse determinant attempted to divide by zero.')
@@ -86,16 +86,16 @@ export function inverse(source) {
 }
 
 export function multiply(m, x) {
-  const fm = format(m)
-  const fx = format(x)
-  const product = []
+  let fm = format(m)
+  let fx = format(x)
+  let product = []
 
   for (let i = 0; i < 4; i++) {
-    const row = [fm[i], fm[i + 4], fm[i + 8], fm[i + 12]]
+    let row = [fm[i], fm[i + 4], fm[i + 8], fm[i + 12]]
     for (let j = 0; j < 4; j++) {
-      const k = j * 4
-      const col = [fx[k], fx[k + 1], fx[k + 2], fx[k + 3]]
-      const result = row[0] * col[0] + row[1] * col[1] + row[2] * col[2] + row[3] * col[3]
+      let k = j * 4
+      let col = [fx[k], fx[k + 1], fx[k + 2], fx[k + 3]]
+      let result = row[0] * col[0] + row[1] * col[1] + row[2] * col[2] + row[3] * col[3]
 
       product[i + k] = result
     }
@@ -110,7 +110,7 @@ export function parse(source) {
 }
 
 export function perspective(distance) {
-  const matrix = identity()
+  let matrix = identity()
   matrix[11] = -1 / distance
   return matrix
 }
@@ -120,8 +120,8 @@ export function rotate(angle) {
 }
 
 export function rotateX(angle) {
-  const theta = (Math.PI / 180) * angle
-  const matrix = identity()
+  let theta = (Math.PI / 180) * angle
+  let matrix = identity()
 
   matrix[5] = matrix[10] = Math.cos(theta)
   matrix[6] = matrix[9] = Math.sin(theta)
@@ -131,8 +131,8 @@ export function rotateX(angle) {
 }
 
 export function rotateY(angle) {
-  const theta = (Math.PI / 180) * angle
-  const matrix = identity()
+  let theta = (Math.PI / 180) * angle
+  let matrix = identity()
 
   matrix[0] = matrix[10] = Math.cos(theta)
   matrix[2] = matrix[8] = Math.sin(theta)
@@ -142,8 +142,8 @@ export function rotateY(angle) {
 }
 
 export function rotateZ(angle) {
-  const theta = (Math.PI / 180) * angle
-  const matrix = identity()
+  let theta = (Math.PI / 180) * angle
+  let matrix = identity()
 
   matrix[0] = matrix[5] = Math.cos(theta)
   matrix[1] = matrix[4] = Math.sin(theta)
@@ -153,7 +153,7 @@ export function rotateZ(angle) {
 }
 
 export function scale(scalar, scalarY) {
-  const matrix = identity()
+  let matrix = identity()
 
   matrix[0] = scalar
   matrix[5] = typeof scalarY === 'number' ? scalarY : scalar
@@ -162,31 +162,31 @@ export function scale(scalar, scalarY) {
 }
 
 export function scaleX(scalar) {
-  const matrix = identity()
+  let matrix = identity()
   matrix[0] = scalar
   return matrix
 }
 
 export function scaleY(scalar) {
-  const matrix = identity()
+  let matrix = identity()
   matrix[5] = scalar
   return matrix
 }
 
 export function scaleZ(scalar) {
-  const matrix = identity()
+  let matrix = identity()
   matrix[10] = scalar
   return matrix
 }
 
 export function skew(angleX, angleY) {
-  const thetaX = (Math.PI / 180) * angleX
-  const matrix = identity()
+  let thetaX = (Math.PI / 180) * angleX
+  let matrix = identity()
 
   matrix[4] = Math.tan(thetaX)
 
   if (angleY) {
-    const thetaY = (Math.PI / 180) * angleY
+    let thetaY = (Math.PI / 180) * angleY
     matrix[1] = Math.tan(thetaY)
   }
 
@@ -194,8 +194,8 @@ export function skew(angleX, angleY) {
 }
 
 export function skewX(angle) {
-  const theta = (Math.PI / 180) * angle
-  const matrix = identity()
+  let theta = (Math.PI / 180) * angle
+  let matrix = identity()
 
   matrix[4] = Math.tan(theta)
 
@@ -203,8 +203,8 @@ export function skewX(angle) {
 }
 
 export function skewY(angle) {
-  const theta = (Math.PI / 180) * angle
-  const matrix = identity()
+  let theta = (Math.PI / 180) * angle
+  let matrix = identity()
 
   matrix[1] = Math.tan(theta)
 
@@ -216,7 +216,7 @@ export function toString(source) {
 }
 
 export function translate(distanceX, distanceY) {
-  const matrix = identity()
+  let matrix = identity()
   matrix[12] = distanceX
 
   if (distanceY) {
@@ -227,7 +227,7 @@ export function translate(distanceX, distanceY) {
 }
 
 export function translate3d(distanceX, distanceY, distanceZ) {
-  const matrix = identity()
+  let matrix = identity()
   if (distanceX !== undefined && distanceY !== undefined && distanceZ !== undefined) {
     matrix[12] = distanceX
     matrix[13] = distanceY
@@ -237,19 +237,19 @@ export function translate3d(distanceX, distanceY, distanceZ) {
 }
 
 export function translateX(distance) {
-  const matrix = identity()
+  let matrix = identity()
   matrix[12] = distance
   return matrix
 }
 
 export function translateY(distance) {
-  const matrix = identity()
+  let matrix = identity()
   matrix[13] = distance
   return matrix
 }
 
 export function translateZ(distance) {
-  const matrix = identity()
+  let matrix = identity()
   matrix[14] = distance
   return matrix
 }

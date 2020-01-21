@@ -1,16 +1,16 @@
-const launchers = {}
+let launchers = {}
 
-const mobileLaunchers = [
+let mobileLaunchers = [
   ['iOS', '10.3', 'Safari', 'iPhone 7 Simulator'],
   ['iOS', '11.3', 'Safari', 'iPhone 7 Simulator'],
   ['iOS', '12.0', 'Safari', 'iPhone 7 Simulator'],
   ['Android', '5.1', 'Browser', 'Android Emulator'],
   ['Android', '6.0', 'Chrome', 'Android Emulator'],
-  ['Android', '8.0', 'Chrome', 'Android Emulator']
+  ['Android', '8.0', 'Chrome', 'Android Emulator'],
 ]
 
 mobileLaunchers.forEach(([platform, version, browser, device]) => {
-  const launcher = `sl_${platform}_${version}_${browser}`
+  let launcher = `sl_${platform}_${version}_${browser}`
     .replace(/[^a-z0-9]/gi, '_')
     .toLowerCase()
 
@@ -25,7 +25,7 @@ mobileLaunchers.forEach(([platform, version, browser, device]) => {
   }
 })
 
-const desktopLaunchers = [
+let desktopLaunchers = [
   ['Windows 8.1', 'Internet Explorer', '11.0'],
   ['Windows 8', 'Internet Explorer', '10.0'],
   ['macOS 10.12', 'Safari', '11.0'],
@@ -34,7 +34,7 @@ const desktopLaunchers = [
 ]
 
 desktopLaunchers.forEach(([platform, browser, version]) => {
-  const launcher = `sl_${platform}_${browser}_${version}`
+  let launcher = `sl_${platform}_${browser}_${version}`
     .replace(/[^a-z0-9]/gi, '_')
     .toLowerCase()
 
@@ -46,19 +46,17 @@ desktopLaunchers.forEach(([platform, browser, version]) => {
   }
 })
 
-const evergreenLaunchers = ['Chrome', 'Firefox', 'MicrosoftEdge']
+let evergreenLaunchers = ['Chrome', 'Firefox', 'MicrosoftEdge']
 
 evergreenLaunchers.forEach(browser => {
   let pastVersions = 3
   do {
     pastVersions--
     let postfix = pastVersions > 0 ? `-${pastVersions}` : ''
-    const version = 'latest' + postfix
+    let version = 'latest' + postfix
 
-    const browserName = browser === 'MicrosoftEdge' ? 'Edge' : browser
-    const launcher = `sl_win10_${browser}_latest${postfix}`
-      .replace(/-/g, '_')
-      .toLowerCase()
+    let browserName = browser === 'MicrosoftEdge' ? 'Edge' : browser
+    let launcher = `sl_win10_${browser}_latest${postfix}`.replace(/-/g, '_').toLowerCase()
 
     launchers[launcher] = {
       name: `${browserName} ${version}, Windows 10`,
@@ -69,7 +67,7 @@ evergreenLaunchers.forEach(browser => {
   } while (pastVersions)
 })
 
-for (const launcher in launchers) {
+for (let launcher in launchers) {
   launchers[launcher].base = 'SauceLabs'
 }
 

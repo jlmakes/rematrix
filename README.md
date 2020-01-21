@@ -71,13 +71,13 @@ npm install rematrix
 #### CommonJS
 
 ```js
-const Rematrix = require('rematrix');
+const Rematrix = require('rematrix')
 ```
 
 #### ES2015
 
 ```js
-import * as Rematrix from 'rematrix';
+import * as Rematrix from 'rematrix'
 ```
 
 <br>
@@ -109,10 +109,10 @@ These 16 values represent our **transformation matrix** in [column-major order](
 Where Rematrix really outshines CSS, is the ability to combine transforms — using **matrix multiplication**. We’ll recreate the same 45° rotation along the Z-axis, but using separate matrices this time:
 
 ```js
-var r1 = Rematrix.rotateZ(20);
-var r2 = Rematrix.rotateZ(25);
+let r1 = Rematrix.rotateZ(20)
+let r2 = Rematrix.rotateZ(25)
 
-var product = Rematrix.multiply(r1, r2);
+let product = Rematrix.multiply(r1, r2)
 ```
 
 Here `product` describes the same array of 16 values (seen above):
@@ -126,30 +126,30 @@ Here `product` describes the same array of 16 values (seen above):
 There’s a good chance we’ll need to multiply quite a few matrices together, so its helpful to store them in an array in order to use `Array.prototype.reduce` to multiply them all in one line:
 
 ```js
-var r1 = Rematrix.rotateZ(20);
-var r2 = Rematrix.rotateZ(65);
-var r3 = Rematrix.rotateZ(-40);
+let r1 = Rematrix.rotateZ(20)
+let r2 = Rematrix.rotateZ(65)
+let r3 = Rematrix.rotateZ(-40)
 
-var product = [r1, r2, r3].reduce(Rematrix.multiply);
+let product = [r1, r2, r3].reduce(Rematrix.multiply)
 ```
 
-> Order is very important. For example, rotating 45° along the Z-axis, followed by translating 500 pixels along the Y-axis... is not the same as translating 500 pixels along the Y-axis, followed by rotating 45° along on the Z-axis.
+> Order is important. For example, rotating 45° along the Z-axis, followed by translating 500 pixels along the Y-axis... is not the same as translating 500 pixels along the Y-axis, followed by rotating 45° along on the Z-axis.
 
 ## Preserving Transforms
 
 Before applying any of our transforms, we should capture the existing transform of our element using `Rematrix.fromString()`, e.g:
 
 ```js
-var element = document.querySelector('#example');
-var style = getComputedStyle(element).transform;
+let element = document.querySelector('#example')
+let style = getComputedStyle(element).transform
 
-var transform = Rematrix.fromString(style);
+let transform = Rematrix.fromString(style)
 
-var r1 = Rematrix.rotateZ(20);
-var r2 = Rematrix.rotateZ(65);
-var r3 = Rematrix.rotateZ(-40);
+let r1 = Rematrix.rotateZ(20)
+let r2 = Rematrix.rotateZ(65)
+let r3 = Rematrix.rotateZ(-40)
 
-var product = [transform, r1, r2, r3].reduce(Rematrix.multiply);
+let product = [transform, r1, r2, r3].reduce(Rematrix.multiply)
 ```
 
 By passing the computed transform styles to `Rematrix.fromString()`, we create a matrix of the existing transform. We can now factor this into our multiplication.
