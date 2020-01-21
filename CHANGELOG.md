@@ -10,6 +10,7 @@
 
 * **Breaking:** Dropped support for Node `< 10.0.0`.
 * **Breaking:** `fromString()` throws instead of returning an identity matrix as fallback.
+* **Breaking:** Removed deprecated `parse` method.
 
 ### Fixed
 

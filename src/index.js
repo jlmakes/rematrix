@@ -104,11 +104,6 @@ export function multiply(m, x) {
   return product
 }
 
-export function parse(source) {
-  console.warn('The `parse` method has been deprecated, please use `fromString`')
-  return fromString(source)
-}
-
 export function perspective(distance) {
   let matrix = identity()
   matrix[11] = -1 / distance
