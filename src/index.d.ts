@@ -59,15 +59,15 @@ export declare function inverse(source: Matrix): Matrix3D;
  * Creates a matrix representing the combined transformations
  * of both argument matrices.
  *
- * **Note:** Order is important. For example, rotating 45° along
- * the Z‑axis, followed by translating 500 pixels along the Y‑axis...
+ * **Note:** Order is important. For example, rotating 45° along the Z‑axis,
+ * followed by translating 500 pixels along the Y‑axis...
  * Is not the same as translating 500 pixels along the Y‑axis,
  * followed by rotating 45° along on the Z‑axis.
  *
- * @param m A `number[]` with length 6 or 16.
- * @param x A `number[]` with length 6 or 16.
+ * @param matrixA A `number[]` with length 6 or 16.
+ * @param matrixB A `number[]` with length 6 or 16.
  */
-export declare function multiply(m: Matrix, x: Matrix): Matrix3D;
+export declare function multiply(matrixA: Matrix, matrixB: Matrix): Matrix3D;
 
 /**
  * Creates a matrix representing perspective.

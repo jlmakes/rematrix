@@ -85,16 +85,16 @@ export function inverse(source) {
   ]
 }
 
-export function multiply(m, x) {
-  let fm = format(m)
-  let fx = format(x)
+export function multiply(matrixA, matrixB) {
+  let fma = format(matrixA)
+  let fmb = format(matrixB)
   let product = []
 
   for (let i = 0; i < 4; i++) {
-    let row = [fm[i], fm[i + 4], fm[i + 8], fm[i + 12]]
+    let row = [fma[i], fma[i + 4], fma[i + 8], fma[i + 12]]
     for (let j = 0; j < 4; j++) {
       let k = j * 4
-      let col = [fx[k], fx[k + 1], fx[k + 2], fx[k + 3]]
+      let col = [fmb[k], fmb[k + 1], fmb[k + 2], fmb[k + 3]]
       let result = row[0] * col[0] + row[1] * col[1] + row[2] * col[2] + row[3] * col[3]
 
       product[i + k] = result

@@ -178,7 +178,7 @@ element.style.transform = Rematrix.toString(product);
 * [fromString(source)](#Rematrix.fromString)
 * [identity()](#Rematrix.identity)
 * [inverse(source)](#Rematrix.inverse)
-* [multiply(m, x)](#Rematrix.multiply)
+* [multiply(matrixA, matrixB)](#Rematrix.multiply)
 * [perspective(distance)](#Rematrix.perspective)
 * [rotate(angle)](#Rematrix.rotate)
 * [rotateX(angle)](#Rematrix.rotateX)
@@ -201,7 +201,7 @@ element.style.transform = Rematrix.toString(product);
 
 <a name="Rematrix.format"></a>
 <br>
-### format(source) ⇒ `array`
+### format(source) ⇒ `number[]`
 
 Transformation matrices in the browser come in two flavors:
 
@@ -218,7 +218,7 @@ to expand short form matrices to their equivalent long form.
 
 <a name="Rematrix.fromString"></a>
 <br>
-### fromString(source) ⇒ `array`
+### fromString(source) ⇒ `number[]`
 
 Converts a CSS Transform to array.
 
@@ -229,7 +229,7 @@ Converts a CSS Transform to array.
 
 <a name="Rematrix.identity"></a>
 <br>
-### identity() ⇒ `array`
+### identity() ⇒ `number[]`
 
 Returns a matrix representing no transformation. The product of any matrix
 multiplied by the identity matrix will be the original matrix.
@@ -238,7 +238,7 @@ multiplied by the identity matrix will be the original matrix.
 
 <a name="Rematrix.inverse"></a>
 <br>
-### inverse(source) ⇒ `array`
+### inverse(source) ⇒ `number[]`
 
 Returns a matrix describing the inverse transformation of the source
 matrix. The product of any matrix multiplied by its inverse will be the
@@ -253,25 +253,25 @@ identity matrix.
 
 <a name="Rematrix.multiply"></a>
 <br>
-### multiply(m, x) ⇒ `array`
+### multiply(matrixA, matrixB) ⇒ `number[]`
 
 Returns a 4x4 matrix describing the combined transformations
 of both arguments.
 
-> **Note:** Order is very important. For example, rotating 45°
-> along the Z-axis, followed by translating 500 pixels along the
-> Y-axis... is not the same as translating 500 pixels along the
-> Y-axis, followed by rotating 45° along on the Z-axis.
+> **Note:** Order is important. For example, rotating 45° along the Z-axis,
+> followed by translating 500 pixels along the Y-axis...
+> Is not the same as translating 500 pixels along the Y-axis,
+> followed by rotating 45° along on the Z-axis.
 
-| Param | Description                      |
-| ----- | -------------------------------- |
-| m     | A `number[]` with length 6 or 16 |
-| x     | A `number[]` with length 6 or 16 |
+| Param   | Description                      |
+| ------- | -------------------------------- |
+| matrixA | A `number[]` with length 6 or 16 |
+| matrixB | A `number[]` with length 6 or 16 |
 
 
 <a name="Rematrix.perspective"></a>
 <br>
-### perspective(distance) ⇒ `array`
+### perspective(distance) ⇒ `number[]`
 
 Returns a 4x4 matrix describing perspective.
 
@@ -282,7 +282,7 @@ Returns a 4x4 matrix describing perspective.
 
 <a name="Rematrix.rotate"></a>
 <br>
-### rotate(angle) ⇒ `array`
+### rotate(angle) ⇒ `number[]`
 
 Returns a 4x4 matrix describing Z-axis rotation.
 
@@ -295,7 +295,7 @@ Returns a 4x4 matrix describing Z-axis rotation.
 
 <a name="Rematrix.rotateX"></a>
 <br>
-### rotateX(angle) ⇒ `array`
+### rotateX(angle) ⇒ `number[]`
 
 Returns a 4x4 matrix describing X-axis rotation.
 
@@ -306,7 +306,7 @@ Returns a 4x4 matrix describing X-axis rotation.
 
 <a name="Rematrix.rotateY"></a>
 <br>
-### rotateY(angle) ⇒ `array`
+### rotateY(angle) ⇒ `number[]`
 
 Returns a 4x4 matrix describing Y-axis rotation.
 
@@ -317,7 +317,7 @@ Returns a 4x4 matrix describing Y-axis rotation.
 
 <a name="Rematrix.rotateZ"></a>
 <br>
-### rotateZ(angle) ⇒ `array`
+### rotateZ(angle) ⇒ `number[]`
 
 Returns a 4x4 matrix describing Z-axis rotation.
 
@@ -328,7 +328,7 @@ Returns a 4x4 matrix describing Z-axis rotation.
 
 <a name="Rematrix.scale"></a>
 <br>
-### scale(scalar, [scalarY]) ⇒ `array`
+### scale(scalar, [scalarY]) ⇒ `number[]`
 
 Returns a 4x4 matrix describing 2D scaling. The first argument
 is used for both X and Y-axis scaling, unless an optional
@@ -342,7 +342,7 @@ second argument is provided to explicitly define Y-axis scaling.
 
 <a name="Rematrix.scaleX"></a>
 <br>
-### scaleX(scalar) ⇒ `array`
+### scaleX(scalar) ⇒ `number[]`
 
 Returns a 4x4 matrix describing X-axis scaling.
 
@@ -353,7 +353,7 @@ Returns a 4x4 matrix describing X-axis scaling.
 
 <a name="Rematrix.scaleY"></a>
 <br>
-### scaleY(scalar) ⇒ `array`
+### scaleY(scalar) ⇒ `number[]`
 
 Returns a 4x4 matrix describing Y-axis scaling.
 
@@ -364,7 +364,7 @@ Returns a 4x4 matrix describing Y-axis scaling.
 
 <a name="Rematrix.scaleZ"></a>
 <br>
-### scaleZ(scalar) ⇒ `array`
+### scaleZ(scalar) ⇒ `number[]`
 
 Returns a 4x4 matrix describing Z-axis scaling.
 
@@ -375,7 +375,7 @@ Returns a 4x4 matrix describing Z-axis scaling.
 
 <a name="Rematrix.skew"></a>
 <br>
-### skew(angleX, [angleY]) ⇒ `array`
+### skew(angleX, [angleY]) ⇒ `number[]`
 
 Returns a 4x4 matrix describing shear. The first argument
 defines X-axis shearing, and an optional second argument
@@ -389,7 +389,7 @@ defines Y-axis shearing.
 
 <a name="Rematrix.skewX"></a>
 <br>
-### skewX(angle) ⇒ `array`
+### skewX(angle) ⇒ `number[]`
 
 Returns a 4x4 matrix describing X-axis shear.
 
@@ -400,7 +400,7 @@ Returns a 4x4 matrix describing X-axis shear.
 
 <a name="Rematrix.skewY"></a>
 <br>
-### skewY(angle) ⇒ `array`
+### skewY(angle) ⇒ `number[]`
 
 Returns a 4x4 matrix describing Y-axis shear.
 
@@ -422,7 +422,7 @@ Returns a CSS Transform property value equivalent to the source matrix.
 
 <a name="Rematrix.translate"></a>
 <br>
-### translate(distanceX, [distanceY]) ⇒ `array`
+### translate(distanceX, [distanceY]) ⇒ `number[]`
 
 Returns a 4x4 matrix describing 2D translation. The first
 argument defines X-axis translation, and an optional second
@@ -436,14 +436,14 @@ argument defines Y-axis translation.
 
 <a name="Rematrix.translate3d"></a>
 <br>
-### translate3d(distanceX, distanceY, distanceZ) ⇒ `array`
+### translate3d(distanceX, distanceY, distanceZ) ⇒ `number[]`
 
 Returns a 4x4 matrix describing 3D translation. The first
 argument defines X-axis translation, the second argument defines Y-axis
 translation, and the third argument defines Z-axis translation.
 
 | Param     | Description                    |
-| --------- | ------------------------------ |
+| ----------| ------------------------------ |
 | distanceX | A `number` measured in pixels. |
 | distanceY | A `number` measured in pixels. |
 | distanceZ | A `number` measured in pixels. |
@@ -451,7 +451,7 @@ translation, and the third argument defines Z-axis translation.
 
 <a name="Rematrix.translateX"></a>
 <br>
-### translateX(distance) ⇒ `array`
+### translateX(distance) ⇒ `number[]`
 
 Returns a 4x4 matrix describing X-axis translation.
 
@@ -462,7 +462,7 @@ Returns a 4x4 matrix describing X-axis translation.
 
 <a name="Rematrix.translateY"></a>
 <br>
-### translateY(distance) ⇒ `array`
+### translateY(distance) ⇒ `number[]`
 
 Returns a 4x4 matrix describing Y-axis translation.
 
@@ -473,7 +473,7 @@ Returns a 4x4 matrix describing Y-axis translation.
 
 <a name="Rematrix.translateZ"></a>
 <br>
-### translateZ(distance) ⇒ `array`
+### translateZ(distance) ⇒ `number[]`
 
 Returns a 4x4 matrix describing Z-axis translation.
 
