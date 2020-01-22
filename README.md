@@ -275,9 +275,9 @@ of both arguments.
 
 Returns a 4x4 matrix describing perspective.
 
-| Param    | Type     | Description         |
-| -------- | -------- | ------------------- |
-| distance | `number` | Measured in pixels. |
+| Param    | Description                    |
+| -------- | ------------------------------ |
+| distance | A `number` measured in pixels. |
 
 
 <a name="Rematrix.rotate"></a>
@@ -288,9 +288,9 @@ Returns a 4x4 matrix describing Z-axis rotation.
 
 > **Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS
 
-| Param | Type     | Description          |
-| ----- | -------- | -------------------- |
-| angle | `number` | Measured in degrees. |
+| Param | Description                     |
+| ----- | ------------------------------- |
+| angle | A `number` measured in degrees. |
 
 
 <a name="Rematrix.rotateX"></a>
@@ -299,9 +299,9 @@ Returns a 4x4 matrix describing Z-axis rotation.
 
 Returns a 4x4 matrix describing X-axis rotation.
 
-| Param | Type     | Description          |
-| ----- | -------- | -------------------- |
-| angle | `number` | Measured in degrees. |
+| Param | Description                     |
+| ----- | ------------------------------- |
+| angle | A `number` measured in degrees. |
 
 
 <a name="Rematrix.rotateY"></a>
@@ -310,9 +310,9 @@ Returns a 4x4 matrix describing X-axis rotation.
 
 Returns a 4x4 matrix describing Y-axis rotation.
 
-| Param | Type     | Description          |
-| ----- | -------- | -------------------- |
-| angle | `number` | Measured in degrees. |
+| Param | Description                     |
+| ----- | ------------------------------- |
+| angle | A `number` measured in degrees. |
 
 
 <a name="Rematrix.rotateZ"></a>
@@ -321,9 +321,9 @@ Returns a 4x4 matrix describing Y-axis rotation.
 
 Returns a 4x4 matrix describing Z-axis rotation.
 
-| Param | Type     | Description          |
-| ----- | -------- | -------------------- |
-| angle | `number` | Measured in degrees. |
+| Param | Description                     |
+| ----- | ------------------------------- |
+| angle | A `number` measured in degrees. |
 
 
 <a name="Rematrix.scale"></a>
@@ -334,10 +334,10 @@ Returns a 4x4 matrix describing 2D scaling. The first argument
 is used for both X and Y-axis scaling, unless an optional
 second argument is provided to explicitly define Y-axis scaling.
 
-| Param     | Type     | Description         |
-| --------- | -------- | ------------------- |
-| scalar    | `number` | Decimal multiplier. |
-| [scalarY] | `number` | Decimal multiplier. |
+| Param     | Description                               |
+| --------- | ----------------------------------------- |
+| scalar    | A `number` decimal multiplier.            |
+| [scalarY] | A `number` decimal multiplier. (Optional) |
 
 
 <a name="Rematrix.scaleX"></a>
@@ -346,9 +346,9 @@ second argument is provided to explicitly define Y-axis scaling.
 
 Returns a 4x4 matrix describing X-axis scaling.
 
-| Param  | Type     | Description         |
-| ------ | -------- | ------------------- |
-| scalar | `number` | Decimal multiplier. |
+| Param  | Description                    |
+| ------ | ------------------------------ |
+| scalar | A `number` decimal multiplier. |
 
 
 <a name="Rematrix.scaleY"></a>
@@ -357,9 +357,9 @@ Returns a 4x4 matrix describing X-axis scaling.
 
 Returns a 4x4 matrix describing Y-axis scaling.
 
-| Param  | Type     | Description         |
-| ------ | -------- | ------------------- |
-| scalar | `number` | Decimal multiplier. |
+| Param  | Description                    |
+| ------ | ------------------------------ |
+| scalar | A `number` decimal multiplier. |
 
 
 <a name="Rematrix.scaleZ"></a>
@@ -368,9 +368,9 @@ Returns a 4x4 matrix describing Y-axis scaling.
 
 Returns a 4x4 matrix describing Z-axis scaling.
 
-| Param  | Type     | Description         |
-| ------ | -------- | ------------------- |
-| scalar | `number` | Decimal multiplier. |
+| Param  | Description                    |
+| ------ | ------------------------------ |
+| scalar | A `number` decimal multiplier. |
 
 
 <a name="Rematrix.skew"></a>
@@ -381,10 +381,10 @@ Returns a 4x4 matrix describing shear. The first argument
 defines X-axis shearing, and an optional second argument
 defines Y-axis shearing.
 
-| Param    | Type     | Description          |
-| -------- | -------- | -------------------- |
-| angleX   | `number` | Measured in degrees. |
-| [angleY] | `number` | Measured in degrees. |
+| Param    | Description                                |
+| -------- | ------------------------------------------ |
+| angleX   | A `number` measured in degrees.            |
+| [angleY] | A `number` measured in degrees. (Optional) |
 
 
 <a name="Rematrix.skewX"></a>
@@ -393,9 +393,9 @@ defines Y-axis shearing.
 
 Returns a 4x4 matrix describing X-axis shear.
 
-| Param | Type     | Description          |
-| ----- | ---------| -------------------- |
-| angle | `number` | Measured in degrees. |
+| Param | Description                     |
+| ----- | ------------------------------- |
+| angle | A `number` measured in degrees. |
 
 
 <a name="Rematrix.skewY"></a>
@@ -404,9 +404,9 @@ Returns a 4x4 matrix describing X-axis shear.
 
 Returns a 4x4 matrix describing Y-axis shear.
 
-| Param | Type     | Description         |
-| ----- | ---------| ------------------- |
-| angle | `number` | Measured in degrees |
+| Param | Description                     |
+| ----- | ------------------------------- |
+| angle | A `number` measured in degrees. |
 
 
 <a name="Rematrix.toString"></a>
@@ -428,10 +428,10 @@ Returns a 4x4 matrix describing 2D translation. The first
 argument defines X-axis translation, and an optional second
 argument defines Y-axis translation.
 
-| Param       | Type     | Description         |
-| ----------- | -------- | ------------------- |
-| distanceX   | `number` | Measured in pixels. |
-| [distanceY] | `number` | Measured in pixels. |
+| Param       | Description                               |
+| ----------- | ----------------------------------------- |
+| distanceX   | A `number` measured in pixels.            |
+| [distanceY] | A `number` measured in pixels. (Optional) |
 
 
 <a name="Rematrix.translate3d"></a>
@@ -442,11 +442,11 @@ Returns a 4x4 matrix describing 3D translation. The first
 argument defines X-axis translation, the second argument defines Y-axis
 translation, and the third argument defines Z-axis translation.
 
-| Param     | Type     | Description         |
-| --------- | -------- | ------------------- |
-| distanceX | `number` | Measured in pixels. |
-| distanceY | `number` | Measured in pixels. |
-| distanceZ | `number` | Measured in pixels. |
+| Param     | Description                    |
+| --------- | ------------------------------ |
+| distanceX | A `number` measured in pixels. |
+| distanceY | A `number` measured in pixels. |
+| distanceZ | A `number` measured in pixels. |
 
 
 <a name="Rematrix.translateX"></a>
@@ -455,9 +455,9 @@ translation, and the third argument defines Z-axis translation.
 
 Returns a 4x4 matrix describing X-axis translation.
 
-| Param    | Type     | Description         |
-| -------- | ---------| ------------------- |
-| distance | `number` | Measured in pixels. |
+| Param    | Description                    |
+| -------- | ------------------------------ |
+| distance | A `number` measured in pixels. |
 
 
 <a name="Rematrix.translateY"></a>
@@ -466,9 +466,9 @@ Returns a 4x4 matrix describing X-axis translation.
 
 Returns a 4x4 matrix describing Y-axis translation.
 
-| Param    | Type     | Description         |
-| -------- | ---------| ------------------- |
-| distance | `number` | Measured in pixels. |
+| Param    | Description                    |
+| -------- | ------------------------------ |
+| distance | A `number` measured in pixels. |
 
 
 <a name="Rematrix.translateZ"></a>
@@ -477,9 +477,9 @@ Returns a 4x4 matrix describing Y-axis translation.
 
 Returns a 4x4 matrix describing Z-axis translation.
 
-| Param    | Type     | Description         |
-| -------- | ---------| ------------------- |
-| distance | `number` | Measured in pixels. |
+| Param    | Description                    |
+| -------- | ------------------------------ |
+| distance | A `number` measured in pixels. |
 
 <br>
 
