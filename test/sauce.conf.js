@@ -1,15 +1,16 @@
 let launchers = {}
 
 let mobileLaunchers = [
-  ['iOS', '10.3', 'Safari', 'iPhone 7 Simulator'],
-  ['iOS', '11.3', 'Safari', 'iPhone 7 Simulator'],
-  ['iOS', '12.0', 'Safari', 'iPhone 7 Simulator'],
-  ['Android', '5.1', 'Browser', 'Android Emulator'],
-  ['Android', '6.0', 'Chrome', 'Android Emulator'],
-  ['Android', '8.0', 'Chrome', 'Android Emulator'],
+  ['iOS', '10.3', 'Safari', 'iPhone 7 Simulator', '1.9.1'],
+  ['iOS', '11.3', 'Safari', 'iPhone 7 Simulator', '1.9.1'],
+  ['iOS', '12.2', 'Safari', 'iPhone 7 Simulator', '1.13.0'],
+  ['iOS', '13.0', 'Safari', 'iPhone 7 Simulator', '1.15.0'],
+  ['Android', '5.1', 'Browser', 'Android Emulator', '1.9.1'],
+  ['Android', '6.0', 'Chrome', 'Android Emulator', '1.9.1'],
+  ['Android', '8.0', 'Chrome', 'Android Emulator', '1.15.0'],
 ]
 
-mobileLaunchers.forEach(([platform, version, browser, device]) => {
+mobileLaunchers.forEach(([platform, version, browser, device, appium]) => {
   let launcher = `sl_${platform}_${version}_${browser}`
     .replace(/[^a-z0-9]/gi, '_')
     .toLowerCase()
@@ -21,7 +22,7 @@ mobileLaunchers.forEach(([platform, version, browser, device]) => {
     browserName: browser,
     deviceName: device,
     deviceOrientation: 'portrait',
-    appiumVersion: '1.9.1',
+    appiumVersion: appium,
   }
 })
 
