@@ -51,7 +51,7 @@ export declare function identity(): Matrix3D;
  *
  * **Tip:** Similar to how `5 * (1/5) === 1`, where `1/5` is the inverse.
  *
- * @param source Accepts both short and long form matrices.
+ * @param source A `number[]` with length 6 or 16.
  */
 export declare function inverse(source: Matrix): Matrix3D;
 
@@ -64,8 +64,8 @@ export declare function inverse(source: Matrix): Matrix3D;
  * Is not the same as translating 500 pixels along the Y‑axis,
  * followed by rotating 45° along on the Z‑axis.
  *
- * @param m Accepts both short and long form matrices.
- * @param x Accepts both short and long form matrices.
+ * @param m A `number[]` with length 6 or 16.
+ * @param x A `number[]` with length 6 or 16.
  */
 export declare function multiply(m: Matrix, x: Matrix): Matrix3D;
 
@@ -164,7 +164,7 @@ export declare function skewY(angle: number): Matrix3D;
 /**
  * Returns a CSS Transform property value equivalent to the source matrix.
  *
- * @param source Accepts both short and long form matrices.
+ * @param source A `number[]` with length 6 or 16.
  */
 export declare function toString(source: Matrix): string;
 

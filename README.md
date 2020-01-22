@@ -246,9 +246,9 @@ identity matrix.
 
 > **Tip:** Similar to how `5 * (1/5) === 1`, where `1/5` is the inverse.
 
-| Param  | Type    | Description                                |
-| ------ | ------- | ------------------------------------------ |
-| source | `array` | Accepts both short and long form matrices. |
+| Param  | Description                      |
+| ------ | -------------------------------- |
+| source | A `number[]` with length 6 or 16 |
 
 
 <a name="Rematrix.multiply"></a>
@@ -263,10 +263,10 @@ of both arguments.
 > Y-axis... is not the same as translating 500 pixels along the
 > Y-axis, followed by rotating 45° along on the Z-axis.
 
-| Param | Type    | Description                                |
-| ----- | ------- | ------------------------------------------ |
-| m     | `array` | Accepts both short and long form matrices. |
-| x     | `array` | Accepts both short and long form matrices. |
+| Param | Description                      |
+| ----- | -------------------------------- |
+| m     | A `number[]` with length 6 or 16 |
+| x     | A `number[]` with length 6 or 16 |
 
 
 <a name="Rematrix.perspective"></a>
@@ -415,9 +415,9 @@ Returns a 4x4 matrix describing Y-axis shear.
 
 Returns a CSS Transform property value equivalent to the source matrix.
 
-| Param  | Type    | Description                                |
-| ------ | --------| ------------------------------------------ |
-| source | `array` | Accepts both short and long form matrices. |
+| Param  | Description                      |
+| ------ | -------------------------------- |
+| source | A `number[]` with length 6 or 16 |
 
 
 <a name="Rematrix.translate"></a>
