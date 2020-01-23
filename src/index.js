@@ -1,5 +1,5 @@
 export function format(source) {
-  if (source.constructor === Array) {
+  if (source && source.constructor === Array) {
     let values = source
       .filter(value => typeof value === 'number')
       .filter(value => !isNaN(value))
