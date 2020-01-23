@@ -161,7 +161,7 @@ By passing the computed transform styles to `Rematrix.fromString()`, we create a
 We can turn our matrix into valid CSS using `Rematrix.toString()`, which we can apply to our element’s style, e.g:
 
 ```js
-element.style.transform = Rematrix.toString(product);
+element.style.transform = Rematrix.toString(product)
 ```
 
 #### _And that concludes this introduction to Rematrix. Please explore the finished [Live Demo on JSFiddle](https://jsfiddle.net/ufrLymvo/)._
@@ -240,7 +240,7 @@ multiplied by the identity matrix will be the original matrix.
 <br>
 ### inverse(source) ⇒ `number[]`
 
-Returns a matrix describing the inverse transformation of the source
+Returns a matrix representing the inverse transformation of the source
 matrix. The product of any matrix multiplied by its inverse will be the
 identity matrix.
 
@@ -255,7 +255,7 @@ identity matrix.
 <br>
 ### multiply(matrixA, matrixB) ⇒ `number[]`
 
-Returns a 4x4 matrix describing the combined transformations
+Returns a matrix representing the combined transformations
 of both arguments.
 
 > **Note:** Order is important. For example, rotating 45° along the Z-axis,
@@ -273,7 +273,7 @@ of both arguments.
 <br>
 ### perspective(distance) ⇒ `number[]`
 
-Returns a 4x4 matrix describing perspective.
+Returns a matrix representing perspective.
 
 | Param    | Description                    |
 | -------- | ------------------------------ |
@@ -284,7 +284,7 @@ Returns a 4x4 matrix describing perspective.
 <br>
 ### rotate(angle) ⇒ `number[]`
 
-Returns a 4x4 matrix describing Z-axis rotation.
+Returns a matrix representing Z-axis rotation.
 
 > **Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS
 
@@ -297,7 +297,7 @@ Returns a 4x4 matrix describing Z-axis rotation.
 <br>
 ### rotateX(angle) ⇒ `number[]`
 
-Returns a 4x4 matrix describing X-axis rotation.
+Returns a matrix representing X-axis rotation.
 
 | Param | Description                     |
 | ----- | ------------------------------- |
@@ -308,7 +308,7 @@ Returns a 4x4 matrix describing X-axis rotation.
 <br>
 ### rotateY(angle) ⇒ `number[]`
 
-Returns a 4x4 matrix describing Y-axis rotation.
+Returns a matrix representing Y-axis rotation.
 
 | Param | Description                     |
 | ----- | ------------------------------- |
@@ -319,7 +319,7 @@ Returns a 4x4 matrix describing Y-axis rotation.
 <br>
 ### rotateZ(angle) ⇒ `number[]`
 
-Returns a 4x4 matrix describing Z-axis rotation.
+Returns a matrix representing Z-axis rotation.
 
 | Param | Description                     |
 | ----- | ------------------------------- |
@@ -330,7 +330,7 @@ Returns a 4x4 matrix describing Z-axis rotation.
 <br>
 ### scale(scalar, [scalarY]) ⇒ `number[]`
 
-Returns a 4x4 matrix describing 2D scaling. The first argument
+Returns a matrix representing 2D scaling. The first argument
 is used for both X and Y-axis scaling, unless an optional
 second argument is provided to explicitly define Y-axis scaling.
 
@@ -344,7 +344,7 @@ second argument is provided to explicitly define Y-axis scaling.
 <br>
 ### scaleX(scalar) ⇒ `number[]`
 
-Returns a 4x4 matrix describing X-axis scaling.
+Returns a matrix representing X-axis scaling.
 
 | Param  | Description                    |
 | ------ | ------------------------------ |
@@ -355,7 +355,7 @@ Returns a 4x4 matrix describing X-axis scaling.
 <br>
 ### scaleY(scalar) ⇒ `number[]`
 
-Returns a 4x4 matrix describing Y-axis scaling.
+Returns a matrix representing Y-axis scaling.
 
 | Param  | Description                    |
 | ------ | ------------------------------ |
@@ -366,7 +366,7 @@ Returns a 4x4 matrix describing Y-axis scaling.
 <br>
 ### scaleZ(scalar) ⇒ `number[]`
 
-Returns a 4x4 matrix describing Z-axis scaling.
+Returns a matrix representing Z-axis scaling.
 
 | Param  | Description                    |
 | ------ | ------------------------------ |
@@ -377,7 +377,7 @@ Returns a 4x4 matrix describing Z-axis scaling.
 <br>
 ### skew(angleX, [angleY]) ⇒ `number[]`
 
-Returns a 4x4 matrix describing shear. The first argument
+Returns a matrix representing shear. The first argument
 defines X-axis shearing, and an optional second argument
 defines Y-axis shearing.
 
@@ -391,7 +391,7 @@ defines Y-axis shearing.
 <br>
 ### skewX(angle) ⇒ `number[]`
 
-Returns a 4x4 matrix describing X-axis shear.
+Returns a matrix representing X-axis shear.
 
 | Param | Description                     |
 | ----- | ------------------------------- |
@@ -402,7 +402,7 @@ Returns a 4x4 matrix describing X-axis shear.
 <br>
 ### skewY(angle) ⇒ `number[]`
 
-Returns a 4x4 matrix describing Y-axis shear.
+Returns a matrix representing Y-axis shear.
 
 | Param | Description                     |
 | ----- | ------------------------------- |
@@ -424,7 +424,7 @@ Returns a CSS Transform property value equivalent to the source matrix.
 <br>
 ### translate(distanceX, [distanceY]) ⇒ `number[]`
 
-Returns a 4x4 matrix describing 2D translation. The first
+Returns a matrix representing 2D translation. The first
 argument defines X-axis translation, and an optional second
 argument defines Y-axis translation.
 
@@ -438,7 +438,7 @@ argument defines Y-axis translation.
 <br>
 ### translate3d(distanceX, distanceY, distanceZ) ⇒ `number[]`
 
-Returns a 4x4 matrix describing 3D translation. The first
+Returns a matrix representing 3D translation. The first
 argument defines X-axis translation, the second argument defines Y-axis
 translation, and the third argument defines Z-axis translation.
 
@@ -453,7 +453,7 @@ translation, and the third argument defines Z-axis translation.
 <br>
 ### translateX(distance) ⇒ `number[]`
 
-Returns a 4x4 matrix describing X-axis translation.
+Returns a matrix representing X-axis translation.
 
 | Param    | Description                    |
 | -------- | ------------------------------ |
@@ -464,7 +464,7 @@ Returns a 4x4 matrix describing X-axis translation.
 <br>
 ### translateY(distance) ⇒ `number[]`
 
-Returns a 4x4 matrix describing Y-axis translation.
+Returns a matrix representing Y-axis translation.
 
 | Param    | Description                    |
 | -------- | ------------------------------ |
@@ -475,7 +475,7 @@ Returns a 4x4 matrix describing Y-axis translation.
 <br>
 ### translateZ(distance) ⇒ `number[]`
 
-Returns a 4x4 matrix describing Z-axis translation.
+Returns a matrix representing Z-axis translation.
 
 | Param    | Description                    |
 | -------- | ------------------------------ |

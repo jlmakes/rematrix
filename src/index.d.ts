@@ -37,7 +37,7 @@ export declare function format(source: Matrix): Matrix3D;
 export declare function fromString(source: string): Matrix3D;
 
 /**
- * Creates a matrix representing no transformation. The product of any
+ * Returns a matrix representing no transformation. The product of any
  * matrix multiplied by the identity matrix will be the original matrix.
  *
  * **Tip:** Similar to how `5 * 1 === 5`, where `1` is the identity.
@@ -45,7 +45,7 @@ export declare function fromString(source: string): Matrix3D;
 export declare function identity(): Matrix3D;
 
 /**
- * Creates a matrix representing the inverse transformation of the source
+ * Returns a matrix representing the inverse transformation of the source
  * matrix. The product of any matrix multiplied by its inverse will be the
  * identity matrix.
  *
@@ -56,7 +56,7 @@ export declare function identity(): Matrix3D;
 export declare function inverse(source: Matrix): Matrix3D;
 
 /**
- * Creates a matrix representing the combined transformations
+ * Returns a matrix representing the combined transformations
  * of both argument matrices.
  *
  * **Note:** Order is important. For example, rotating 45° along the Z‑axis,
@@ -70,14 +70,14 @@ export declare function inverse(source: Matrix): Matrix3D;
 export declare function multiply(matrixA: Matrix, matrixB: Matrix): Matrix3D;
 
 /**
- * Creates a matrix representing perspective.
+ * Returns a matrix representing perspective.
  *
  * @param distance A `number` measured in pixels.
  */
 export declare function perspective(distance: number): Matrix3D;
 
 /**
- * Creates a matrix representing Z‑axis rotation.
+ * Returns a matrix representing Z‑axis rotation.
  *
  * **Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS.
  *
@@ -86,28 +86,28 @@ export declare function perspective(distance: number): Matrix3D;
 export declare function rotate(angle: number): Matrix3D;
 
 /**
- * Creates a matrix representing X‑axis rotation.
+ * Returns a matrix representing X‑axis rotation.
  *
  * @param angle A `number` measured in degrees.
  */
 export declare function rotateX(angle: number): Matrix3D;
 
 /**
- * Creates a matrix representing Y‑axis rotation.
+ * Returns a matrix representing Y‑axis rotation.
  *
  * @param angle A `number` measured in degrees.
  */
 export declare function rotateY(angle: number): Matrix3D;
 
 /**
- * Creates a matrix representing Z‑axis rotation.
+ * Returns a matrix representing Z‑axis rotation.
  *
  * @param angle A `number` measured in degrees.
  */
 export declare function rotateZ(angle: number): Matrix3D;
 
 /**
- * Creates a matrix representing 2D scaling. The first argument
+ * Returns a matrix representing 2D scaling. The first argument
  * is used for both X and Y‑axis scaling, unless an optional
  * second argument is provided to explicitly define Y‑axis scaling.
  *
@@ -117,28 +117,28 @@ export declare function rotateZ(angle: number): Matrix3D;
 export declare function scale(scalar: number, scalarY?: number): Matrix3D;
 
 /**
- * Creates a matrix representing X‑axis scaling.
+ * Returns a matrix representing X‑axis scaling.
  *
  * @param scalar A `number` decimal multiplier.
  */
 export declare function scaleX(scalar: number): Matrix3D;
 
 /**
- * Creates a matrix representing Y‑axis scaling.
+ * Returns a matrix representing Y‑axis scaling.
  *
  * @param scalar A `number` decimal multiplier.
  */
 export declare function scaleY(scalar: number): Matrix3D;
 
 /**
- * Creates a matrix representing Z‑axis scaling.
+ * Returns a matrix representing Z‑axis scaling.
  *
  * @param scalar A `number` decimal multiplier.
  */
 export declare function scaleZ(scalar: number): Matrix3D;
 
 /**
- * Creates a matrix representing shear. The first argument
+ * Returns a matrix representing shear. The first argument
  * defines X‑axis shearing, and an optional second argument
  * defines Y‑axis shearing.
  *
@@ -148,14 +148,14 @@ export declare function scaleZ(scalar: number): Matrix3D;
 export declare function skew(angleX: number, angleY?: number): Matrix3D;
 
 /**
- * Creates a matrix representing X‑axis shear.
+ * Returns a matrix representing X‑axis shear.
  *
  * @param angle A `number` measured in degrees.
  */
 export declare function skewX(angle: number): Matrix3D;
 
 /**
- * Creates a matrix representing Y‑axis shear.
+ * Returns a matrix representing Y‑axis shear.
  *
  * @param angle A `number` measured in degrees.
  */
@@ -169,7 +169,7 @@ export declare function skewY(angle: number): Matrix3D;
 export declare function toString(source: Matrix): string;
 
 /**
- * Creates a matrix representing 2D translation. The first
+ * Returns a matrix representing 2D translation. The first
  * argument defines X‑axis translation, and an optional second
  * argument defines Y‑axis translation.
  *
@@ -179,7 +179,7 @@ export declare function toString(source: Matrix): string;
 export declare function translate(distanceX: number, distanceY?: number): Matrix3D;
 
 /**
- * Creates a matrix representing 3D translation. The first argument
+ * Returns a matrix representing 3D translation. The first argument
  * defines X‑axis translation, the second argument defines Y‑axis
  * translation, and the third argument defines Z‑axis translation.
  *
@@ -190,21 +190,21 @@ export declare function translate(distanceX: number, distanceY?: number): Matrix
 export declare function translate3d(distanceX: number, distanceY: number, distanceZ: number): Matrix3D;
 
 /**
- * Creates a matrix representing X‑axis translation.
+ * Returns a matrix representing X‑axis translation.
  *
  * @param distance A `number` measured in pixels.
  */
 export declare function translateX(distance: number): Matrix3D;
 
 /**
- * Creates a matrix representing Y‑axis translation.
+ * Returns a matrix representing Y‑axis translation.
  *
  * @param distance A `number` measured in pixels.
  */
 export declare function translateY(distance: number): Matrix3D;
 
 /**
- * Creates a matrix representing Z‑axis translation.
+ * Returns a matrix representing Z‑axis translation.
  *
  * @param distance A `number` measured in pixels.
  */
