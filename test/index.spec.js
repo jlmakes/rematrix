@@ -208,7 +208,7 @@ describe('Utilities', () => {
       return Rematrix.format(values)
     }
 
-    describe('perspective', () => {
+    describe('perspective()', () => {
       it('returns a 4x4 matrix equal to CSS transform perspective', () => {
         dummy.setAttribute('style', `${transformProperty}: perspective(20px)`)
         let result = Rematrix.perspective(20)
@@ -408,7 +408,7 @@ describe('Utilities', () => {
       })
     })
 
-    describe('translate3d', () => {
+    describe('translate3d()', () => {
       it('should return a 4x4 matrix equal to CSS transform translate3d', () => {
         dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 30px, 40px)`)
         let result = Rematrix.translate3d(20, 30, 40)
@@ -430,7 +430,7 @@ describe('Utilities', () => {
       })
     })
 
-    describe('translateX', () => {
+    describe('translateX()', () => {
       it('returns a 4x4 matrix equal to CSS transform translateX', () => {
         dummy.setAttribute('style', `${transformProperty}: translateX(20px)`)
         let result = Rematrix.translateX(20)
@@ -439,7 +439,7 @@ describe('Utilities', () => {
       })
     })
 
-    describe('translateY', () => {
+    describe('translateY()', () => {
       it('returns a 4x4 matrix equal to CSS transform translateY', () => {
         dummy.setAttribute('style', `${transformProperty}: translateY(20px)`)
         let result = Rematrix.translateY(20)
@@ -448,7 +448,7 @@ describe('Utilities', () => {
       })
     })
 
-    describe('translateZ', () => {
+    describe('translateZ()', () => {
       it('returns a 4x4 matrix equal to CSS transform translateZ', () => {
         dummy.setAttribute('style', `${transformProperty}: translateZ(20px)`)
         let result = Rematrix.translateZ(20)
