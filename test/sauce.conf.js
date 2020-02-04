@@ -5,12 +5,12 @@ let mobileLaunchers = [
   ['iOS', '11.3', 'Safari', 'iPhone 7 Simulator', '1.9.1'],
   ['iOS', '12.2', 'Safari', 'iPhone 7 Simulator', '1.13.0'],
   ['iOS', '13.0', 'Safari', 'iPhone 7 Simulator', '1.15.0'],
-  ['Android', '5.1', 'Browser', 'Android Emulator', '1.9.1'],
-  ['Android', '6.0', 'Chrome', 'Android Emulator', '1.9.1'],
+  ['Android', '5.1', 'Browser', 'Android Emulator', '1.15.0'],
+  ['Android', '6.0', 'Chrome', 'Android Emulator', '1.15.0'],
   ['Android', '8.0', 'Chrome', 'Android Emulator', '1.15.0'],
 ]
 
-mobileLaunchers.forEach(([platform, version, browser, device, appium]) => {
+for (let [platform, version, browser, device, appium] of mobileLaunchers) {
   let launcher = `sl_${platform}_${version}_${browser}`
     .replace(/[^a-z0-9]/gi, '_')
     .toLowerCase()
@@ -24,7 +24,7 @@ mobileLaunchers.forEach(([platform, version, browser, device, appium]) => {
     deviceOrientation: 'portrait',
     appiumVersion: appium,
   }
-})
+}
 
 let desktopLaunchers = [
   ['Windows 8.1', 'Internet Explorer', '11.0'],
@@ -34,7 +34,7 @@ let desktopLaunchers = [
   ['OS X 10.11', 'Safari', '9.0'],
 ]
 
-desktopLaunchers.forEach(([platform, browser, version]) => {
+for (let [platform, browser, version] of desktopLaunchers) {
   let launcher = `sl_${platform}_${browser}_${version}`
     .replace(/[^a-z0-9]/gi, '_')
     .toLowerCase()
@@ -45,11 +45,9 @@ desktopLaunchers.forEach(([platform, browser, version]) => {
     version,
     platform,
   }
-})
+}
 
-let evergreenLaunchers = ['Chrome', 'Firefox', 'MicrosoftEdge']
-
-evergreenLaunchers.forEach(browser => {
+for (let browser of ['Chrome', 'Firefox', 'MicrosoftEdge']) {
   let pastVersions = 3
   do {
     pastVersions--
@@ -66,7 +64,7 @@ evergreenLaunchers.forEach(browser => {
       platform: 'Windows 10',
     }
   } while (pastVersions)
-})
+}
 
 for (let launcher in launchers) {
   launchers[launcher].base = 'SauceLabs'

@@ -4,5 +4,7 @@ node_js:
   - '10'
 addons:
   chrome: stable
+  hosts:
+    - localsauce
 after_success:
   - npm run coverage
