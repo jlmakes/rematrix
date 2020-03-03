@@ -1,6 +1,6 @@
 const { version } = require('../package.json')
 
-export const condensed = `/*! @license Rematrix v${version} (MIT) Copyright 2019 Julian Lloyd. */`
+export const condensed = `/*! @license Rematrix v${version} (MIT) Copyright 2020 Julian Lloyd. */`
 
 export const standard = `/*! @license Rematrix v${version}
 
