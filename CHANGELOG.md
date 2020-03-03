@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## [0.5.0] - 2020-03-02
 
 ### Added
 
@@ -92,6 +92,7 @@
 
 Hello world!
 
+[0.5.0]: https://github.com/jlmakes/rematrix/compare/0.4.1...0.5.0
 [0.4.1]: https://github.com/jlmakes/rematrix/compare/0.4.0...0.4.1
 [0.4.0]: https://github.com/jlmakes/rematrix/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/jlmakes/rematrix/compare/0.2.3...0.3.0
