@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.7.0] - 2020-05-04
+
+### Fixed
+
+* Removed features that break IE10 and IE11.
+
+## 0.6.0 - Bad Release
+
 ## [0.5.0] - 2020-03-02
 
 ### Added
