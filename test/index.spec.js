@@ -179,282 +179,282 @@ describe('Utilities', () => {
       expect(caught).to.be.an.instanceOf(Error)
     })
   })
+})
 
-  describe('Transformation', () => {
-    let dummy
-    let transformProperty
+describe('Transformation', () => {
+  let dummy
+  let transformProperty
 
-    before('create dummy object', () => {
-      dummy = document.createElement('div')
-      document.body.appendChild(dummy)
+  before('create dummy object', () => {
+    dummy = document.createElement('div')
+    document.body.appendChild(dummy)
+  })
+
+  before('capture transform property name', () => {
+    let computed = window.getComputedStyle(dummy)
+    if (typeof computed['transform'] === 'string')
+      return (transformProperty = 'transform')
+    if (typeof computed['-webkit-transform'] === 'string')
+      return (transformProperty = '-webkit-transform')
+  })
+
+  beforeEach('clean dummy object', () => {
+    dummy.removeAttribute('style')
+  })
+
+  function getTransformAsArray(node) {
+    let computedTransform = window.getComputedStyle(node)[transformProperty]
+    let match = computedTransform.match(/\(([^)]+)\)/)[1]
+    let values = match.split(', ').map(parseFloat)
+    return Rematrix.format(values)
+  }
+
+  describe('perspective()', () => {
+    it('returns a 4x4 matrix equal to CSS transform perspective', () => {
+      dummy.setAttribute('style', `${transformProperty}: perspective(20px)`)
+      let result = Rematrix.perspective(20)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  /**
+   * To account for rounding differences of Sin and Cos across browsers,
+   * all rotation values will be rounded to 6 significant digits.
+   */
+
+  describe('rotate()', () => {
+    it('returns a 4x4 matrix equal to CSS transform rotate', () => {
+      dummy.setAttribute('style', `${transformProperty}: rotate(75deg)`)
+      let answer = getTransformAsArray(dummy)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      let result = Rematrix.rotate(75)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('rotateX()', () => {
+    it('returns a 4x4 matrix equal to CSS transform rotateX', () => {
+      dummy.setAttribute('style', `${transformProperty}: rotateX(45deg)`)
+      let answer = getTransformAsArray(dummy)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      let result = Rematrix.rotateX(45)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('rotateY()', () => {
+    it('returns a 4x4 matrix equal to CSS transform rotateY', () => {
+      dummy.setAttribute('style', `${transformProperty}: rotateY(45deg)`)
+      let answer = getTransformAsArray(dummy)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      let result = Rematrix.rotateY(45)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('rotateZ()', () => {
+    it('returns a 4x4 matrix equal to CSS transform rotateZ', () => {
+      dummy.setAttribute('style', `${transformProperty}: rotateZ(45deg)`)
+      let answer = getTransformAsArray(dummy)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      let result = Rematrix.rotateZ(45)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('scale()', () => {
+    it('returns a 4x4 matrix equal to CSS transform scale with one arg', () => {
+      dummy.setAttribute('style', `${transformProperty}: scale(2)`)
+      let result = Rematrix.scale(2)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
     })
 
-    before('capture transform property name', () => {
-      let computed = window.getComputedStyle(dummy)
-      if (typeof computed['transform'] === 'string')
-        return (transformProperty = 'transform')
-      if (typeof computed['-webkit-transform'] === 'string')
-        return (transformProperty = '-webkit-transform')
+    it('returns a 4x4 matrix equal to CSS transform scale with two args', () => {
+      dummy.setAttribute('style', `${transformProperty}: scale(2, 0)`)
+      let result = Rematrix.scale(2, 0)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('scaleX()', () => {
+    it('returns a 4x4 matrix equal to CSS transform scaleX', () => {
+      dummy.setAttribute('style', `${transformProperty}: scaleX(2)`)
+      let result = Rematrix.scaleX(2)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('scaleY()', () => {
+    it('returns a 4x4 matrix equal to CSS transform scaleY', () => {
+      dummy.setAttribute('style', `${transformProperty}: scaleY(2)`)
+      let result = Rematrix.scaleY(2)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('scaleZ()', () => {
+    it('returns a 4x4 matrix equal to CSS transform scaleZ', () => {
+      dummy.setAttribute('style', `${transformProperty}: scaleZ(2)`)
+      let result = Rematrix.scaleZ(2)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  /**
+   * To account for rounding differences of Tan across browsers,
+   * all skew values will be rounded to 6 significant digits.
+   */
+
+  describe('skew()', () => {
+    it('returns a 4x4 matrix equal to CSS transform skew with one arg', () => {
+      dummy.setAttribute('style', `${transformProperty}: skew(20deg)`)
+
+      let result = Rematrix.skew(20)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      let answer = getTransformAsArray(dummy)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      expect(result).to.be.eql(answer)
     })
 
-    beforeEach('clean dummy object', () => {
-      dummy.removeAttribute('style')
+    it('returns a 4x4 matrix equal to CSS transform skew with two args', () => {
+      dummy.setAttribute('style', `${transformProperty}: skew(20deg, 30deg)`)
+
+      let result = Rematrix.skew(20, 30)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      let answer = getTransformAsArray(dummy)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('skewX()', () => {
+    it('returns a 4x4 matrix equal to CSS transform skewX', () => {
+      dummy.setAttribute('style', `${transformProperty}: skewX(20deg)`)
+
+      let result = Rematrix.skewX(20)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      let answer = getTransformAsArray(dummy)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('skewY()', () => {
+    it('returns a 4x4 matrix equal to CSS transform skewY', () => {
+      dummy.setAttribute('style', `${transformProperty}: skewY(30deg)`)
+
+      let result = Rematrix.skewY(30)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      let answer = getTransformAsArray(dummy)
+        .map((value) => value.toPrecision(6))
+        .map(parseFloat)
+
+      expect(result).to.be.eql(answer)
+    })
+  })
+
+  describe('translate()', () => {
+    it('returns a 4x4 matrix equal to CSS transform translate with one arg', () => {
+      dummy.setAttribute('style', `${transformProperty}: translate(20px)`)
+      let result = Rematrix.translate(20)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
     })
 
-    function getTransformAsArray(node) {
-      let computedTransform = window.getComputedStyle(node)[transformProperty]
-      let match = computedTransform.match(/\(([^)]+)\)/)[1]
-      let values = match.split(', ').map(parseFloat)
-      return Rematrix.format(values)
-    }
+    it('returns a 4x4 matrix equal to CSS transform translate with two args', () => {
+      dummy.setAttribute('style', `${transformProperty}: translate(20px, 40px)`)
+      let result = Rematrix.translate(20, 40)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
+    })
+  })
 
-    describe('perspective()', () => {
-      it('returns a 4x4 matrix equal to CSS transform perspective', () => {
-        dummy.setAttribute('style', `${transformProperty}: perspective(20px)`)
-        let result = Rematrix.perspective(20)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
+  describe('translate3d()', () => {
+    it('should return a 4x4 matrix equal to CSS transform translate3d', () => {
+      dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 30px, 40px)`)
+      let result = Rematrix.translate3d(20, 30, 40)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
     })
 
-    /**
-     * To account for rounding differences of Sin and Cos across browsers,
-     * all rotation values will be rounded to 6 significant digits.
-     */
-
-    describe('rotate()', () => {
-      it('returns a 4x4 matrix equal to CSS transform rotate', () => {
-        dummy.setAttribute('style', `${transformProperty}: rotate(75deg)`)
-        let answer = getTransformAsArray(dummy)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        let result = Rematrix.rotate(75)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        expect(result).to.be.eql(answer)
-      })
+    it('should accept zero as an argument', () => {
+      dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 0, 40px)`)
+      let result = Rematrix.translate3d(20, 0, 40)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
     })
 
-    describe('rotateX()', () => {
-      it('returns a 4x4 matrix equal to CSS transform rotateX', () => {
-        dummy.setAttribute('style', `${transformProperty}: rotateX(45deg)`)
-        let answer = getTransformAsArray(dummy)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        let result = Rematrix.rotateX(45)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        expect(result).to.be.eql(answer)
-      })
+    it('returns an identity matrix when missing arguments', () => {
+      let result = Rematrix.translate3d(20, 30)
+      let answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+      expect(result).to.be.eql(answer)
     })
+  })
 
-    describe('rotateY()', () => {
-      it('returns a 4x4 matrix equal to CSS transform rotateY', () => {
-        dummy.setAttribute('style', `${transformProperty}: rotateY(45deg)`)
-        let answer = getTransformAsArray(dummy)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        let result = Rematrix.rotateY(45)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        expect(result).to.be.eql(answer)
-      })
+  describe('translateX()', () => {
+    it('returns a 4x4 matrix equal to CSS transform translateX', () => {
+      dummy.setAttribute('style', `${transformProperty}: translateX(20px)`)
+      let result = Rematrix.translateX(20)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
     })
+  })
 
-    describe('rotateZ()', () => {
-      it('returns a 4x4 matrix equal to CSS transform rotateZ', () => {
-        dummy.setAttribute('style', `${transformProperty}: rotateZ(45deg)`)
-        let answer = getTransformAsArray(dummy)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        let result = Rematrix.rotateZ(45)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        expect(result).to.be.eql(answer)
-      })
+  describe('translateY()', () => {
+    it('returns a 4x4 matrix equal to CSS transform translateY', () => {
+      dummy.setAttribute('style', `${transformProperty}: translateY(20px)`)
+      let result = Rematrix.translateY(20)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
     })
+  })
 
-    describe('scale()', () => {
-      it('returns a 4x4 matrix equal to CSS transform scale with one arg', () => {
-        dummy.setAttribute('style', `${transformProperty}: scale(2)`)
-        let result = Rematrix.scale(2)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-
-      it('returns a 4x4 matrix equal to CSS transform scale with two args', () => {
-        dummy.setAttribute('style', `${transformProperty}: scale(2, 0)`)
-        let result = Rematrix.scale(2, 0)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('scaleX()', () => {
-      it('returns a 4x4 matrix equal to CSS transform scaleX', () => {
-        dummy.setAttribute('style', `${transformProperty}: scaleX(2)`)
-        let result = Rematrix.scaleX(2)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('scaleY()', () => {
-      it('returns a 4x4 matrix equal to CSS transform scaleY', () => {
-        dummy.setAttribute('style', `${transformProperty}: scaleY(2)`)
-        let result = Rematrix.scaleY(2)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('scaleZ()', () => {
-      it('returns a 4x4 matrix equal to CSS transform scaleZ', () => {
-        dummy.setAttribute('style', `${transformProperty}: scaleZ(2)`)
-        let result = Rematrix.scaleZ(2)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    /**
-     * To account for rounding differences of Tan across browsers,
-     * all skew values will be rounded to 6 significant digits.
-     */
-
-    describe('skew()', () => {
-      it('returns a 4x4 matrix equal to CSS transform skew with one arg', () => {
-        dummy.setAttribute('style', `${transformProperty}: skew(20deg)`)
-
-        let result = Rematrix.skew(20)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        let answer = getTransformAsArray(dummy)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        expect(result).to.be.eql(answer)
-      })
-
-      it('returns a 4x4 matrix equal to CSS transform skew with two args', () => {
-        dummy.setAttribute('style', `${transformProperty}: skew(20deg, 30deg)`)
-
-        let result = Rematrix.skew(20, 30)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        let answer = getTransformAsArray(dummy)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('skewX()', () => {
-      it('returns a 4x4 matrix equal to CSS transform skewX', () => {
-        dummy.setAttribute('style', `${transformProperty}: skewX(20deg)`)
-
-        let result = Rematrix.skewX(20)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        let answer = getTransformAsArray(dummy)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('skewY()', () => {
-      it('returns a 4x4 matrix equal to CSS transform skewY', () => {
-        dummy.setAttribute('style', `${transformProperty}: skewY(30deg)`)
-
-        let result = Rematrix.skewY(30)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        let answer = getTransformAsArray(dummy)
-          .map(value => value.toPrecision(6))
-          .map(parseFloat)
-
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('translate()', () => {
-      it('returns a 4x4 matrix equal to CSS transform translate with one arg', () => {
-        dummy.setAttribute('style', `${transformProperty}: translate(20px)`)
-        let result = Rematrix.translate(20)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-
-      it('returns a 4x4 matrix equal to CSS transform translate with two args', () => {
-        dummy.setAttribute('style', `${transformProperty}: translate(20px, 40px)`)
-        let result = Rematrix.translate(20, 40)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('translate3d()', () => {
-      it('should return a 4x4 matrix equal to CSS transform translate3d', () => {
-        dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 30px, 40px)`)
-        let result = Rematrix.translate3d(20, 30, 40)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-
-      it('should accept zero as an argument', () => {
-        dummy.setAttribute('style', `${transformProperty}: translate3d(20px, 0, 40px)`)
-        let result = Rematrix.translate3d(20, 0, 40)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-
-      it('returns an identity matrix when missing arguments', () => {
-        let result = Rematrix.translate3d(20, 30)
-        let answer = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('translateX()', () => {
-      it('returns a 4x4 matrix equal to CSS transform translateX', () => {
-        dummy.setAttribute('style', `${transformProperty}: translateX(20px)`)
-        let result = Rematrix.translateX(20)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('translateY()', () => {
-      it('returns a 4x4 matrix equal to CSS transform translateY', () => {
-        dummy.setAttribute('style', `${transformProperty}: translateY(20px)`)
-        let result = Rematrix.translateY(20)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
-    })
-
-    describe('translateZ()', () => {
-      it('returns a 4x4 matrix equal to CSS transform translateZ', () => {
-        dummy.setAttribute('style', `${transformProperty}: translateZ(20px)`)
-        let result = Rematrix.translateZ(20)
-        let answer = getTransformAsArray(dummy)
-        expect(result).to.be.eql(answer)
-      })
+  describe('translateZ()', () => {
+    it('returns a 4x4 matrix equal to CSS transform translateZ', () => {
+      dummy.setAttribute('style', `${transformProperty}: translateZ(20px)`)
+      let result = Rematrix.translateZ(20)
+      let answer = getTransformAsArray(dummy)
+      expect(result).to.be.eql(answer)
     })
   })
 })
