@@ -24,7 +24,7 @@ export function fromString(source) {
   if (typeof source === 'string') {
     let match = source.match(/matrix(3d)?\(([^)]+)\)/)
     if (match) {
-      let raw = match[2].split(', ').map(parseFloat)
+      let raw = match[2].split(',').map(parseFloat)
       return format(raw)
     }
   }

@@ -1,5 +1,11 @@
 # Change Log
 
+## Unreleased
+
+### Fixed
+
+* `fromString()` parsing error due.
+
 ## [0.7.0] - 2020-05-04
 
 ### Fixed
