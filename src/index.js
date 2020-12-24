@@ -1,8 +1,8 @@
 export function format(source) {
   if (source && source.constructor === Array) {
     let values = source
-      .filter(value => typeof value === 'number')
-      .filter(value => !isNaN(value))
+      .filter((value) => typeof value === 'number')
+      .filter((value) => !isNaN(value))
 
     if (source.length === 6 && values.length === 6) {
       let matrix = identity()
@@ -24,7 +24,7 @@ export function fromString(source) {
   if (typeof source === 'string') {
     let match = source.match(/matrix(3d)?\(([^)]+)\)/)
     if (match) {
-      let raw = match[2].split(', ').map(parseFloat)
+      let raw = match[2].split(',').map(parseFloat)
       return format(raw)
     }
   }
