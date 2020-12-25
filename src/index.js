@@ -1,8 +1,8 @@
 export function format(source) {
   if (source && source.constructor === Array) {
     let values = source
-      .filter(value => typeof value === 'number')
-      .filter(value => !isNaN(value))
+      .filter((value) => typeof value === 'number')
+      .filter((value) => !isNaN(value))
 
     if (source.length === 6 && values.length === 6) {
       let matrix = identity()
