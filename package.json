@@ -1,6 +1,6 @@
 {
 	"name": "rematrix",
-	"version": "0.7.0",
+	"version": "0.7.1",
 	"description": "Matrix transformations made easy",
 	"main": "dist/rematrix.js",
 	"module": "dist/rematrix.es.js",
@@ -51,6 +51,6 @@
 		"sinon": "^7.3.2",
 		"sinon-chai": "^3.4.0"
 	},
-	"author": "Julian Lloyd <rematrix@jlmak.es>",
+	"author": "Julian Lloyd <rematrix@jlmakes.com>",
 	"license": "MIT"
 }

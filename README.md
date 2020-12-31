@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
-	  <img src="https://jlmak.es/logos/svg/rematrix.svg" width="120px">
+	  <img src="https://jlmakes.com/logos/svg/rematrix.svg" width="120px">
   </a>
 </p>
 
@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
-	  <img src="https://jlmak.es/logos/svg/rematrix-logotype.svg" alt="Rematrix" width="130px">
+	  <img src="https://jlmakes.com/logos/svg/rematrix-logotype.svg" alt="Rematrix" width="130px">
   </a>
 </p>
 
@@ -487,6 +487,6 @@ Returns a matrix representing Z-axis translation.
 
 ---
 
-Copyright 2020 Julian Lloyd.
+Copyright 2021 Julian Lloyd.
 <br>
 Open source under the [MIT License](https://github.com/jlmakes/rematrix/blob/master/LICENSE).
