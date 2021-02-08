@@ -27,6 +27,9 @@ export function fromString(source) {
       let raw = match[2].split(',').map(parseFloat)
       return format(raw)
     }
+    if (source === 'none' || source === '') {
+      return identity()
+    }
   }
   throw new TypeError('Expected a string containing `matrix()` or `matrix3d()')
 }

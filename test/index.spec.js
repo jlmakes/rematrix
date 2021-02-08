@@ -56,6 +56,20 @@ describe('Utilities', () => {
       expect(result).to.eql(answer)
     })
 
+    it('returns a 4x4 identity matrix when the string `none`', () => {
+      let source = 'none'
+      let result = Rematrix.fromString(source)
+      let answer = Rematrix.identity()
+      expect(result).to.eql(answer)
+    })
+
+    it('returns a 4x4 identity matrix when passed empty string', () => {
+      let source = ''
+      let result = Rematrix.fromString(source)
+      let answer = Rematrix.identity()
+      expect(result).to.eql(answer)
+    })
+
     it('throws a type error when passed a malformed string', () => {
       let caught
       try {

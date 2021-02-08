@@ -1,10 +1,16 @@
 # Change Log
 
+## Unreleased
+
+### Fixed
+
+* `fromString()` now recognizes `"none"` and `""` as property values.
+
 ## [0.7.1] - 2020-12-31
 
 ### Fixed
 
-* `fromString()` parsing error due.
+* `fromString()` parsing error.
 
 ## [0.7.0] - 2020-05-04
 
