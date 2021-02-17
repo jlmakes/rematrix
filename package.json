@@ -1,6 +1,6 @@
 {
 	"name": "rematrix",
-	"version": "0.7.1",
+	"version": "0.7.2",
 	"description": "Matrix transformations made easy",
 	"main": "dist/rematrix.js",
 	"module": "dist/rematrix.es.js",
