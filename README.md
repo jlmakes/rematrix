@@ -1,4 +1,4 @@
-<p align="center">
+<!-- <p align="center">
   <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
 	  <img src="https://jlmakes.com/logos/svg/rematrix.svg" width="120px">
   </a>
@@ -11,21 +11,19 @@
 	  <img src="https://jlmakes.com/logos/svg/rematrix-logotype.svg" alt="Rematrix" width="130px">
   </a>
 </p>
+ -->
+ 
+# Rematrix
 
-<p align="center">Matrix transformations made easy.</p>
+Matrix transformations made easy.
 
-<p align="center">
-	<a href="https://travis-ci.org/jlmakes/rematrix"><img src="https://img.shields.io/travis/jlmakes/rematrix.svg" alt="Build status"></a>
-	<a href="https://coveralls.io/github/jlmakes/rematrix"><img src="https://img.shields.io/coveralls/jlmakes/rematrix.svg" alt="Coverage"></a>
-	<a href="https://www.npmjs.com/package/rematrix"><img src="https://img.shields.io/npm/dm/rematrix.svg" alt="Downloads"></a>
-	<a href="https://www.npmjs.com/package/rematrix"><img src="https://img.shields.io/npm/v/rematrix.svg" alt="Version"></a>
-    <a href="https://github.com/jlmakes/rematrix/blob/master/src/index.js"><img src="https://img.shields.io/badge/min+gzip-1.3_kB-blue.svg" alt="1.3 kB min+gzip"></a>
-	<a href="https://github.com/jlmakes/rematrix/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
-</p>
-<p align="center">
-	<a href="https://saucelabs.com/u/rematrix">
-		<img src="https://saucelabs.com/browser-matrix/rematrix.svg" alt="Browser compatibility matrix" width="100%">
-	</a>
+<p>
+	<a href="https://travis-ci.org/jlmakes/rematrix"><img src="https://img.shields.io/travis/jlmakes/rematrix?color=gray&style=flat" alt="Build status"></a>
+	<a href="https://coveralls.io/github/jlmakes/rematrix"><img src="https://img.shields.io/coveralls/jlmakes/rematrix?color=gray&style=flat" alt="Coverage"></a>
+	<a href="https://www.npmjs.com/package/rematrix"><img src="https://img.shields.io/npm/dm/rematrix?color=gray&style=flat" alt="Downloads"></a>
+	<a href="https://www.npmjs.com/package/rematrix"><img src="https://img.shields.io/npm/v/rematrix?color=gray&style=flat" alt="Version"></a>
+    	<a href="https://github.com/jlmakes/rematrix/blob/master/src/index.js"><img src="https://img.shields.io/badge/min+gzip-1.3_kB-gray" alt="1.3 kB min+gzip"></a>
+	<a href="https://github.com/jlmakes/rematrix/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-gray" alt="MIT license"></a>
 </p>
 
 <br>
