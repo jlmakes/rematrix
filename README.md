@@ -469,6 +469,6 @@ Returns a matrix representing Z-axis translation.
 
 ---
 
-Copyright 2021 Julian Lloyd.
+Copyright 2026 Julian Lloyd.
 <br>
 Open source under the [MIT License](https://github.com/jlmakes/rematrix/blob/master/LICENSE).
