@@ -1,24 +1,8 @@
-<!-- <p align="center">
-  <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
-	  <img src="https://jlmakes.com/logos/svg/rematrix.svg" width="120px">
-  </a>
-</p>
-
-<br>
-
-<p align="center">
-  <a href="https://rematrix.now.sh" title="Visit Rematrix demo">
-	  <img src="https://jlmakes.com/logos/svg/rematrix-logotype.svg" alt="Rematrix" width="130px">
-  </a>
-</p>
- -->
- 
 # Rematrix
 
 Matrix transformations made easy.
 
 <p>
-	<a href="https://travis-ci.org/jlmakes/rematrix"><img src="https://img.shields.io/travis/jlmakes/rematrix?color=gray&style=flat" alt="Build status"></a>
 	<a href="https://coveralls.io/github/jlmakes/rematrix"><img src="https://img.shields.io/coveralls/jlmakes/rematrix?color=gray&style=flat" alt="Coverage"></a>
 	<a href="https://www.npmjs.com/package/rematrix"><img src="https://img.shields.io/npm/dm/rematrix?color=gray&style=flat" alt="Downloads"></a>
 	<a href="https://www.npmjs.com/package/rematrix"><img src="https://img.shields.io/npm/v/rematrix?color=gray&style=flat" alt="Version"></a>
